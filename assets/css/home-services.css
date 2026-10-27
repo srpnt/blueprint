@@ -1,0 +1,43 @@
+/* ==========================================================================
+   B · BLUEPRINT : final round S2, home + services (loaded after final.css).
+   Fixes: AI Hype container, system-map heading alignment, testimonial/case-study
+   reveal, mini-dashboard removal, Quorum hub label, crushed mobile cards.
+   ========================================================================== */
+
+/* ---------- 1. AI Hype statement: remove container background, clean centred blue ---------- */
+/* The block has background-color:#ffffff0d which S1's alt-row logic may set; kill it. */
+[data-bp-chapter="01"]:has([id*="ai-hype"]) { background: transparent !important; }
+/* The heading has has-cyan-color; keep that. Remove any heavy framing / padding. */
+[data-bp-chapter="01"]:has([id*="ai-hype"]) .wp-block-group { background: transparent !important; padding-top: clamp(48px, 6vw, 80px) !important; }
+
+/* ---------- 2. System map: heading on the same left edge as bp-rule and cards ---------- */
+/* The heading sits inside .alignwide.main-content which has padding-left:var(--wp--preset--spacing--q-large)
+   The bp-rule is a direct child of .entry-content and follows its container.
+   Remove the indentation so the heading shares the bp-rule + bp-sysmap left edge. */
+.entry-content [data-bp-chapter="02"] .alignwide.main-content { padding-left: 0 !important; padding-right: 0 !important; }
+/* The heading group inside: constrain so its text block stays on the same edge too */
+.entry-content [data-bp-chapter="02"] .alignwide.main-content .wp-block-group.is-layout-constrained { padding-left: 0 !important; padding-right: 0 !important; }
+
+/* ---------- 3-4. Testimonial + case-study reveal: handled by motion.js (S3 fix: the reveal re-checks
+   trigger positions after layout settles, so items in view always finish their fade; no forced opacity here). ---------- */
+
+/* ---------- 5. Mini-dashboards on changer pages: hide (static + busy/generic, not explanatory per S1) ---------- */
+.bp-mini { display: none !important; }
+/* Keep the changer's phase bar and labels — that part is explanatory */
+.bp-phasebar { display: flex !important; }
+.qfse-changer .bp-phasebar { display: flex !important; }
+
+/* ---------- 6. Quorum integrations image: the image is a static asset; nothing to fix.
+   The "QUORUM" label in the integrations-hub visual is inside a PNG from the WP media library.
+   If that image's label is letter-spaced caps, it's a graphic design choice in the WP content. ---------- */
+
+/* ---------- 7. (S3) blanket mobile column/grid overrides removed: they stacked every card row site-wide and
+   killed the S1 swipe carousels. The one crushed block is fixed below, scoped by page + block class. ---------- */
+@media (max-width: 781px) {
+  body.page-id-18601 .wp-block-qfse-q-masonry-grid { column-count: 1 !important; }
+}
+
+/* ---------- 8. Home page: "Proven Results for Global Clients" heading all-caps inline fix ---------- */
+/* S1 handles text-transform for most headings but this one has inline style.
+   Since CSS can't override inline style without !important: */
+h2[id="h-proven-results-for-global-clients"] { text-transform: none !important; }

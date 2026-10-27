@@ -1,0 +1,44 @@
+/* ==========================================================================
+   B · BLUEPRINT : alignment doctrine + type presets
+   Headings (and their copy/buttons) sit LEFT in white; blue (cyan) centred text = statement, CENTRED.
+   ========================================================================== */
+/* editor content-widths keep their max-width but anchor to the left edge of the section */
+.entry-content [data-pattern]:not([data-pattern="statement"]) .is-layout-constrained > :not(.has-text-align-center):not(.alignfull):not(.wp-block-buttons.is-content-justification-center) { margin-left: 0 !important; }
+.entry-content [data-pattern]:not([data-pattern="statement"]) .has-text-align-center:not(.has-cyan-color) { text-align: left !important; margin-left: 0 !important; }
+.entry-content [data-pattern]:not([data-pattern="statement"]) .is-layout-flex.is-vertical:has(> :is(h1, h2, h3):not(.has-cyan-color)) { align-items: flex-start !important; }
+.entry-content [data-pattern]:not([data-pattern="statement"]) .wp-block-buttons.is-content-justification-center:not(:is(.has-cyan-color ~ *, :has(~ .has-cyan-color))) { justify-content: flex-start !important; margin-left: 0 !important; }
+.entry-content [data-pattern]:not([data-pattern="statement"]) .is-content-justification-center:has(> :is(h1, h2, h3):not(.has-cyan-color)) { justify-content: flex-start !important; }
+/* statements */
+.entry-content :is(h1, h2, h3, h4, p).has-cyan-color.has-text-align-center { text-align: center !important; margin-inline: auto !important; color: var(--bp-blue) !important; max-width: 24ch;
+  font-weight: 500; letter-spacing: -.024em; text-shadow: 0 0 40px rgba(146, 226, 255, .18); }
+.entry-content :is(h1, h2, h3, h4, p).has-cyan-color.has-text-align-center br { display: block; }
+.entry-content :is(h2, h3, p).has-cyan-color.has-text-align-center ~ .wp-block-buttons { justify-content: center !important; margin-inline: auto !important; }
+.entry-content :is(h2, h3, p).has-cyan-color.has-text-align-center::after { content: ''; display: block; width: 56px; height: 1px; margin: .55em auto 0; background: var(--bp-blue); opacity: .6; }
+.entry-content p.has-cyan-color:not(.has-text-align-center) { color: var(--bp-blue) !important; }
+
+/* type presets used by the block markup (deliberate scale; editors pick a step, the theme owns the sizes) */
+.has-types-h-1-font-size { font-size: clamp(2.6rem, 5.6vw, 5.6rem) !important; line-height: .98 !important; }
+.has-types-h-2-font-size { font-size: clamp(2rem, 3.7vw, 3.5rem) !important; line-height: 1.03 !important; }
+.has-types-h-3-font-size { font-size: clamp(1.7rem, 2.9vw, 2.75rem) !important; line-height: 1.08 !important; }
+.has-types-h-4-font-size { font-size: clamp(1.3rem, 1.9vw, 1.75rem) !important; line-height: 1.18 !important; }
+.has-types-h-5-font-size { font-size: clamp(1.1rem, 1.4vw, 1.3rem) !important; line-height: 1.3 !important; }
+.has-types-h-6-font-size { font-size: 1rem !important; line-height: 1.4 !important; }
+.has-types-paragraph-large-font-size { font-size: clamp(1.08rem, 1.3vw, 1.25rem) !important; line-height: 1.55 !important; }
+.has-types-paragraph-small-font-size { font-size: .94rem !important; line-height: 1.55 !important; }
+.has-types-paragraph-nano-font-size { font-size: .8rem !important; line-height: 1.5 !important; }
+.has-regular-font-size { font-size: 1rem !important; } .has-larger-font-size { font-size: clamp(1.6rem, 3vw, 2.6rem) !important; }
+p.has-types-h-6-font-size, p.has-types-paragraph-nano-font-size { font-family: var(--bp-mono) !important; letter-spacing: .12em; text-transform: uppercase; color: var(--bp-green); font-size: 12px !important; }
+.entry-content [data-pattern] p:is(.has-types-h-2-font-size, .has-types-h-3-font-size, .has-types-h-4-font-size) { color: var(--bp-ink); font-weight: 600; letter-spacing: -.02em; }
+[data-pattern="statement"] p:is(.has-types-h-2-font-size, .has-types-h-3-font-size, .has-types-h-4-font-size) { color: var(--bp-blue) !important; font-weight: 400 !important; }
+
+/* long button stacks read as a link list, not a wall of solid green */
+.entry-content .wp-block-buttons:has(> .wp-block-button:nth-child(3)) .wp-block-button__link { background: rgba(1, 255, 64, .04) !important; color: var(--bp-green) !important; box-shadow: none; }
+.entry-content .wp-block-buttons:has(> .wp-block-button:nth-child(3)) .wp-block-button__link:hover { background: var(--bp-green) !important; color: #021a07 !important; }
+.bp-agentflow { gap: clamp(48px, 6vw, 96px); }
+
+/* core cover block (block-library CSS not always shipped) */
+.wp-block-cover, .wp-block-cover-image { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 320px; padding: clamp(20px, 3vw, 40px); box-sizing: border-box; }
+.wp-block-cover__image-background, .wp-block-cover__video-background { position: absolute !important; inset: 0; width: 100% !important; height: 100% !important; max-width: none !important; object-fit: cover; margin: 0 !important; z-index: 0; }
+.wp-block-cover__background { position: absolute; inset: 0; z-index: 1; background: #06100e; opacity: .55; }
+.wp-block-cover__inner-container { position: relative; z-index: 2; width: 100%; }
+.entry-content { overflow-x: clip; }

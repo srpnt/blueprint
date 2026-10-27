@@ -1,0 +1,152 @@
+/* ==========================================================================
+   B · BLUEPRINT : final round S1, global calm-down layer (loaded last).
+   Funnel Display / Funnel Sans; IBM Plex Mono only for the one quiet index per section.
+   No title blocks, coordinate marks, crosshairs, ruler ticks, channel tags, corner brackets or scan grids;
+   sentence-case labels; no text glows; one solid hairline per surface.
+   ========================================================================== */
+
+/* ---------- 1. type ---------- */
+body.bp { font-family: var(--bp-font); font-size: 17px; line-height: 1.6; font-feature-settings: 'kern' 1; }
+:is(h1, h2, h3, h4, h5) { font-family: var(--bp-display); }
+.entry-content p, .entry-content li { max-width: 68ch; }
+h1, h2, h3 { text-shadow: none !important; }
+[data-pattern="hero"] h1 { text-shadow: 0 2px 30px rgba(3, 9, 8, .55) !important; }
+[data-pattern="cta"] h2 { text-transform: none !important; letter-spacing: -.018em; line-height: 1.06; }
+
+/* old mono micro-labels → quiet sentence-case sans labels (text unchanged, only case/tracking styling removed) */
+h6, .entry-content p[style*="text-transform:uppercase"]:not(h1):not(h2), p.has-types-h-6-font-size, p.has-types-paragraph-nano-font-size,
+[data-pattern="cta"] p, .q-card__eyebrow, .bp-board > p:first-of-type, .qfse-changer > p:first-child, .q-reading-time,
+.swiper-slide h3 + p + p, .entry-content form label, .ff-el-input--label label, .footer-container .menu-title,
+.is-menu-open .contact-section__eyebrow, .bp-phased > .wp-block-column > .q-link-card > .q-link-card__body > p:first-child {
+  text-transform: none !important; letter-spacing: 0 !important; font-family: var(--bp-font) !important; }
+h6, p.has-types-h-6-font-size, p.has-types-paragraph-nano-font-size, .entry-content p[style*="text-transform:uppercase"]:not(h1):not(h2),
+.q-card__eyebrow, .bp-board > p:first-of-type, .qfse-changer > p:first-child, [data-pattern="cta"] p {
+  font-size: 14px !important; font-weight: 500 !important; line-height: 1.45 !important; }
+.entry-content form label, .ff-el-input--label label { font-size: 14px !important; font-weight: 500 !important; }
+.footer-container .menu-title { font-size: 14px !important; font-weight: 600 !important; color: var(--bp-ink) !important; }
+.q-reading-time, .yoast-breadcrumbs, .footer-copyright, [data-pattern="article"] figcaption { font-family: var(--bp-font) !important; letter-spacing: 0 !important; font-size: 14px !important; }
+.accordion-title { font-family: var(--bp-display) !important; letter-spacing: 0 !important; font-size: 17px !important; font-weight: 500 !important; }
+.slide-counter, .wp-block-query-pagination, .qfse-changer__num, .q-link-card__number, .bp-deliv .q-link-card__number { font-family: var(--bp-font) !important; letter-spacing: 0 !important; font-variant-numeric: tabular-nums; }
+.wp-block-qfse-tag-list > *, .q-card__tags span { font-family: var(--bp-font) !important; letter-spacing: 0 !important; font-size: 13px !important; }
+.q-card__tags { font-family: var(--bp-font) !important; letter-spacing: 0 !important; }
+
+/* stat numbers: blue statements in the display face, tabular, no glow */
+.bp-readouts .wp-block-qfse-q-stat-item :is(h2, h3, h4), .bp-odo, .bp-odo-host.is-done, .metric-card .bp-odo-host,
+.bp-switch .q-link-card__number {
+  font-family: var(--bp-display) !important; font-weight: 500 !important; letter-spacing: -.02em !important; text-shadow: none !important;
+  font-variant-numeric: tabular-nums; }
+.bp-readouts .wp-block-qfse-q-stat-item :is(h2, h3, h4), .bp-readouts .wp-block-qfse-q-stat-item:nth-child(even) :is(h2, h3, h4),
+.bp-readouts .bp-odo, .bp-readouts .wp-block-qfse-q-stat-item:nth-child(even) .bp-odo { color: var(--bp-blue) !important; }
+.bp-readouts .wp-block-qfse-q-stat-item .bp-odo-host:not(.is-done) { color: transparent !important; }
+
+/* ---------- 2. one quiet index per section; every other blueprint mark goes ---------- */
+.bp-titleblock, .bp-cross, .bp-ch, .bp-gauge, .bp-rule__ticks, .bp-rule__of, .bp-readouts::before { display: none !important; }
+.entry-content > .bp-rule { border-top: 0 !important; padding-top: clamp(28px, 3.4vw, 44px); }
+.bp-rule { font: 400 12px/1 var(--bp-index) !important; letter-spacing: .04em !important; text-transform: none !important; color: var(--bp-dim) !important;
+  margin-bottom: clamp(14px, 1.6vw, 22px) !important; }
+.bp-rule__idx { color: rgba(1, 255, 64, .7) !important; gap: 0 !important; }
+.entry-content > .bp-rule { padding-bottom: 16px !important; }
+.bp-rule__idx::before { display: none !important; }
+/* numbering inside cards: none (order is carried by the layout / devices) */
+.bp-num { display: none !important; }
+.bp-certs > figure::before { display: none !important; }
+.bp-tree__h, .bp-af-label, .bp-phasebar__idx { font-family: var(--bp-font) !important; letter-spacing: 0 !important; text-transform: none !important; }
+
+/* ---------- 3. glows off (text); only the primary CTA hover + the active node may glow ---------- */
+.bp-key, .bp-odo, .bp-switch .q-link-card.is-live .q-link-card__number, .bp-switch .q-link-card:hover .q-link-card__number,
+.has-text-align-center, [data-pattern="statement"] :is(h2, h3, p) { text-shadow: none !important; }
+.bp-titleblock__dot, .bp-rule__idx::before { animation: none !important; }
+
+/* ---------- 4. surfaces: solid, one hairline, no corner brackets / scan grids ---------- */
+.bp-click { background: #111a19 !important; background-image: none !important; border: 1px solid var(--bp-edge, rgba(150, 255, 185, .14)) !important;
+  -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+  transition: border-color .3s, transform .45s var(--bp-ease), box-shadow .45s, background-color .3s !important; }
+.bp-click:hover, .bp-click:focus-within { background: #142120 !important; border-color: rgba(1, 255, 64, .32) !important; transform: translateY(-4px);
+  box-shadow: 0 22px 48px -30px rgba(0, 0, 0, .9) !important; }
+.bp-click::after { display: none !important; }
+.bp-tag { border: 0 !important; background: transparent !important; font-family: var(--bp-font) !important; font-size: 18px !important; }
+.bp-click:hover .bp-tag { background: transparent !important; color: var(--bp-green) !important; transform: translate(3px, -3px); }
+.bp-spec, .q-link-card:not(.bp-click):not(.bp-spec), .q-card:not(.bp-click):not(.bp-spec) {
+  background: #0f1716 !important; border: 1px solid rgba(150, 255, 185, .1) !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+.bp-spec:hover { background: #0f1716 !important; }
+.bp-certs, .bp-certs > figure { border-style: solid !important; border-color: rgba(150, 255, 185, .1) !important; }
+.bp-comp__frame { border-style: solid !important; }
+.bp-org__base { border-top-style: solid !important; border-top-width: 1px !important; }
+.bp-agentflow { background: #0f1716 !important; }
+.bp-readouts { border: 1px solid rgba(150, 255, 185, .1) !important; }
+
+/* ---------- 5. sections: separated by rhythm + a faint surface band, not by extra lines ---------- */
+.entry-content > [data-pattern]:not([data-pattern="hero"]) { border-top: 0 !important; }
+.entry-content > [data-bp-chapter]:nth-of-type(4n+2) { background: linear-gradient(180deg, rgba(10, 16, 15, .0), rgba(10, 16, 15, .38) 18%, rgba(10, 16, 15, .38) 82%, rgba(10, 16, 15, 0)); }
+
+/* ---------- 6. motion: perpetual motion only on the hero mesh, base field, logo marquee and the active node's pulse ---------- */
+[data-pattern="hero"] h1::after, .header-container::after { display: none !important; }
+.bp-wire, .bp-hub__core, .bp-af-led, .bp-comp *, .bp-comp *::before, .bp-mini *, .bp-mini *::before, .bp-org__core,
+.bp-loop__path, .bp-ch::before { animation: none !important; }
+.bp-mini__line { stroke-dashoffset: 0 !important; }
+.bp-org__drop::after, .bp-jack::after { display: none !important; }
+.bp-comp__prog { transform: none !important; }
+/* system map (kept): solid hairline connectors, small quiet ports, the hub glows only while active */
+.bp-wire { stroke-dasharray: none !important; stroke-width: 1 !important; opacity: .32 !important; }
+.bp-wire.is-hot { opacity: .85 !important; stroke-width: 1.4 !important; filter: none !important; }
+.bp-port { width: 7px !important; height: 7px !important; margin-top: -3.5px !important; border-color: rgba(1, 255, 64, .5) !important; }
+.bp-port--in { left: -4px !important; } .bp-port--out { right: -4px !important; }
+.bp-click:hover > .bp-port { box-shadow: none !important; }
+.bp-hub__core, .bp-af-led, .bp-org__core { box-shadow: none !important; }
+.bp-sysmap.is-hot .bp-hub { box-shadow: 0 0 0 8px rgba(1, 255, 64, .07), 0 0 26px rgba(1, 255, 64, .28) !important; }
+.bp-loop__path { stroke-dasharray: none !important; opacity: .4 !important; }
+
+/* ---------- 7. cards base: titles read as titles, clickable = lift + arrow + cursor, static = flat ---------- */
+.bp-click :is(h2, h3, h4).has-types-h-6-font-size, .bp-click :is(h2, h3, h4).has-types-h-5-font-size {
+  font-size: clamp(1.12rem, 1.3vw, 1.3rem) !important; line-height: 1.25 !important; font-weight: 500 !important; }
+.bp-spec, .q-link-card:not(.bp-click), .q-card:not(.bp-click) { cursor: default; }
+
+/* ---------- 8. header, mega-menus, mobile menu, footer: no counters, grids, crosshairs, ruler ticks ---------- */
+.mega-menu-panel::before, .mega-menu-panel > li::before, .mega-menu-card__media-link::after { display: none !important; content: none !important; }
+.mega-menu-card--featured-image { background: rgba(1, 255, 64, .028) !important; }
+.mega-menu-card__arrow { border: 0 !important; background: transparent !important; font-family: var(--bp-font) !important; font-size: 17px !important; }
+.mega-menu-card:hover > .mega-menu-card__arrow { background: transparent !important; color: var(--bp-green) !important; transform: translate(3px, -3px) !important; }
+.mega-menu-card__media-title { font-family: var(--bp-display) !important; font-weight: 500 !important; letter-spacing: -.015em !important; }
+.is-menu-open .wp-block-navigation__container > li::before, .is-menu-open .mega-menu-card__title::before { display: none !important; content: none !important; }
+.footer-container::before { display: none !important; }
+.footer-container .menu-title { border-bottom: 0 !important; padding-bottom: 0 !important; margin-bottom: 14px !important; }
+.footer-navigation ul ul > li::before { display: none !important; }
+/* mobile menu: counters gone → no counter gutter; submenu links are a plain list, not chips (touch rows ≥44px) */
+.is-menu-open .wp-block-navigation__container > li > a { padding-left: 0 !important; }
+.is-menu-open .wp-block-navigation__container > li > .wp-block-navigation__submenu-container { padding-left: 0 !important; }
+.is-menu-open .mega-menu-card__links { flex-direction: column !important; flex-wrap: nowrap !important; gap: 0 !important; }
+.is-menu-open .mega-menu-card__links a { border: 0 !important; border-radius: 0 !important; padding: 10px 0 !important; min-height: 44px; display: flex !important; align-items: center;
+  font-size: 15px !important; color: var(--bp-text) !important; }
+@media (max-width: 781px) {
+  /* footer "General" tree: balanced newspaper columns instead of a 2-col grid (a tall Services cell left an empty half) */
+  .footer-navigation ul.wp-block-navigation__container:not(ul ul) { display: block !important; columns: 2; column-gap: 16px; }
+  .footer-navigation ul.wp-block-navigation__container:not(ul ul) > li { break-inside: avoid; }
+  .is-menu-open .contact-section__eyebrow { font-size: 14px !important; }
+}
+
+/* ---------- 9. cover blocks that hold cards: people/office photos are never covered by UI → photo banner, cards below ---------- */
+.wp-block-cover:has(> .wp-block-cover__inner-container :is(.q-link-card, .q-card)) {
+  display: flex !important; flex-direction: column !important; align-items: stretch !important; justify-content: flex-start !important;
+  min-height: 0 !important; padding: 0 !important; background: #0f1716; }
+.wp-block-cover:has(> .wp-block-cover__inner-container :is(.q-link-card, .q-card)) > .wp-block-cover__image-background {
+  position: static !important; display: block; width: 100% !important; height: auto !important; aspect-ratio: 16 / 6; object-fit: cover; }
+.wp-block-cover:has(> .wp-block-cover__inner-container :is(.q-link-card, .q-card)) > .wp-block-cover__background { display: none !important; }
+.wp-block-cover:has(> .wp-block-cover__inner-container :is(.q-link-card, .q-card)) > .wp-block-cover__inner-container { padding: clamp(18px, 2.6vw, 32px); }
+.wp-block-cover:has(> .wp-block-cover__inner-container :is(.q-link-card, .q-card)) .wp-block-column:not(:has(*)) { display: none !important; }
+.wp-block-cover:has(> .wp-block-cover__inner-container :is(.q-link-card, .q-card)) .wp-block-column { flex: 1 1 0 !important; max-width: none !important; }
+.wp-block-cover:has(> .wp-block-cover__inner-container :is(.q-link-card, .q-card)) .wp-block-column > .wp-block-group { max-width: 760px !important; width: 100%; margin: 0 !important; }
+.wp-block-cover:has(> .wp-block-cover__inner-container :is(.q-link-card, .q-card)) :is(.q-link-card, .q-card) { max-width: none !important; width: 100% !important; }
+.wp-block-cover .bp-index { grid-template-columns: minmax(0, 1fr) !important; }
+.wp-block-cover .bp-index > .q-link-card { flex-basis: 100% !important; max-width: 100% !important; }
+/* card intro labels ("Blog post") and arrow chips: sentence case, no box */
+.q-link-card__intro, .q-link-card__intro em { text-transform: none !important; letter-spacing: 0 !important; font-family: var(--bp-font) !important; font-size: 14px !important; }
+.q-link-card__arrow { border: 0 !important; background: transparent !important; font-family: var(--bp-font) !important; font-size: 18px !important; }
+.bp-click:hover .q-link-card__arrow { background: transparent !important; color: var(--bp-green) !important; }
+@media (max-width: 781px) {
+  .wp-block-cover:has(> .wp-block-cover__inner-container :is(.q-link-card, .q-card)) > .wp-block-cover__image-background { aspect-ratio: 4 / 3; }
+  .wp-block-cover .q-link-cards-grid, .wp-block-cover .q-cards-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  /* plain card grids (no B device on them) stack on phones; WP's layout CSS keeps --q-grid-columns otherwise */
+  .q-link-cards-grid:not([class*="bp-"]), .q-cards-grid:not([class*="bp-"]) { grid-template-columns: minmax(0, 1fr) !important; }
+  /* 2-up masonry cells (recognitions): slimmer padding so the text column stays readable (≥140px) */
+  .wp-block-qfse-q-masonry-item > .wp-block-group { padding: 14px 12px !important; }
+}

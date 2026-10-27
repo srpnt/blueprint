@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="en-US" class="no-js">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="Compare Bloc and Riverpod in Flutter and learn how both state management solutions handle API data in a production-ready app." name="description"/>
+<link href="https://q.agency/blog/flutter-bloc-vs-riverpod-state-management-for-beginners/" rel="canonical"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="article" property="og:type"/>
+<meta content="Flutter – Bloc vs. Riverpod State Management for Beginners" property="og:title"/>
+<meta content="Compare Bloc and Riverpod in Flutter and learn how both state management solutions handle API data in a production-ready app." property="og:description"/>
+<meta content="https://q.agency/blog/flutter-bloc-vs-riverpod-state-management-for-beginners/" property="og:url"/>
+<meta content="Q Agency - Tech Consulting and Software Engineering" property="og:site_name"/>
+<meta content="2022-03-31T07:50:03+00:00" property="article:published_time"/>
+<meta content="2026-08-11T09:45:37+00:00" property="article:modified_time"/>
+<meta content="https://media.q.agency/wp-content/uploads/2026/04/image_2022-03-30-122838_qufo_eafcc47d2eac9b34493eba0289cfb02f-qpi-wxr-att-ScD8OqRU.webp" property="og:image"/>
+<meta content="1071" property="og:image:width"/>
+<meta content="600" property="og:image:height"/>
+<meta content="image/webp" property="og:image:type"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Written by" name="twitter:label1"/>
+<meta content="Noa Tubic" name="twitter:data1"/>
+<meta content="Est. reading time" name="twitter:label2"/>
+<meta content="8 minutes" name="twitter:data2"/>
+<script class="yoast-schema-graph" type="application/ld+json">{"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/q.agency\/blog\/flutter-bloc-vs-riverpod-state-management-for-beginners\/#article","isPartOf":{"@id":"https:\/\/q.agency\/blog\/flutter-bloc-vs-riverpod-state-management-for-beginners\/"},"author":{"name":"Noa Tubic","@id":"https:\/\/q.agency\/#\/schema\/person\/60215d91b6d477de6a24cf34bd768cfe"},"headline":"Flutter – Bloc vs. Riverpod State Management for Beginners","datePublished":"2022-03-31T07:50:03+00:00","dateModified":"2026-08-11T09:45:37+00:00","mainEntityOfPage":{"@id":"https:\/\/q.agency\/blog\/flutter-bloc-vs-riverpod-state-management-for-beginners\/"},"wordCount":1911,"image":{"@id":"https:\/\/q.agency\/blog\/flutter-bloc-vs-riverpod-state-management-for-beginners\/#primaryimage"},"thumbnailUrl":"https:\/\/media.q.agency\/wp-content\/uploads\/2026\/04\/image_2022-03-30-122838_qufo_eafcc47d2eac9b34493eba0289cfb02f-qpi-wxr-att-ScD8OqRU.webp","keywords":["Bloc vs. Riverpod","Bloc vs. Riverpod State Management for Beginners","Flutter","Flutter State Management","Random Fact API","which state management is better bloc or riverpod"],"articleSection":["Business"],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https:\/\/q.agency\/blog\/flutter-bloc-vs-riverpod-state-management-for-beginners\/","url":"https:\/\/q.agency\/blog\/flutter-bloc-vs-riverpod-state-management-for-beginners\/","name":"Flutter – Bloc vs. Riverpod State Management for Beginners | Q Agency - Tech Consulting and Software Engineering","isPartOf":{"@id":"https:\/\/q.agency\/#website"},"primaryImageOfPage":{"@id":"https:\/\/q.agency\/blog\/flutter-bloc-vs-riverpod-state-management-for-beginners\/#primaryimage"},"image":{"@id":"https:\/\/q.agency\/blog\/flutter-bloc-vs-riverpod-state-management-for-beginners\/#primaryimage"},"thumbnailUrl":"https:\/\/media.q.agency\/wp-content\/uploads\/2026\/04\/image_2022-03-30-122838_qufo_eafcc47d2eac9b34493eba0289cfb02f-qpi-wxr-att-ScD8OqRU.webp","datePublished":"2022-03-31T07:50:03+00:00","dateModified":"2026-08-11T09:45:37+00:00","author":{"@id":"https:\/\/q.agency\/#\/schema\/person\/60215d91b6d477de6a24cf34bd768cfe"},"description":"Compare Bloc and Riverpod in Flutter and learn how both state management solutions handle API data in a production-ready app.","breadcrumb":{"@id":"https:\/\/q.agency\/blog\/flutter-bloc-vs-riverpod-state-management-for-beginners\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/q.agency\/blog\/flutter-bloc-vs-riverpod-state-management-for-beginners\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/q.agency\/blog\/flutter-bloc-vs-riverpod-state-management-for-beginners\/#primaryimage","url":"https:\/\/media.q.agency\/wp-content\/uploads\/2026\/04\/image_2022-03-30-122838_qufo_eafcc47d2eac9b34493eba0289cfb02f-qpi-wxr-att-ScD8OqRU.webp","contentUrl":"https:\/\/media.q.agency\/wp-content\/uploads\/2026\/04\/image_2022-03-30-122838_qufo_eafcc47d2eac9b34493eba0289cfb02f-qpi-wxr-att-ScD8OqRU.webp","width":1071,"height":600},{"@type":"BreadcrumbList","@id":"https:\/\/q.agency\/blog\/flutter-bloc-vs-riverpod-state-management-for-beginners\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/q.agency\/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https:\/\/q.agency\/blog\/"},{"@type":"ListItem","position":3,"name":"Flutter – Bloc vs. Riverpod State Management for Beginners"}]},{"@type":"WebSite","@id":"https:\/\/q.agency\/#website","url":"https:\/\/q.agency\/","name":"Q Agency","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/q.agency\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Person","@id":"https:\/\/q.agency\/#\/schema\/person\/60215d91b6d477de6a24cf34bd768cfe","name":"Noa Tubic","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/secure.gravatar.com\/avatar\/7a95432fd98839adc115eefe364124a1ccaf5d027512dc52bfcad0778aa07035?s=96&d=mm&r=g","url":"https:\/\/secure.gravatar.com\/avatar\/7a95432fd98839adc115eefe364124a1ccaf5d027512dc52bfcad0778aa07035?s=96&d=mm&r=g","contentUrl":"https:\/\/secure.gravatar.com\/avatar\/7a95432fd98839adc115eefe364124a1ccaf5d027512dc52bfcad0778aa07035?s=96&d=mm&r=g","caption":"Noa Tubic"},"description":"Creative and open to new challenges, making mistakes, and trying again, Noa is working as a Flutter developer. If not coding, you can find him making music in his bedroom studio. In addition, he enjoys skiing, hiking, and many other sports activities. Also, to mention, he is a big sneaker fan."}]}</script>
+<title>Flutter – Bloc vs. Riverpod State Management for Beginners | Q Agency - Tech Consulting and Software Engineering</title>
+<link href="https://q.agency/feed/" rel="alternate" title="Q Agency - Tech Consulting and Software Engineering » Feed" type="application/rss+xml"/>
+<link href="https://q.agency/comments/feed/" rel="alternate" title="Q Agency - Tech Consulting and Software Engineering » Comments Feed" type="application/rss+xml"/>
+<link href="https://q.agency/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fq.agency%2Fblog%2Fflutter-bloc-vs-riverpod-state-management-for-beginners%2F" rel="alternate" title="oEmbed (JSON)" type="application/json+oembed"/>
+<link href="https://q.agency/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fq.agency%2Fblog%2Fflutter-bloc-vs-riverpod-state-management-for-beginners%2F&amp;format=xml" rel="alternate" title="oEmbed (XML)" type="text/xml+oembed"/>
+<link href="https://q.agency/wp-json/wp/v2/posts/16687" rel="alternate" title="JSON" type="application/json"/>
+<link href="https://q.agency/?p=16687" rel="shortlink"/>
+<link href="https://media.q.agency/wp-content/uploads/2026/04/cropped-q-logo-32x32.png" rel="icon" sizes="32x32"/>
+<link href="https://media.q.agency/wp-content/uploads/2026/04/cropped-q-logo-192x192.png" rel="icon" sizes="192x192"/>
+<link href="https://media.q.agency/wp-content/uploads/2026/04/cropped-q-logo-180x180.png" rel="apple-touch-icon"/>
+<meta content="https://media.q.agency/wp-content/uploads/2026/04/cropped-q-logo-270x270.png" name="msapplication-TileImage"/>
+<meta name="theme-color" content="#0e1413">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-block-paragraph-inline-css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://q.agency/wp-includes/blocks/paragraph/style.min.css */
+</style>
+<style id="wp-block-heading-inline-css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=https://q.agency/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id="wp-block-list-inline-css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://q.agency/wp-includes/blocks/list/style.min.css */
+</style>
+<style id="wp-block-code-inline-css">
+.wp-block-code{box-sizing:border-box}.wp-block-code code{direction:ltr;display:block;font-family:inherit;overflow-wrap:break-word;text-align:initial;white-space:break-spaces}
+/*# sourceURL=https://q.agency/wp-includes/blocks/code/style.min.css */
+</style>
+<style id="wp-block-image-inline-css">
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:rgba(90,90,90,.25);border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto rgba(90,90,90,.25);outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:rgba(90,90,90,.25);border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .wp-lightbox-close-button{align-items:center;cursor:pointer;display:flex;font-family:inherit;gap:8px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 4px;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .wp-lightbox-close-button:focus,.wp-lightbox-overlay .wp-lightbox-close-button:hover,.wp-lightbox-overlay .wp-lightbox-close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .wp-lightbox-close-button:has(.wp-lightbox-close-text:not([hidden])) .wp-lightbox-close-icon svg{height:1em;width:1em}.wp-lightbox-overlay .wp-lightbox-close-icon svg{display:block}.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{align-items:center;bottom:16px;cursor:pointer;display:flex;font-family:inherit;gap:4px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 8px;position:absolute;z-index:2000002}.wp-lightbox-overlay .wp-lightbox-navigation-button-next[hidden],.wp-lightbox-overlay .wp-lightbox-navigation-button-prev[hidden]{display:none}@media (min-width:960px){.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{bottom:50%;transform:translateY(-50%)}}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:not(:hover):not(:active):not(.has-background),.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:not(:hover):not(:active):not(.has-background){background:none;border:none;padding:0 8px}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg{display:block;height:1.5em;width:1.5em}.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{left:calc(env(safe-area-inset-left) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-button-next{right:calc(env(safe-area-inset-right) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-icon svg{vertical-align:middle}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:2000001}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://q.agency/wp-includes/blocks/image/style.min.css */
+</style>
+<style id="wp-block-navigation-link-inline-css">
+.wp-block-navigation .wp-block-navigation-item__label{overflow-wrap:break-word}.wp-block-navigation .wp-block-navigation-item__description{display:none}.link-ui-tools{outline:1px solid #f0f0f0;padding:8px}.link-ui-block-inserter{padding-top:8px}.link-ui-block-inserter__back{margin-left:8px;text-transform:uppercase}
+/*# sourceURL=https://q.agency/wp-includes/blocks/navigation-link/style.min.css */
+</style>
+<style id="wp-block-button-inline-css">
+.wp-block-button__link{align-content:center;box-sizing:border-box;cursor:pointer;display:inline-block;height:100%;text-align:center;word-break:break-word}.wp-block-button__link.aligncenter{text-align:center}.wp-block-button__link.alignright{text-align:right}:where(.wp-block-button__link){border-radius:9999px;box-shadow:none;padding:calc(.667em + 2px) calc(1.333em + 2px);text-decoration:none}.wp-block-button[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons>.wp-block-button.has-custom-width{max-width:none}.wp-block-buttons>.wp-block-button.has-custom-width .wp-block-button__link{width:100%}.wp-block-buttons>.wp-block-button.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons>.wp-block-button[class*=wp-block-button__width]{width:calc(var(--wp--block-button--width)*1% - var(--wp--style--block-gap, .5em)*(1 - var(--wp--block-button--width)/100))}.wp-block-buttons>.wp-block-button.wp-block-button__width-25{width:calc(25% - var(--wp--style--block-gap, .5em)*.75)}.wp-block-buttons>.wp-block-button.wp-block-button__width-50{width:calc(50% - var(--wp--style--block-gap, .5em)*.5)}.wp-block-buttons>.wp-block-button.wp-block-button__width-75{width:calc(75% - var(--wp--style--block-gap, .5em)*.25)}.wp-block-buttons>.wp-block-button.wp-block-button__width-100{flex-basis:100%;width:100%}.wp-block-buttons.is-vertical>.wp-block-button[class*=wp-block-button__width]{width:calc(var(--wp--block-button--width)*1%)}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-25{width:25%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-50{width:50%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-75{width:75%}.wp-block-button.is-style-squared,.wp-block-button__link.wp-block-button.is-style-squared{border-radius:0}.wp-block-button.no-border-radius,.wp-block-button__link.no-border-radius{border-radius:0!important}:root :where(.wp-block-button .wp-block-button__link.is-style-outline),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link){border:2px solid;padding:.667em 1.333em}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color)){color:currentColor}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-background)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background)){background-color:transparent;background-image:none}
+/*# sourceURL=https://q.agency/wp-includes/blocks/button/style.min.css */
+</style>
+<style id="wp-block-buttons-inline-css">
+.wp-block-buttons{box-sizing:border-box}.wp-block-buttons.is-vertical{flex-direction:column}.wp-block-buttons.is-vertical>.wp-block-button:last-child{margin-bottom:0}.wp-block-buttons>.wp-block-button{display:inline-block;margin:0}.wp-block-buttons.is-content-justification-left{justify-content:flex-start}.wp-block-buttons.is-content-justification-left.is-vertical{align-items:flex-start}.wp-block-buttons.is-content-justification-center{justify-content:center}.wp-block-buttons.is-content-justification-center.is-vertical{align-items:center}.wp-block-buttons.is-content-justification-right{justify-content:flex-end}.wp-block-buttons.is-content-justification-right.is-vertical{align-items:flex-end}.wp-block-buttons.is-content-justification-space-between{justify-content:space-between}.wp-block-buttons.aligncenter{text-align:center}.wp-block-buttons:not(.is-content-justification-space-between,.is-content-justification-right,.is-content-justification-left,.is-content-justification-center) .wp-block-button.aligncenter{margin-left:auto;margin-right:auto;width:100%}.wp-block-buttons[style*=text-decoration] .wp-block-button,.wp-block-buttons[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons .wp-block-button__link{width:100%}.wp-block-button.aligncenter{text-align:center}
+/*# sourceURL=https://q.agency/wp-includes/blocks/buttons/style.min.css */
+</style>
+<style id="wp-block-group-inline-css">
+.wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
+/*# sourceURL=https://q.agency/wp-includes/blocks/group/style.min.css */
+</style>
+<style id="wp-block-post-title-inline-css">
+.wp-block-post-title{box-sizing:border-box;word-break:break-word}.wp-block-post-title :where(a){display:inline-block;font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;text-decoration:inherit}
+/*# sourceURL=https://q.agency/wp-includes/blocks/post-title/style.min.css */
+</style>
+<style id="wp-block-post-content-inline-css">
+.wp-block-post-content{display:flow-root}
+/*# sourceURL=https://q.agency/wp-includes/blocks/post-content/style.min.css */
+</style>
+<style id="wp-block-post-featured-image-inline-css">
+.wp-block-post-featured-image{margin-left:0;margin-right:0}.wp-block-post-featured-image a{display:block;height:100%}.wp-block-post-featured-image :where(img){box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom;width:100%}.wp-block-post-featured-image.alignfull img,.wp-block-post-featured-image.alignwide img{width:100%}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim{background-color:#000;inset:0;position:absolute}.wp-block-post-featured-image{position:relative}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-gradient{background-color:transparent}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-0{opacity:0}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-10{opacity:.1}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-20{opacity:.2}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-30{opacity:.3}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-40{opacity:.4}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-50{opacity:.5}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-60{opacity:.6}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-70{opacity:.7}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-80{opacity:.8}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-90{opacity:.9}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-100{opacity:1}.wp-block-post-featured-image:where(.alignleft,.alignright){width:100%}
+/*# sourceURL=https://q.agency/wp-includes/blocks/post-featured-image/style.min.css */
+</style>
+<style id="wp-block-avatar-inline-css">
+.wp-block-avatar{line-height:0}.wp-block-avatar,.wp-block-avatar img{box-sizing:border-box}.wp-block-avatar.aligncenter{text-align:center}
+/*# sourceURL=https://q.agency/wp-includes/blocks/avatar/style.min.css */
+</style>
+<style id="wp-block-post-author-name-inline-css">
+.wp-block-post-author-name{box-sizing:border-box}
+/*# sourceURL=https://q.agency/wp-includes/blocks/post-author-name/style.min.css */
+</style>
+<style id="wp-block-table-inline-css">
+.wp-block-table{overflow-x:auto}.wp-block-table table{border-collapse:collapse;width:100%}.wp-block-table thead{border-bottom:3px solid}.wp-block-table tfoot{border-top:3px solid}.wp-block-table td,.wp-block-table th{border:1px solid;padding:.5em}.wp-block-table .has-fixed-layout{table-layout:fixed;width:100%}.wp-block-table .has-fixed-layout td,.wp-block-table .has-fixed-layout th{word-break:break-word}.wp-block-table.aligncenter,.wp-block-table.alignleft,.wp-block-table.alignright{display:table;width:auto}.wp-block-table.aligncenter td,.wp-block-table.aligncenter th,.wp-block-table.alignleft td,.wp-block-table.alignleft th,.wp-block-table.alignright td,.wp-block-table.alignright th{word-break:break-word}.wp-block-table .has-subtle-light-gray-background-color{background-color:#f3f4f5}.wp-block-table .has-subtle-pale-green-background-color{background-color:#e9fbe5}.wp-block-table .has-subtle-pale-blue-background-color{background-color:#e7f5fe}.wp-block-table .has-subtle-pale-pink-background-color{background-color:#fcf0ef}.wp-block-table.is-style-stripes{background-color:transparent;border-collapse:inherit;border-spacing:0}.wp-block-table.is-style-stripes tbody tr:nth-child(odd){background-color:#f0f0f0}.wp-block-table.is-style-stripes.has-subtle-light-gray-background-color tbody tr:nth-child(odd){background-color:#f3f4f5}.wp-block-table.is-style-stripes.has-subtle-pale-green-background-color tbody tr:nth-child(odd){background-color:#e9fbe5}.wp-block-table.is-style-stripes.has-subtle-pale-blue-background-color tbody tr:nth-child(odd){background-color:#e7f5fe}.wp-block-table.is-style-stripes.has-subtle-pale-pink-background-color tbody tr:nth-child(odd){background-color:#fcf0ef}.wp-block-table.is-style-stripes td,.wp-block-table.is-style-stripes th{border-color:transparent}.wp-block-table.is-style-stripes{border-bottom:1px solid #f0f0f0}.wp-block-table .has-border-color td,.wp-block-table .has-border-color th,.wp-block-table .has-border-color tr,.wp-block-table .has-border-color>*{border-color:inherit}.wp-block-table table[style*=border-top-color] tr:first-child,.wp-block-table table[style*=border-top-color] tr:first-child td,.wp-block-table table[style*=border-top-color] tr:first-child th,.wp-block-table table[style*=border-top-color]>*,.wp-block-table table[style*=border-top-color]>* td,.wp-block-table table[style*=border-top-color]>* th{border-top-color:inherit}.wp-block-table table[style*=border-top-color] tr:not(:first-child){border-top-color:currentColor}.wp-block-table table[style*=border-right-color] td:last-child,.wp-block-table table[style*=border-right-color] th,.wp-block-table table[style*=border-right-color] tr,.wp-block-table table[style*=border-right-color]>*{border-right-color:inherit}.wp-block-table table[style*=border-bottom-color] tr:last-child,.wp-block-table table[style*=border-bottom-color] tr:last-child td,.wp-block-table table[style*=border-bottom-color] tr:last-child th,.wp-block-table table[style*=border-bottom-color]>*,.wp-block-table table[style*=border-bottom-color]>* td,.wp-block-table table[style*=border-bottom-color]>* th{border-bottom-color:inherit}.wp-block-table table[style*=border-bottom-color] tr:not(:last-child){border-bottom-color:currentColor}.wp-block-table table[style*=border-left-color] td:first-child,.wp-block-table table[style*=border-left-color] th,.wp-block-table table[style*=border-left-color] tr,.wp-block-table table[style*=border-left-color]>*{border-left-color:inherit}.wp-block-table table[style*=border-style] td,.wp-block-table table[style*=border-style] th,.wp-block-table table[style*=border-style] tr,.wp-block-table table[style*=border-style]>*{border-style:inherit}.wp-block-table table[style*=border-width] td,.wp-block-table table[style*=border-width] th,.wp-block-table table[style*=border-width] tr,.wp-block-table table[style*=border-width]>*{border-style:inherit;border-width:inherit}
+/*# sourceURL=https://q.agency/wp-includes/blocks/table/style.min.css */
+</style>
+<style id="wp-block-columns-inline-css">
+.wp-block-columns{box-sizing:border-box;display:flex;flex-wrap:wrap!important}@media (min-width:782px){.wp-block-columns{flex-wrap:nowrap!important}}.wp-block-columns{align-items:normal!important}.wp-block-columns.are-vertically-aligned-top{align-items:flex-start}.wp-block-columns.are-vertically-aligned-center{align-items:center}.wp-block-columns.are-vertically-aligned-bottom{align-items:flex-end}@media (max-width:781px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:100%!important}}@media (min-width:782px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column[style*=flex-basis]{flex-grow:0}}.wp-block-columns.is-not-stacked-on-mobile{flex-wrap:nowrap!important}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column[style*=flex-basis]{flex-grow:0}:where(.wp-block-columns){margin-bottom:1.75em}:where(.wp-block-columns.has-background){padding:1.25em 2.375em}.wp-block-column{flex-grow:1;min-width:0;overflow-wrap:break-word;word-break:break-word}.wp-block-column.is-vertically-aligned-top{align-self:flex-start}.wp-block-column.is-vertically-aligned-center{align-self:center}.wp-block-column.is-vertically-aligned-bottom{align-self:flex-end}.wp-block-column.is-vertically-aligned-stretch{align-self:stretch}.wp-block-column.is-vertically-aligned-bottom,.wp-block-column.is-vertically-aligned-center,.wp-block-column.is-vertically-aligned-top{width:100%}
+/*# sourceURL=https://q.agency/wp-includes/blocks/columns/style.min.css */
+</style>
+<style id="wp-block-separator-inline-css">
+@charset "UTF-8";.wp-block-separator{border:none;border-top:2px solid}:root :where(.wp-block-separator.is-style-dots){height:auto;line-height:1;text-align:center}:root :where(.wp-block-separator.is-style-dots):before{color:currentColor;content:"···";font-family:serif;font-size:1.5em;letter-spacing:2em;padding-left:2em}.wp-block-separator.is-style-dots{background:none!important;border:none!important}
+/*# sourceURL=https://q.agency/wp-includes/blocks/separator/style.min.css */
+</style>
+<style id="wp-block-post-template-inline-css">
+.wp-block-post-template{box-sizing:border-box;list-style:none;margin-bottom:0;margin-top:0;max-width:100%;padding:0}.wp-block-post-template.is-flex-container{display:flex;flex-direction:row;flex-wrap:wrap;gap:1.25em}.wp-block-post-template.is-flex-container>li{margin:0;width:100%}@media (min-width:600px){.wp-block-post-template.is-flex-container.is-flex-container.columns-2>li{width:calc(50% - .625em)}.wp-block-post-template.is-flex-container.is-flex-container.columns-3>li{width:calc(33.33333% - .83333em)}.wp-block-post-template.is-flex-container.is-flex-container.columns-4>li{width:calc(25% - .9375em)}.wp-block-post-template.is-flex-container.is-flex-container.columns-5>li{width:calc(20% - 1em)}.wp-block-post-template.is-flex-container.is-flex-container.columns-6>li{width:calc(16.66667% - 1.04167em)}}@media (max-width:600px){.wp-block-post-template-is-layout-grid[class*=columns-]:not(.has-native-responsive-grid){grid-template-columns:1fr}}.wp-block-post-template-is-layout-constrained>li>.alignright,.wp-block-post-template-is-layout-flow>li>.alignright{float:right;margin-inline-end:0;margin-inline-start:2em}.wp-block-post-template-is-layout-constrained>li>.alignleft,.wp-block-post-template-is-layout-flow>li>.alignleft{float:left;margin-inline-end:2em;margin-inline-start:0}.wp-block-post-template-is-layout-constrained>li>.aligncenter,.wp-block-post-template-is-layout-flow>li>.aligncenter{margin-inline-end:auto;margin-inline-start:auto}
+/*# sourceURL=https://q.agency/wp-includes/blocks/post-template/style.min.css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="core-block-supports-inline-css">
+.wp-elements-1 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--base);}.wp-container-core-navigation-is-layout-d9e12123{gap:15px;}.wp-elements-2 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--base);}.wp-elements-3 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--base);}.wp-elements-4 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--base);}.wp-container-core-group-is-layout-28f75d35 > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width:530px;margin-left:auto !important;margin-right:auto !important;}.wp-container-core-group-is-layout-28f75d35 > .alignwide{max-width:530px;}.wp-container-core-group-is-layout-28f75d35 .alignfull{max-width:none;}.wp-container-core-group-is-layout-adf9a74a > :where(:not(.alignleft):not(.alignright):not(.alignfull)){margin-left:0 !important;}.wp-container-core-group-is-layout-adf9a74a > *{margin-block-start:0;margin-block-end:0;}.wp-container-core-group-is-layout-adf9a74a > * + *{margin-block-start:var(--wp--preset--spacing--q-small);margin-block-end:0;}.wp-container-core-group-is-layout-73ff02c6{flex-direction:column;align-items:flex-start;}.wp-container-core-buttons-is-layout-711c761b{flex-wrap:nowrap;gap:0 0;justify-content:center;}.wp-container-core-group-is-layout-37c6a6e7{gap:var(--wp--preset--spacing--20);justify-content:space-between;}.wp-container-core-group-is-layout-6eba5a80 > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width:1440px;margin-left:auto !important;margin-right:auto !important;}.wp-container-core-group-is-layout-6eba5a80 > .alignwide{max-width:1440px;}.wp-container-core-group-is-layout-6eba5a80 .alignfull{max-width:none;}.wp-elements-5 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--custom-default-sec-border);}.wp-elements-6 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--base);}.wp-container-core-group-is-layout-afe6aa20 > *{margin-block-start:0;margin-block-end:0;}.wp-container-core-group-is-layout-afe6aa20 > * + *{margin-block-start:0px;margin-block-end:0;}.wp-container-core-group-is-layout-7b1f0149 > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width:790px;margin-left:0 !important;margin-right:auto !important;}.wp-container-core-group-is-layout-7b1f0149 > .alignwide{max-width:790px;}.wp-container-core-group-is-layout-7b1f0149 .alignfull{max-width:none;}.wp-elements-7 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--contrast);}.wp-container-core-group-is-layout-6e3f15e9{flex-wrap:nowrap;}.wp-container-core-columns-is-layout-20c124b0{flex-wrap:nowrap;}.wp-container-core-group-is-layout-e0197dee > *{margin-block-start:0;margin-block-end:0;}.wp-container-core-group-is-layout-e0197dee > * + *{margin-block-start:0;margin-block-end:0;}.wp-elements-8 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--contrast);}.wp-container-core-post-template-is-layout-28018fd8{grid-template-columns:repeat(2, minmax(0, 1fr));}.wp-container-core-group-is-layout-8a09834c > *{margin-block-start:0;margin-block-end:0;}.wp-container-core-group-is-layout-8a09834c > * + *{margin-block-start:0px;margin-block-end:0;}.wp-elements-9 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--cyan);}.wp-container-core-group-is-layout-2b7ce09f > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width:790px;margin-left:0 !important;margin-right:auto !important;}.wp-container-core-group-is-layout-2b7ce09f > .alignwide{max-width:790px;}.wp-container-core-group-is-layout-2b7ce09f .alignfull{max-width:none;}.wp-container-core-navigation-is-layout-97fbd12e{flex-wrap:nowrap;flex-direction:column;align-items:flex-start;}.wp-container-core-navigation-is-layout-c0a1e050{flex-wrap:nowrap;gap:8px;flex-direction:column;align-items:flex-start;}.wp-container-core-columns-is-layout-6e3f15e9{flex-wrap:nowrap;}.wp-container-core-group-is-layout-caa08ce9{justify-content:space-between;}.wp-container-core-group-is-layout-b421284d{justify-content:space-between;}
+/*# sourceURL=core-block-supports-inline-css */
+</style>
+<style id="wp-block-template-skip-link-inline-css">
+/*! This file is auto-generated */
+.skip-link.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute!important;width:1px;word-wrap:normal!important;word-break:normal!important}.skip-link.screen-reader-text:focus{background-color:#eee;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}
+/*# sourceURL=/wp-includes/css/wp-block-template-skip-link.min.css */
+</style>
+<link rel="stylesheet" href="/_kit/lib/lenis.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/nav.css">
+<link rel="stylesheet" href="/assets/css/nav2.css">
+<link rel="stylesheet" href="/assets/css/patterns.css">
+<link rel="stylesheet" href="/assets/css/patterns2.css">
+<link rel="stylesheet" href="/assets/css/schematics.css">
+<link rel="stylesheet" href="/assets/css/align.css">
+<link rel="stylesheet" href="/assets/css/mobile.css">
+<link rel="stylesheet" href="/assets/css/surfaces.css">
+<link rel="stylesheet" href="/assets/css/devices.css">
+<link rel="stylesheet" href="/assets/css/devices2.css">
+<link rel="stylesheet" href="/assets/css/devices-m.css">
+<link rel="stylesheet" href="/assets/css/final.css">
+<link rel="stylesheet" href="/assets/css/home-services.css">
+<link rel="stylesheet" href="/assets/css/company.css">
+<link rel="stylesheet" href="/assets/css/mobile-length.css">
+<link rel="stylesheet" href="/assets/css/final-push.css">
+<link rel="stylesheet" href="/assets/css/coop.css">
+<link rel="stylesheet" href="/assets/css/svc2.css">
+<script>document.documentElement.className=document.documentElement.className.replace('no-js','js')+(/[?&]still=1/.test(location.search)?' bp-still':(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches?'':' bp-sigm'));</script>
+</head>
+<body class="wp-singular post-template-default single single-post postid-16687 single-format-standard wp-embed-responsive wp-theme-qfse bp" data-ptype="post">
+<canvas id="bp-bg" aria-hidden="true"></canvas>
+<div class="wp-site-blocks"><div class="wp-block-group alignwide header-container has-contrast-background-color has-background is-layout-constrained wp-block-group-is-layout-constrained" data-region="header"><!--?xml encoding="utf-8" ?--><div class="alignwide wp-block-template-part">
+<div class="wp-block-group header has-base-color has-contrast-background-color has-text-color has-background has-link-color wp-elements-1 is-layout-constrained wp-container-core-group-is-layout-6eba5a80 wp-block-group-is-layout-constrained">
+<div class="wp-block-group is-layout-flex is-content-justification-space-between wp-container-core-group-is-layout-37c6a6e7 wp-block-group-is-layout-flex">
+<figure class="wp-block-image size-full logo"><a href="/"><img alt="Q Agency Logo" decoding="async" src="/wp-content/themes/qfse/assets/images/logo.svg"/></a></figure>
+<div class="wp-block-group header-nav-shell is-vertical is-layout-flex wp-container-core-group-is-layout-73ff02c6 wp-block-group-is-layout-flex"><!--?xml encoding="utf-8" ?--><nav aria-label="Main Menu" class="is-responsive qfse-primary-nav wp-block-navigation is-layout-flex wp-container-core-navigation-is-layout-d9e12123 wp-block-navigation-is-layout-flex" data-wp-context='{"overlayOpenedBy":{"click":false,"hover":false,"focus":false},"type":"overlay","roleAttribute":"","ariaLabel":"Menu"}' data-wp-interactive="core/navigation"><button aria-haspopup="dialog" aria-label="Open menu" class="wp-block-navigation__responsive-container-open" data-wp-on--click="actions.openMenuOnClick" data-wp-on--keydown="actions.handleMenuKeydown"><span class="q-nav-icon"></span></button>
+<div class="wp-block-navigation__responsive-container" data-wp-class--has-modal-open="state.isMenuOpen" data-wp-class--is-menu-open="state.isMenuOpen" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-watch="callbacks.initMenu" id="modal-1" tabindex="-1">
+<div class="wp-block-navigation__responsive-close" tabindex="-1">
+<div class="wp-block-navigation__responsive-dialog" data-wp-bind--aria-label="state.ariaLabel" data-wp-bind--aria-modal="state.ariaModal" data-wp-bind--role="state.roleAttribute">
+<button aria-label="Close menu" class="wp-block-navigation__responsive-container-close" data-wp-on--click="actions.closeMenuOnClick"><span class="q-nav-icon"></span></button>
+<div class="wp-block-navigation__responsive-container-content" data-wp-watch="callbacks.focusFirstElement" id="modal-1-content">
+<ul class="wp-block-navigation__container is-responsive qfse-primary-nav wp-block-navigation"><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/ai-at-q/"><span class="wp-block-navigation-item__label">AI at Q</span></a></li><li class="wp-block-navigation-item has-child open-on-hover-click hide-desktop wp-block-navigation-submenu" data-mega-menu="true" data-wp-context='{ "submenuOpenedBy": { "click": false, "hover": false, "focus": false }, "type": "submenu", "modal": null, "previousFocus": null }' data-wp-interactive="core/navigation" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-on--pointerenter="actions.openMenuOnHover" data-wp-on--pointerleave="actions.closeMenuOnHover" data-wp-watch="callbacks.initMenu" tabindex="-1"><a class="wp-block-navigation-item__content" href="/services/"><span class="wp-block-navigation-item__label">Services</span></a><button aria-label="Services submenu" class="wp-block-navigation__submenu-icon wp-block-navigation-submenu__toggle" data-wp-bind--aria-expanded="state.isSubmenuOpen" data-wp-on--click="actions.toggleMenuOnClick"><span class="q-nav-icon"></span></button><ul class="wp-block-navigation__submenu-container hide-desktop wp-block-navigation-submenu mega-menu-panel" data-wp-on--focus="actions.openMenuOnFocus" style="--mega-menu-grid-rows: 4; --mega-menu-right-grid-rows: 3;"><li class="wp-block-navigation-item mega-menu-card mega-menu-card--featured-image"><a aria-label="Services" class="mega-menu-card__media-link" href="/services/"><div class="mega-menu-card__media-meta"><strong class="mega-menu-card__media-title">Services</strong><span aria-hidden="true" class="mega-menu-card__arrow mega-menu-card__arrow--featured"></span></div><figure class="mega-menu-card__media"></figure></a></li><li class="wp-block-navigation-item open-on-hover-click wp-block-navigation-submenu mega-menu-card mega-menu-card--has-links" data-wp-context='{ "submenuOpenedBy": { "click": false, "hover": false, "focus": false }, "type": "submenu", "modal": null, "previousFocus": null }' data-wp-interactive="core/navigation" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-on--pointerenter="actions.openMenuOnHover" data-wp-on--pointerleave="actions.closeMenuOnHover" data-wp-watch="callbacks.initMenu" tabindex="-1"><a aria-label="AI and Data" class="mega-menu-card__cover" href="/services/ai-data/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">AI and Data<span class="q-nav-icon"></span></p></div></a><ul class="wp-block-navigation__submenu-container wp-block-navigation-submenu mega-menu-card__links mega-menu-l3-submenu" data-wp-on--focus="actions.openMenuOnFocus"><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/ai-data/agentic-sprint/"><span class="wp-block-navigation-item__label">Agentic Sprint</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/ai-data/aiops-as-a-service/"><span class="wp-block-navigation-item__label">AIOps-as-a-Service</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/ai-data/multi-agent-orchestration/"><span class="wp-block-navigation-item__label">Multi-Agent Orchestration</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/ai-data/workflow-automation/"><span class="wp-block-navigation-item__label">Workflow Automation</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/ai-data/data-integration-service/"><span class="wp-block-navigation-item__label">Data and Integration Service</span></a></li></ul><a aria-label="AI and Data" class="mega-menu-card__arrow mega-menu-card__arrow--link" href="/services/ai-data/" tabindex="-1"></a></li><li class="wp-block-navigation-item open-on-hover-click wp-block-navigation-submenu mega-menu-card mega-menu-card--has-links" data-wp-context='{ "submenuOpenedBy": { "click": false, "hover": false, "focus": false }, "type": "submenu", "modal": null, "previousFocus": null }' data-wp-interactive="core/navigation" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-on--pointerenter="actions.openMenuOnHover" data-wp-on--pointerleave="actions.closeMenuOnHover" data-wp-watch="callbacks.initMenu" tabindex="-1"><a aria-label="Product Engineering" class="mega-menu-card__cover" href="/services/product-engineering/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Product Engineering<span class="q-nav-icon"></span></p></div></a><ul class="wp-block-navigation__submenu-container wp-block-navigation-submenu mega-menu-card__links mega-menu-l3-submenu" data-wp-on--focus="actions.openMenuOnFocus"><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/product-engineering/ux-and-ui-design/"><span class="wp-block-navigation-item__label">UX and UI Design</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/product-engineering/digital-product-development/"><span class="wp-block-navigation-item__label">Digital Product Development</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/product-engineering/re-architecting-and-modernisation/"><span class="wp-block-navigation-item__label">Re-Architecting and Modernisation </span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/product-engineering/cloud-engineering/"><span class="wp-block-navigation-item__label">Cloud Engineering</span></a></li></ul><a aria-label="Product Engineering" class="mega-menu-card__arrow mega-menu-card__arrow--link" href="/services/product-engineering/" tabindex="-1"></a></li><li class="wp-block-navigation-item open-on-hover-click wp-block-navigation-submenu mega-menu-card mega-menu-card--has-links" data-wp-context='{ "submenuOpenedBy": { "click": false, "hover": false, "focus": false }, "type": "submenu", "modal": null, "previousFocus": null }' data-wp-interactive="core/navigation" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-on--pointerenter="actions.openMenuOnHover" data-wp-on--pointerleave="actions.closeMenuOnHover" data-wp-watch="callbacks.initMenu" tabindex="-1"><a aria-label="Tech Consulting" class="mega-menu-card__cover" href="/services/consulting-strategy/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Tech Consulting<span class="q-nav-icon"></span></p></div></a><ul class="wp-block-navigation__submenu-container wp-block-navigation-submenu mega-menu-card__links mega-menu-l3-submenu" data-wp-on--focus="actions.openMenuOnFocus"><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/consulting-strategy/new-product-discovery/"><span class="wp-block-navigation-item__label">New Product Discovery</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/consulting-strategy/technology-due-diligence/"><span class="wp-block-navigation-item__label">Technology Due Diligence</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/consulting-strategy/ai-and-data-strategy/"><span class="wp-block-navigation-item__label">AI and Data Readiness and Strategy</span></a></li></ul><a aria-label="Tech Consulting" class="mega-menu-card__arrow mega-menu-card__arrow--link" href="/services/consulting-strategy/" tabindex="-1"></a></li></ul></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/case-studies/"><span class="wp-block-navigation-item__label">Case Studies</span></a></li><li class="wp-block-navigation-item has-child open-on-hover-click wp-block-navigation-submenu" data-mega-menu="true" data-wp-context='{ "submenuOpenedBy": { "click": false, "hover": false, "focus": false }, "type": "submenu", "modal": null, "previousFocus": null }' data-wp-interactive="core/navigation" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-on--pointerenter="actions.openMenuOnHover" data-wp-on--pointerleave="actions.closeMenuOnHover" data-wp-watch="callbacks.initMenu" tabindex="-1"><a class="wp-block-navigation-item__content" href="/how-we-work/"><span class="wp-block-navigation-item__label">How We Work</span><span class="wp-block-navigation-item__description"> </span></a><button aria-label="How We Work submenu" class="wp-block-navigation__submenu-icon wp-block-navigation-submenu__toggle" data-wp-bind--aria-expanded="state.isSubmenuOpen" data-wp-on--click="actions.toggleMenuOnClick"><span class="q-nav-icon"></span></button><ul class="wp-block-navigation__submenu-container wp-block-navigation-submenu mega-menu-panel" data-wp-on--focus="actions.openMenuOnFocus" style="--mega-menu-grid-rows: 5; --mega-menu-right-grid-rows: 4;"><li class="wp-block-navigation-item mega-menu-card mega-menu-card--featured-image"><a aria-label="How We Work" class="mega-menu-card__media-link" href="/how-we-work/"><div class="mega-menu-card__media-meta"><strong class="mega-menu-card__media-title">How we work</strong><span aria-hidden="true" class="mega-menu-card__arrow mega-menu-card__arrow--featured"></span></div><figure class="mega-menu-card__media"></figure></a></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Explore. Identify where AI and digital products can create real value before committing to delivery." class="mega-menu-card__cover" href="/how-we-work/explore/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Explore</p><p class="mega-menu-card__description">Identify where AI and digital products can create real value before committing to delivery.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Assess. Validate the opportunity, readiness and technical path before moving into the build." class="mega-menu-card__cover" href="/how-we-work/assess/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Assess</p><p class="mega-menu-card__description">Validate the opportunity, readiness and technical path before moving into the build.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Build. Turn validated opportunities into scalable AI systems and digital products built for real-world use." class="mega-menu-card__cover" href="/how-we-work/build/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Build</p><p class="mega-menu-card__description">Turn validated opportunities into scalable AI systems and digital products built for real-world use.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Run. Keep products, AI systems and delivery teams reliable, efficient and ready to evolve." class="mega-menu-card__cover" href="/how-we-work/run/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Run</p><p class="mega-menu-card__description">Keep products, AI systems and delivery teams reliable, efficient and ready to evolve.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li></ul></li><li class="wp-block-navigation-item has-child open-on-hover-click hide-desktop wp-block-navigation-submenu" data-mega-menu="true" data-wp-context='{ "submenuOpenedBy": { "click": false, "hover": false, "focus": false }, "type": "submenu", "modal": null, "previousFocus": null }' data-wp-interactive="core/navigation" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-on--pointerenter="actions.openMenuOnHover" data-wp-on--pointerleave="actions.closeMenuOnHover" data-wp-watch="callbacks.initMenu" tabindex="-1"><a class="wp-block-navigation-item__content" href="/cooperation-models/"><span class="wp-block-navigation-item__label">Cooperation Models</span></a><button aria-label="Cooperation Models submenu" class="wp-block-navigation__submenu-icon wp-block-navigation-submenu__toggle" data-wp-bind--aria-expanded="state.isSubmenuOpen" data-wp-on--click="actions.toggleMenuOnClick"><span class="q-nav-icon"></span></button><ul class="wp-block-navigation__submenu-container hide-desktop wp-block-navigation-submenu mega-menu-panel" data-wp-on--focus="actions.openMenuOnFocus" style="--mega-menu-grid-rows: 5; --mega-menu-right-grid-rows: 4;"><li class="wp-block-navigation-item mega-menu-card mega-menu-card--featured-image"><a aria-label="Cooperation Models" class="mega-menu-card__media-link" href="/cooperation-models/"><div class="mega-menu-card__media-meta"><strong class="mega-menu-card__media-title">Cooperation Models</strong><span aria-hidden="true" class="mega-menu-card__arrow mega-menu-card__arrow--featured"></span></div><figure class="mega-menu-card__media"></figure></a></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Team as a Service. Hire a cross-functional product team that takes care of delivery end to end." class="mega-menu-card__cover" href="/cooperation-models/team-as-a-service/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Team as a Service</p><p class="mega-menu-card__description">Hire a cross-functional product team that takes care of delivery end to end.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Fixed Scope and Price. Work to an agreed scope, budget and delivery plan, with clear expectations from day one." class="mega-menu-card__cover" href="/cooperation-models/fixed-scope-fixed-price-project/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Fixed Scope and Price</p><p class="mega-menu-card__description">Work to an agreed scope, budget and delivery plan, with clear expectations from day one.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Staff Augmentation. Scale your team with experienced engineers who work as part of your organisation." class="mega-menu-card__cover" href="/cooperation-models/staff-augmentation/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Staff Augmentation</p><p class="mega-menu-card__description">Scale your team with experienced engineers who work as part of your organisation.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Human-Agent Pods. Build with AI-assisted teams while keeping human oversight and accountability." class="mega-menu-card__cover" href="/cooperation-models/human-agent-pods/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Human-Agent Pods</p><p class="mega-menu-card__description">Build with AI-assisted teams while keeping human oversight and accountability.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li></ul></li><li class="wp-block-navigation-item has-child open-on-hover-click wp-block-navigation-submenu" data-mega-menu="true" data-wp-context='{ "submenuOpenedBy": { "click": false, "hover": false, "focus": false }, "type": "submenu", "modal": null, "previousFocus": null }' data-wp-interactive="core/navigation" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-on--pointerenter="actions.openMenuOnHover" data-wp-on--pointerleave="actions.closeMenuOnHover" data-wp-watch="callbacks.initMenu" tabindex="-1"><a class="wp-block-navigation-item__content" href="/about-us/"><span class="wp-block-navigation-item__label">About</span></a><button aria-label="About submenu" class="wp-block-navigation__submenu-icon wp-block-navigation-submenu__toggle" data-wp-bind--aria-expanded="state.isSubmenuOpen" data-wp-on--click="actions.toggleMenuOnClick"><span class="q-nav-icon"></span></button><ul class="wp-block-navigation__submenu-container wp-block-navigation-submenu mega-menu-panel" data-wp-on--focus="actions.openMenuOnFocus" style="--mega-menu-grid-rows: 4; --mega-menu-right-grid-rows: 3;"><li class="wp-block-navigation-item mega-menu-card mega-menu-card--featured-image"><a aria-label="About" class="mega-menu-card__media-link" href="/about-us/"><div class="mega-menu-card__media-meta"><strong class="mega-menu-card__media-title">About Us</strong><span aria-hidden="true" class="mega-menu-card__arrow mega-menu-card__arrow--featured"></span></div><figure class="mega-menu-card__media"></figure></a></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="About Us. Meet the people, values and culture behind Q." class="mega-menu-card__cover" href="/about-us/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">About Us</p><p class="mega-menu-card__description">Meet the people, values and culture behind Q.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Careers. Explore open roles and what it's like to work at Q." class="mega-menu-card__cover" href="/careers/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Careers</p><p class="mega-menu-card__description">Explore open roles and what it’s like to work at Q.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Blog. Stay up to date with our latest thinking and technical expertise." class="mega-menu-card__cover" href="/blog/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Blog</p><p class="mega-menu-card__description">Stay up to date with our latest thinking and technical expertise.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li></ul></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/contact-us/"><span class="wp-block-navigation-item__label">Contact Us</span></a></li></ul>
+<div class="wp-block-group mobile-menu-contact contact-section has-base-color has-text-color has-link-color wp-elements-2 is-content-justification-left is-layout-constrained wp-container-core-group-is-layout-adf9a74a wp-block-group-is-layout-constrained">
+<p class="has-text-align-left contact-section__eyebrow has-base-color has-text-color has-link-color wp-elements-3 wp-block-paragraph">Partner with us</p>
+<div class="wp-block-group is-layout-constrained wp-container-core-group-is-layout-28f75d35 wp-block-group-is-layout-constrained">
+<p class="contact-section__title has-base-color has-text-color has-link-color has-types-h-2-font-size wp-elements-4 wp-block-paragraph" style="text-transform:uppercase">Have a project or an idea to discuss?</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-btn-secondary"><a class="wp-block-button__link has-x-large-font-size has-custom-font-size wp-element-button" href="/contact-us/">Contact us</a></div>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+</div><div aria-hidden="true" class="mega-menu-overlay" hidden="hidden"></div></nav>
+<header class="wp-block-template-part">
+</header></div>
+<div class="wp-block-buttons hide-mobile is-content-justification-center is-nowrap is-layout-flex wp-container-core-buttons-is-layout-711c761b wp-block-buttons-is-layout-flex" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
+<div class="wp-block-button has-custom-width wp-block-button__width-100 is-desktop is-style-btn-primary"><a class="wp-block-button__link has-base-color has-text-color has-link-color has-medium-font-size has-custom-font-size wp-element-button" href="/contact-us/">Contact Us</a></div>
+<div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-btn-secondary menu-toggle" data-label-close="Close" data-label-open="Menu">
+<button class="wp-block-button__link has-base-color has-text-color has-link-color has-small-font-size has-custom-font-size wp-element-button" type="button">
+          Menu
+        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="wp-block-group container is-layout-constrained wp-block-group-is-layout-constrained" data-region="main">
+<div class="entry-content wp-block-post-content is-layout-flow wp-block-post-content-is-layout-flow" data-pattern="article">
+<div class="wp-block-group alignfull q-block has-contrast-background-color has-background is-layout-constrained wp-container-core-group-is-layout-afe6aa20 wp-block-group-is-layout-constrained">
+<div class="wp-block-group alignwide main-content has-custom-default-sec-border-color has-text-color has-link-color wp-elements-5 is-layout-flow wp-block-group-is-layout-flow"><div class="yoast-breadcrumbs"><span><span><a href="/">Home</a></span> <span class="separator">&gt;</span> <span><a href="/blog/">Blog</a></span> <span class="separator">&gt;</span> <span aria-current="page" class="breadcrumb_last">Flutter – Bloc vs. Riverpod State Management for Beginners</span></span></div>
+<h1 class="has-link-color wp-elements-6 wp-block-post-title has-text-color has-base-color" style="font-style:normal;font-weight:500;text-transform:uppercase">Flutter – Bloc vs. Riverpod State Management for Beginners</h1>
+<div class="q-reading-time">
+                    March 31, 2022 — 2 min read    </div>
+</div>
+</div>
+</div>
+</div><div class="wp-block-group container is-layout-constrained wp-block-group-is-layout-constrained" data-region="footer">
+<div class="wp-block-group container is-layout-constrained">
+<div class="entry-content wp-block-post-content is-layout-flow">
+<div class="wp-block-group alignfull q-block has-background is-layout-constrained">
+<div class="wp-block-group alignwide main-content is-layout-flow">
+<div class="post-layout-wrapper">
+<div class="entry-content wp-block-post-content is-layout-flow wp-block-post-content-is-layout-flow">
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">State management</strong><span> </span>is simply a solution that takes care of the changes that occur in the application. There are many state management solutions, and deciding which one to use can be overwhelming, especially to someone relatively new to<span> </span><strong class="e-p__strong">Flutter<span> </span></strong>or without much experience.</p>
+<p class="e-p wp-block-paragraph">When working on<span> </span><strong class="e-p__strong">complex</strong><span> </span>and<span> </span><strong class="e-p__strong">large<span> </span></strong><strong class="e-p__strong">production applications</strong>, it is crucial to choose a proper state management solution to make the application respond to the user accordingly and to be able to keep track of every change inside the application.</p>
+<p class="e-p wp-block-paragraph">In this blog, we will cover the basics of<strong class="e-p__strong"><span> </span>Bloc</strong><span> </span>and<span> </span><strong class="e-p__strong">Riverpod<span> </span></strong>on a simple fetch data from the API example and see how they simplify state management.</p>
+<h2 class="wp-block-heading e-h2" id="h-the-idea-behind-the-application">The idea behind the application</h2>
+<p class="e-p wp-block-paragraph">The main idea is to compare Bloc and Riverpod and see their similarities and dierences. We will use a<span> </span><strong class="e-p__strong">Random Fact API</strong>, and every time we press the buttons the API will be called. The random fact will then be returned and displayed on a card. By pressing the first button, we will demonstrate state management using Riverpod, and by pressing the second button state management using Bloc.</p>
+<h2 class="wp-block-heading e-h2" id="h-project-setup">Project setup</h2>
+<p class="e-p wp-block-paragraph">Create a new Flutter application and add required dependencies in pubspec.yaml file.</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-ts" data-lang="TypeScript"><code>name: bloc_vs_riverpod_example
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: "&gt;=2.15.1 &lt;3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  dio: ^4.0.4
+  flutter_bloc: ^8.0.1
+  equatable: ^2.0.3
+  flutter_riverpod: ^1.0.3
+  connectivity_plus: ^2.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+  bloc_test: ^9.0.2
+  state_notifier_test: ^0.0.4
+  mockito: ^5.0.17
+  build_runner: ^2.1.7
+
+flutter:
+  uses-material-design: true</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Plugins and packages:</p>
+<ul class="wp-block-list e-list e-list--blog">
+<li><strong class="e-p__strong">dio</strong>: A powerful HTTP client for Dart, which supports Interceptors, Global configuration, FormData, Request Cancellation, File downloading, Timeout, etc.</li>
+<li><strong class="e-p__strong">flutter_bloc</strong>: The Flutter package makes it easy to integrate blocs and cubits into Flutter.</li>
+<li><strong class="e-p__strong">equtable</strong>: Dart package that helps implement value-based equality without needing to override explicitly == and hashCode.</li>
+<li><strong class="e-p__strong">flutter_riverpod</strong>: A simple way to access state from anywhere in your application while robust and testable.</li>
+<li><strong class="e-p__strong">connectivity_plus</strong>: Flutter plugin for discovering the state of the network (WiFi &amp; mobile/cellular) connectivity on Android and iOS.</li>
+<li><strong class="e-p__strong">bloc_test</strong>: Testing library, which makes it easy to test blocs.</li>
+<li><strong class="e-p__strong">state_notifier_test</strong>: A testing library that makes it easy to test StateNotifier.</li>
+<li><strong class="e-p__strong">mockito</strong>: A mock framework inspired by Mockito with APIs for Fakes, Mocks, behavior verification, and stubbing.</li>
+<li><strong class="e-p__strong">build_runner</strong>: A build system for Dart code generation and modular compilation.</li>
+</ul>
+<h2 class="wp-block-heading e-h2" id="h-project-structure">Project Structure</h2>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">Common folder<span> </span></strong>contains network services and models that handle our application’s network logic and are independent, and can be easily used across the application.</p>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">Data folder</strong><span> </span>contains model classes that store and convert the data fetched from the API service.</p>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">Domain folder</strong><span> </span>contains repositories that connect our data and presentation layer.</p>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">Presentation folder<span> </span></strong>contains blocs, providers, and cubits, responsible for the state management, and pages and widgets, responsible for the user interface design.</p>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">Test folder<span> </span></strong>contains tests for testing the features of Bloc, state notifier, and cubit.</p>
+<p class="e-p wp-block-paragraph">This is a basic structure of clean architecture in the<span> </span><strong class="e-p__strong">Flutter community</strong>, but you can modify it according to your needs and choice, just as we did for this application.<span> </span><strong class="e-p__strong">Clean architecture<span> </span></strong>is significant and makes our code understandable, testable, and maintainable, so we can easily change or add something to our application in the future.</p>
+<h2 class="wp-block-heading e-h2" id="h-rest-api">Rest API</h2>
+<p class="e-p wp-block-paragraph">This project will use Random Facts API from<span> </span><a class="e-p__link" href="https://uselessfacts.jsph.pl/" rel="noreferrer noopener" target="_blank">here</a><span> </span>and this<span> </span><a class="e-p__link" href="https://uselessfacts.jsph.pl/random.json?language=en" rel="noreferrer noopener" target="_blank">endpoint</a>.</p>
+<p class="e-p wp-block-paragraph">The response is JSON in this format:</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>{
+    "id": "0b17d5b9-79dc-4ca1-81f1-215bd259fa7a",
+    "text": "Starfish haven`t got brains.",
+    "source": "djtech.net",
+    "source_url": "http://www.djtech.net/humor/useless_facts.htm",
+    "language": "en",
+    "permalink": "https://uselessfacts.jsph.pl/0b17d5b9-79dc-4ca1-81f1-215bd259fa7a"
+  }</code></pre>
+</div>
+</div>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-data-model">Data Model</h3>
+<p class="e-p wp-block-paragraph">Create a data model called fact.dart in the lib/data/models folder. You can transform the JSON to Dart using<a class="e-p__link" href="https://app.quicktype.io/" rel="noreferrer noopener" target="_blank"><span> </span></a><a class="e-p__link" href="https://app.quicktype.io/" rel="noreferrer noopener" target="_blank"></a><a class="e-p__link">Quicktype</a>, and paste the code into the file. In our application, we only need id and text properties so you can delete the rest.</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-ts" data-lang="TypeScript"><code>class Fact {
+    String id;
+    String text;
+  
+    Fact({
+      required this.id,
+      required this.text,
+    });
+  
+    factory Fact.fromJson(Map&lt;String, dynamic&gt; json) =&gt; Fact(
+          id: json['id'] as String,
+          text: json['text'] as String,
+        );
+  
+    Map&lt;String, dynamic&gt; toJson() {
+      final Map&lt;String, dynamic&gt; data = &lt;String, dynamic&gt;{};
+      data['id'] = id;
+      data['text'] = text;
+  
+      return data;
+    }
+  }</code></pre>
+</div>
+</div>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-api-service-and-api-response">API service and API response</h3>
+<p class="e-p wp-block-paragraph">Create a file called api_service.dart in lib/common/network folder and api_response.dart in lib/common/models. In ApiService class, we use the dio plugin to get a response from the<span> </span><strong class="e-p__strong">API</strong><span> </span>and the<strong class="e-p__strong"><span> </span>ApiResponse</strong><span> </span>class to wrap all the API response structures.</p>
+<p class="e-p wp-block-paragraph">This way, our application’s network logic is reusable and optimized for fetching data from any API, and it’s not dependent just on a specific JSON model.</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-ts" data-lang="TypeScript"><code>class ApiResponse&lt;T&gt; {
+    final bool success;
+    final T? data;
+    final String? error;
+  
+    ApiResponse({this.success = true, this.data, this.error})
+        : assert(
+            (success &amp;&amp; error == null &amp;&amp; data != null) ||
+                (!success &amp;&amp; error != null &amp;&amp; data == null),
+          );
+  }</code></pre>
+</div>
+</div>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-ts" data-lang="TypeScript"><code>import 'package:dio/dio.dart';
+
+
+import '../models/api_response.dart';
+import '../../data/models/fact.dart';
+
+
+class ApiService {
+  final Dio _dio = Dio();
+
+
+  final String _url = 'https://uselessfacts.jsph.pl/random.json?language=en';
+
+
+  Future&lt;ApiResponse&lt;Fact&gt;&gt; fetchData() async {
+    try {
+      Response response = await _dio.get(_url);
+      return ApiResponse(
+        data: Fact.fromJson(response.data),
+      );
+    } catch (error, stacktrace) {
+      // ignore: avoid_print
+      print("Exception occured: $error stackTrace: $stacktrace");
+
+
+      return ApiResponse(
+        success: false,
+        error: "Data not found / Connection issue",
+      );
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<h2 class="wp-block-heading e-h2" id="h-state-management">State management</h2>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">State</strong><span> </span>is data that changes in the lifecycle of our application. To track all the changes happening in our application, we require some<strong class="e-p__strong"><span> </span>state management</strong><span> </span>solution, so it can respond to the user accordingly and track data through the dierent screens.</p>
+<p class="e-p wp-block-paragraph">Create a state folder in the presentation folder and bloc and state_notifier folders inside the state folder. Then create fact_bloc.dart and fact_event.dart files in bloc folder and fact_notifier.dart in state_notifier folder.</p>
+<p class="e-p wp-block-paragraph">For this example application, place the fact_state.dart file outside the bloc folder since Riverpod’s state notifier also responds with the same states, so we don’t duplicate the code.</p>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-state">State</h3>
+<p class="e-p wp-block-paragraph">As already mentioned above, the<span> </span><strong class="e-p__strong">state</strong><span> </span>is data that changes in the lifecycle of our application. There are five states in this project:<span> </span><strong class="e-p__strong">FactInitialState</strong>,<span> </span><strong class="e-p__strong">FactLoadingState</strong>,<span> </span><strong class="e-p__strong">FactLoadedState</strong>,<span> </span><strong class="e-p__strong">FactErrorState</strong><span> </span>and<span> </span><strong class="e-p__strong">FactNoInternetState</strong>.</p>
+<ul class="wp-block-list e-list e-list--blog">
+<li><strong>FactInitialState</strong>: The application is in its initial state, and nothing has happened yet.</li>
+<li><strong>FactLoadingState</strong>: defines that the repository is waiting for the response from the server or is processing data.</li>
+<li><strong>FactLoadedState</strong>: is passed, with a random fact, upon the successful data fetching.</li>
+<li><strong>FactErrorState</strong>: is passed with an error message when something goes wrong.</li>
+<li><strong>FactNoInternetState</strong>: is passed when there is no internet connection available.</li>
+</ul>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-ts" data-lang="TypeScript"><code>part of 'bloc/fact_bloc.dart';
+
+@immutable
+abstract class FactState extends Equatable {
+  const FactState();
+
+  @override
+  List&lt;Object&gt; get props =&gt; [];
+}
+
+class FactInitialState extends FactState {}
+
+class FactLoadingState extends FactState {}
+
+class FactLoadedState extends FactState {
+  final Fact fact;
+
+  const FactLoadedState(this.fact);
+}
+
+class FactErrorState extends FactState {
+  final String error;
+
+  const FactErrorState(this.error);
+}
+
+class FactNoInternetState extends FactState {}</code></pre>
+</div>
+</div>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-ts" data-lang="TypeScript"><code>import '../common/network/api_service.dart';
+import '../common/models/api_response.dart';
+import '../data/models/fact.dart';
+
+
+class ApiRepository {
+  final _provider = ApiService();
+
+
+  Future&lt;ApiResponse&lt;Fact&gt;&gt; fetchFact() {
+    return _provider.fetchData();
+  }
+}</code></pre>
+</div>
+</div>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-event">Event</h3>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">Event</strong><strong class="e-p__strong"><span> </span></strong>represents that something has happened in the application. We can think of events as the input of the Bloc and states as the output. When the application receives an event, business logic gets executed, modifies our application’s state, and reflects it with some changes in the user interface.</p>
+<p class="e-p wp-block-paragraph">There are only two events in this application:<span> </span><strong class="e-p__strong">LoadFactEvent</strong><strong class="e-p__strong"><span> </span></strong>and<strong class="e-p__strong"><span> </span>NoInternetEvent</strong>.</p>
+<ul class="wp-block-list e-list e-list--blog">
+<li><strong>LoadFactEvent</strong><span> </span>is triggered when the device is connected to the internet and the button is pressed.</li>
+<li><strong>NoInternetEvent</strong><span> </span>is triggered when there is no internet connection.</li>
+</ul>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-ts" data-lang="TypeScript"><code>part of 'fact_bloc.dart';
+
+@immutable
+abstract class FactEvent extends Equatable {
+  const FactEvent();
+}
+
+class LoadFactEvent extends FactEvent {
+  @override
+  List&lt;Object&gt; get props =&gt; [];
+}
+
+class NoInternetEvent extends FactEvent {
+  @override
+  List&lt;Object?&gt; get props =&gt; [];
+}</code></pre>
+</div>
+</div>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-bloc">Bloc</h3>
+<p class="e-p wp-block-paragraph">In fact_bloc.dart file, we put all our business logic. On button press,<span> </span><strong class="e-p__strong">LoadFactEvent</strong><span> </span>is triggered, and Bloc is requesting data from ApiRepository.</p>
+<p class="e-p wp-block-paragraph">While the data is getting fetched,<strong class="e-p__strong"><span> </span>FactLoadingState</strong><span> </span>is emitted, and a circular progress indicator is displayed. If data is fetched successfully,<span> </span><strong class="e-p__strong">FactLoadedState</strong><span> </span>is emitted, and a random fact is displayed to the user, and if not,<span> </span><strong class="e-p__strong">FactErrorState</strong><span> </span>is emitted, and an Error message is displayed to the user.</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-ts" data-lang="TypeScript"><code>import 'package:bloc/bloc.dart';
+import '../../../data/models/fact.dart';
+import '../../../domain/api_repository.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
+part 'fact_event.dart';
+part '../fact_state.dart';
+
+class FactBloc extends Bloc&lt;FactEvent, FactState&gt; {
+  final ApiRepository _apiRepository;
+
+  FactBloc(
+    this._apiRepository,
+  ) : super(FactInitialState()) {
+    on&lt;LoadFactEvent&gt;(
+      (event, emit) async {
+        emit(FactLoadingState());
+        final fact = await _apiRepository.fetchFact();
+        if (fact.success) {
+          emit(
+            FactLoadedState(fact.data!),
+          );
+        } else {
+          emit(
+            FactErrorState(fact.error!),
+          );
+        }
+      },
+    );
+  }
+}</code></pre>
+</div>
+</div>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-riverpod">Riverpod</h3>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">Providers</strong>, as a crucial part of Riverpod,<strong class="e-p__strong"> </strong>are objects that encapsulate a piece of state and allow listening to that state. We are using a<span> </span><strong class="e-p__strong">StateNotifierProvider</strong><span> </span>to listen and expose a<span> </span><strong class="e-p__strong">StateNotifier</strong>. Create fact_state_notifier.dart file in presentation/state/state_notifier.</p>
+<p class="e-p wp-block-paragraph">Define a state notifier provider to implement<span> </span><strong class="e-p__strong">FactState</strong><span> </span>so that we can expose states. Similar to our fact bloc logic, on button press, the initial state is changed to<span> </span><strong class="e-p__strong">FactLoadingState</strong>, and circular progress indicator is displayed, and data is requested from ApiRepository.</p>
+<p class="e-p wp-block-paragraph">If the data is fetched successfully, the state is changed to<span> </span><strong class="e-p__strong">FactLoadedState</strong>, and the random fact is displayed to the user. And if not, the state is changed to<span> </span><strong class="e-p__strong">FactErrorState</strong>, and an error message is displayed to the user.</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-ts" data-lang="TypeScript"><code>import 'package:bloc_vs_riverpod_example/presentation/state/bloc/fact_bloc.dart';
+import '../../../domain/api_repository.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final factsNotifierProvider = StateNotifierProvider&lt;FactsNotifier, FactState&gt;(
+  (ref) =&gt; FactsNotifier(
+    ApiRepository(),
+  ),
+);
+
+class FactsNotifier extends StateNotifier&lt;FactState&gt; {
+  final ApiRepository _apiRepository;
+
+  FactsNotifier(this._apiRepository) : super(FactInitialState());
+
+  void load() async {
+    state = FactLoadingState();
+    final fact = await _apiRepository.fetchFact();
+    if (fact.success) {
+      state = FactLoadedState(fact.data!);
+    } else {
+      state = FactErrorState(fact.error!);
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<h2 class="wp-block-heading e-h2" id="h-checking-internet-connection-continuously">Checking internet connection continuously</h2>
+<p class="e-p wp-block-paragraph">Using connectivity plus, we are listening to the changes in connection. Create network_cubit.dart in the presentation/state/network folder.<span> </span><strong class="e-p__strong">NetworkInfoCubit</strong><span> </span>depends on the connectivity plugin and can react to connection changes, so we can track if there is an internet connection on our device and emit dierent states accordingly.</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:bloc/bloc.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+
+class NetworkInfoCubit extends Cubit&lt;ConnectivityResult&gt; {
+  NetworkInfoCubit(Connectivity _connectivityService)
+      : super(ConnectivityResult.wifi) {
+    _connectivityService.onConnectivityChanged.listen((event) {
+      connectionChanged(event);
+    });
+  }
+  connectionChanged(ConnectivityResult result) {
+    emit(result);
+  }
+}
+
+bool isConnected(ConnectivityResult connection) =&gt;
+    connection != ConnectivityResult.none;</code></pre>
+</div>
+</div>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-pages">Pages</h3>
+<p class="e-p wp-block-paragraph">The user interface is<span> </span><strong class="e-p__strong">straightforward</strong>, just one screen with two buttons and two cards.</p>
+<p class="e-p wp-block-paragraph">Create a custom button,<span> </span><strong>LoadFactButton</strong>, which excepts these arguments:</p>
+<p class="e-p wp-block-paragraph"><strong>onPressed</strong>: specifies the way of changing the state and builds the UI using Bloc or Riverpod.</p>
+<p class="e-p wp-block-paragraph"><strong>connected</strong>: if there is an internet connection, the button is enabled and can be pressed, and if there is no internet connection, the button is disabled and can’t be pressed.</p>
+<p class="e-p wp-block-paragraph"><strong>state</strong>: if the current state is<span> </span><strong>FactLoadingState</strong>, a circular progress indicator is displayed while data is being fetched, and if the state is<span> </span><strong>FactLoadedState</strong>, a random fact is displayed in the card.</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-ts" data-lang="TypeScript"><code>class LoadFactButton extends StatelessWidget {
+    final FactState state;
+    final Function()? onPressed;
+    final bool isConnected;
+    const LoadFactButton(
+        {Key? key,
+        required this.state,
+        this.onPressed,
+        required this.isConnected})
+        : super(key: key);
+  
+    @override
+    Widget build(BuildContext context) {
+      return Column(
+        children: [
+          ElevatedButton(
+            onPressed: isConnected ? onPressed : null,
+            child: const Text('Load random fact'),
+          ),
+          const SizedBox(height: 25),
+          if (state is FactLoadingState)
+            const Center(child: CircularProgressIndicator()),
+          if (state is FactLoadedState)
+            FactCard(
+              (state as FactLoadedState).fact,
+            ),
+        ],
+      );
+    }
+  }</code></pre>
+</div>
+</div>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-buttons-appearance-according-to-the-state">Buttons appearance according to the state</h3>
+<p class="e-p wp-block-paragraph">After creating the<strong class="e-p__strong"> Bloc</strong><span> </span>and implementing all the functionalities we need to provide the fact bloc to the widget tree, so we can display random facts in the cards after pressing the buttons.</p>
+<p class="e-p wp-block-paragraph">Wrap the Scaold with a<span> </span><strong class="e-p__strong">BlocProvider</strong>, so our fact bloc is provided to its children. This way, we are initializing the Bloc before using it. Then wrap one of the LoadFactButtons with<span> </span><strong class="e-p__strong">BlocBuilder&lt;FactBloc, FactState&gt;</strong><span> </span>so we can rebuild the UI depending on the state and pass<span> </span><strong class="e-p__strong">read&lt;FactBloc&gt;().add(LoadFactEvent()</strong>, as onPressed argument.</p>
+<p class="e-p wp-block-paragraph">For widgets to be able to read the factsNotifierProvider, wrap the entire application with<span> </span><strong class="e-p__strong">ProviderScope</strong>. This is where the state of our provider will be stored. Riverpod lets us access providers,<strong class="e-p__strong"><span> </span>by reference</strong><span> </span>and not<span> </span><strong class="e-p__strong">by type</strong>.</p>
+<p class="e-p wp-block-paragraph">Replace<span> </span><strong class="e-p__strong">StatelessWidget</strong><span> </span>with<span> </span><strong class="e-p__strong">ConsumerWidget</strong>, so our build method can receive an extra<span> </span><strong class="e-p__strong">ref</strong><span> </span>parameter and extend the<span> </span><strong class="e-p__strong">_FactsState</strong><span> </span>with<span> </span><strong class="e-p__strong">ConsumerState</strong>, so the state has a<span> </span><strong class="e-p__strong">ref</strong><span> </span>object.</p>
+<p class="e-p wp-block-paragraph">With<span> </span><strong class="e-p__strong">ref.watch(factsNotifierProvider)</strong><span> </span>we watch the factsNotifierProvider’s state and with passing<strong class="e-p__strong"><span> </span>ref.read(factsNotifierProvider.notifier).load()<span> </span></strong>as onPressed argument to second LoadEventButton we can set a new state and load the random fact.</p>
+<p class="e-p wp-block-paragraph">Also, wrap the entire app with a<span> </span><strong class="e-p__strong">BlocProvider</strong><span> </span>and pass the<span> </span><strong class="e-p__strong">NetworkInfoCubit</strong>, and wrap the Scaold with<span> </span><strong class="e-p__strong">BlocBuilder</strong><strong class="e-p__strong">&lt;</strong><strong class="e-p__strong">NetworkInfoCubit</strong><strong class="e-p__strong">,<span> </span></strong><strong class="e-p__strong">ConnectivityResult</strong><strong class="e-p__strong">&gt;</strong><span> </span>so we can track network changes in our application and emit the right state accordingly.</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:bloc_vs_riverpod_example/data/models/fact.dart';
+import 'package:bloc_vs_riverpod_example/domain/api_repository.dart';
+import 'package:bloc_vs_riverpod_example/presentation/state/bloc/fact_bloc.dart';
+import 'package:bloc_vs_riverpod_example/presentation/state/network/network_cubit.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import '../state/state_notifier/facts_notifier.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+class FactsPage extends ConsumerStatefulWidget {
+  const FactsPage({Key? key}) : super(key: key);
+
+  @override
+  _FactsState createState() =&gt; _FactsState();
+}
+
+class _FactsState extends ConsumerState&lt;FactsPage&gt; {
+  @override
+  Widget build(BuildContext context) {
+    final ApiRepository repo = ApiRepository();
+    final state = ref.watch(factsNotifierProvider);
+    return BlocBuilder&lt;NetworkInfoCubit, ConnectivityResult&gt;(
+      builder: (context, connectivityState) {
+        return BlocProvider(
+          create: (context) =&gt; FactBloc(repo),
+          child: Scaold(
+            appBar: AppBar(
+              title: const Text('Random Facts'),
+            ),
+            body: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                LoadFactButton(
+                  state: state,
+                  onPressed: () =&gt;
+                      ref.read(factsNotifierProvider.notifier).load(),
+                  isConnected: isConnected(connectivityState),
+                ),
+                const SizedBox(height: 35),
+                BlocBuilder&lt;FactBloc, FactState&gt;(
+                  builder: (context, state) {
+                    return LoadFactButton(
+                      state: state,
+                      onPressed: () =&gt;
+                          context.read&lt;FactBloc&gt;().add(LoadFactEvent()),
+                      isConnected: isConnected(connectivityState),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class LoadFactButton extends StatelessWidget {
+  final FactState state;
+  final Function()? onPressed;
+  final bool isConnected;
+  const LoadFactButton(
+      {Key? key,
+      required this.state,
+      this.onPressed,
+      required this.isConnected})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ElevatedButton(
+          onPressed: isConnected ? onPressed : null,
+          child: const Text('Load random fact'),
+        ),
+        const SizedBox(height: 25),
+        if (state is FactLoadingState)
+          const Center(child: CircularProgressIndicator()),
+        if (state is FactLoadedState)
+          FactCard(
+            (state as FactLoadedState).fact,
+          ),
+      ],
+    );
+  }
+}
+
+class FactCard extends StatelessWidget {
+  final Fact fact;
+  const FactCard(this.fact, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: &lt;Widget&gt;[
+          ListTile(
+            leading: const Icon(Icons.lightbulb),
+            title: Text(fact.text),
+          ),
+        ],
+      ),
+    );
+  }
+}</code></pre>
+</div>
+</div>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-ts" data-lang="TypeScript"><code>import 'package:bloc_vs_riverpod_example/presentation/state/network/network_cubit.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'presentation/screen/facts_page.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ProviderScope(
+      child: BlocProvider(
+        create: (context) =&gt; NetworkInfoCubit(Connectivity()),
+        child: MaterialApp(
+          title: 'Random Fact',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            primarySwatch: Colors.teal,
+          ),
+          home: const FactsPage(),
+        ),
+      ),
+    );
+  }
+}</code></pre>
+</div>
+</div>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-testing">Testing</h3>
+<p class="e-p wp-block-paragraph">Since we are focusing on state management, we are testing fact bloc and network info cubit using<span> </span><strong class="e-p__strong">bloc_test<span> </span></strong>package, fact state notifier using<strong class="e-p__strong"><span> </span>state_notifier_test</strong><span> </span>package and using<span> </span><strong class="e-p__strong">mockito<span> </span></strong>package for creating mocks we need for testing.</p>
+<p class="e-p wp-block-paragraph">To use Mockito’s generated mock run build_runner with this command:</p>
+<pre class="wp-block-code"><code>dart <span class="hljs-built_in">run</span> build_runner build</code></pre>
+<p class="e-p wp-block-paragraph">Build runner generates a file with a name based on the file containing the<span> </span><strong class="e-p__strong">@GenerateMocks</strong><span> </span>annotation.</p>
+<p class="e-p wp-block-paragraph">Write some tests to verify if the logic of the fact bloc is correct or not. For example, we are testing the logic which runs upon receiving the LoadFactEvent.</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:bloc_test/bloc_test.dart';
+import 'package:bloc_vs_riverpod_example/common/models/api_response.dart';
+import 'package:bloc_vs_riverpod_example/data/models/fact.dart';
+import 'package:bloc_vs_riverpod_example/domain/api_repository.dart';
+import 'package:bloc_vs_riverpod_example/presentation/state/bloc/fact_bloc.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+import 'facts_bloc_test.mocks.dart';
+
+@GenerateMocks([ApiRepository])
+void main() {
+  final mockApiRepo = MockApiRepository();
+  final fact = Fact(id: '', text: '');
+
+  blocTest&lt;FactBloc, FactState&gt;(
+    'Block emits [] when no events are added.',
+    build: () =&gt; FactBloc(mockApiRepo),
+    expect: () =&gt; const &lt;FactState&gt;[],
+  );
+
+  blocTest(
+    'Bloc emits [FactLoadingState, FactLoadedState] when api is fetched successfully',
+    build: () =&gt; FactBloc(mockApiRepo),
+    setUp: () async {
+      when(mockApiRepo.fetchFact()).thenAnswer(
+        (realInvocation) async {
+          return ApiResponse(
+            success: true,
+            data: fact,
+          );
+        },
+      );
+    },
+    act: (FactBloc bloc) {
+      bloc.add(LoadFactEvent());
+    },
+    expect: () =&gt; [
+      FactLoadingState(),
+      FactLoadedState(fact),
+    ],
+    tearDown: () {
+      reset(mockApiRepo);
+    },
+    verify: (FactBloc bloc) =&gt; verify(mockApiRepo.fetchFact()).called(1),
+  );
+
+  blocTest(
+    'Bloc [FactLoadingState, FactErrorState] when api is not fetched successfully',
+    build: () =&gt; FactBloc(mockApiRepo),
+    setUp: () async {
+      when(mockApiRepo.fetchFact()).thenAnswer(
+        (realInvocation) async {
+          return ApiResponse(
+            success: false,
+            error: 'Error',
+          );
+        },
+      );
+    },
+    act: (FactBloc bloc) {
+      bloc.add(LoadFactEvent());
+    },
+    expect: () =&gt; [
+      FactLoadingState(),
+      const FactErrorState('Error'),
+    ],
+    verify: (FactBloc bloc) =&gt; verify(mockApiRepo.fetchFact()).called(1),
+  );
+}</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Write some tests to verify if the logic of the fact state notifier is correct or not. For example, we are testing the logic which runs upon calling the load() method.</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:bloc_vs_riverpod_example/common/models/api_response.dart';
+import 'package:bloc_vs_riverpod_example/data/models/fact.dart';
+import 'package:bloc_vs_riverpod_example/domain/api_repository.dart';
+import 'package:bloc_vs_riverpod_example/presentation/state/bloc/fact_bloc.dart';
+import 'package:bloc_vs_riverpod_example/presentation/state/state_notifier/facts_notifier.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+import 'package:state_notifier_test/state_notifier_test.dart';
+
+import 'facts_state_notifier_test.mocks.dart';
+
+@GenerateMocks([ApiRepository])
+void main() {
+  final mockApiRepo = MockApiRepository();
+  final fact = Fact(id: '', text: '');
+
+  stateNotifierTest&lt;FactsNotifier, FactState&gt;(
+    'Emits [] when no methods are called',
+    build: () =&gt; FactsNotifier(mockApiRepo),
+    actions: (FactsNotifier stateNotifier) {},
+    expect: () =&gt; [],
+  );
+
+  stateNotifierTest&lt;FactsNotifier, FactState&gt;(
+      'Emits [FactLoadingState, FactLoadedState] when api is fetched successfully',
+      build: () =&gt; FactsNotifier(mockApiRepo),
+      setUp: () async {
+        when(mockApiRepo.fetchFact()).thenAnswer(
+          (realInvocation) async {
+            return ApiResponse(
+              data: fact,
+              success: true,
+            );
+          },
+        );
+      },
+      actions: (FactsNotifier stateNotifier) {
+        stateNotifier.load();
+      },
+      expect: () =&gt; [
+            FactLoadingState(),
+            FactLoadedState(fact),
+          ]);
+
+  stateNotifierTest&lt;FactsNotifier, FactState&gt;(
+      'Emits [FactLoadingState, FactLoadedState] when api is not fetched successfully',
+      build: () =&gt; FactsNotifier(mockApiRepo),
+      setUp: () async {
+        when(mockApiRepo.fetchFact()).thenAnswer(
+          (realInvocation) async {
+            return ApiResponse(
+              error: 'Error',
+              success: false,
+            );
+          },
+        );
+      },
+      actions: (FactsNotifier stateNotifier) {
+        stateNotifier.load();
+      },
+      expect: () =&gt; [
+            FactLoadingState(),
+            const FactErrorState('Error'),
+          ]);</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Write some tests to verify if the logic of the network info cubit is correct or not. We are testing the logic which runs upon changing the connection types.</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-ts" data-lang="TypeScript"><code>import 'dart:async';
+import 'package:bloc_test/bloc_test.dart';
+import 'package:bloc_vs_riverpod_example/presentation/state/network/network_cubit.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+
+import 'network_cubit_test.mocks.dart';
+
+class MockNetworkInfoCubit extends MockCubit&lt;ConnectivityResult&gt;
+    implements NetworkInfoCubit {}
+
+@GenerateMocks([Connectivity])
+void main() {
+  test('Emits dierent connection types when connection is changed', () {
+    final _connectivityService = MockConnectivity();
+    final _cubit = MockNetworkInfoCubit();
+
+    whenListen(
+      _cubit,
+      Stream.fromIterable([
+        ConnectivityResult.mobile,
+        ConnectivityResult.none,
+        ConnectivityResult.wifi,
+      ]),
+      initialState: ConnectivityResult.wifi,
+    );
+
+    when(_connectivityService.onConnectivityChanged)
+        .thenAnswer((realInvocation) {
+      return Stream.fromIterable([
+        ConnectivityResult.mobile,
+        ConnectivityResult.none,
+        ConnectivityResult.wifi,
+      ]);
+    });
+
+    expectLater(
+      _cubit.stream,
+      emitsInOrder(
+        &lt;ConnectivityResult&gt;[
+          ConnectivityResult.mobile,
+          ConnectivityResult.none,
+          ConnectivityResult.wifi
+        ],
+      ),
+    );
+  });
+}</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Run the tests using a Testing menu or use a terminal to run the tests by executing the following commands:</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-ts" data-lang="TypeScript"><code>flutter test test/bloc/fact_bloc_test.dart</code></pre>
+</div>
+</div>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-ts" data-lang="TypeScript"><code>flutter test test/state_notifier/fact_state_notifier.dart</code></pre>
+</div>
+</div>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-ts" data-lang="TypeScript"><code>flutter test test/cubit/network_cubit_test.dart</code></pre>
+</div>
+</div>
+<h2 class="wp-block-heading e-h2" id="h-conclusion">Conclusion</h2>
+<p class="e-p wp-block-paragraph">Both<span> </span><strong class="e-p__strong">Bloc</strong><span> </span>and<span> </span><strong class="e-p__strong">Riverpod</strong><span> </span>are powerful and advanced<span> </span><strong class="e-p__strong">state management solutions</strong>. Every state management solution has its pros and cons, and as we stated earlier, there isn’t a solution that is best for every single application.</p>
+<p class="e-p wp-block-paragraph">It’s important to choose the one that works best for you or your team and the project. If you are new to Bloc or Riverpod or don’t have much experience in state management in<span> </span><strong class="e-p__strong">Flutter</strong>, I hope this blog helped you understand the basics and how they work. Here is the GitHub link to the<a class="e-p__link" href="https://github.com/NoaTubic/flutter_bloc_vs_riverpod_example" rel="noreferrer noopener" target="_blank"><span> </span>project</a><a class="e-p__link">.</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<button class="bp-totop" type="button" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 48 48" aria-hidden="true"><circle class="bp-totop__track" cx="24" cy="24" r="21"/><circle class="bp-totop__prog" cx="24" cy="24" r="21"/><path d="M24 32V16M17 23l7-7 7 7"/></svg>
+</button>
+<script src="/_kit/lib/gsap.min.js" defer></script>
+<script src="/_kit/lib/ScrollTrigger.min.js" defer></script>
+<script src="/_kit/lib/SplitText.min.js" defer></script>
+<script src="/_kit/lib/lenis.min.js" defer></script>
+<script src="/assets/js/ui.js" defer></script>
+<script src="/assets/js/mlen.js" defer></script>
+<script src="/assets/js/devices.js" defer></script>
+<script src="/assets/js/motion.js" defer></script>
+<script src="/assets/js/sx.js" defer></script>
+<script src="/assets/js/bg.js" defer></script>
+<script src="/assets/js/rings.js" defer></script>
+<script id="accessibly-widget" src="https://dash.accessibly.app/widget/01a0144d-16df-7248-972d-6872c110d7a7/autoload.js" defer></script>
+</body></html>

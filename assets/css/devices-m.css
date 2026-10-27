@@ -1,0 +1,49 @@
+/* B · Blueprint, round 2 : devices on mobile (≤781px) — no overflow, vertical rails, swipe where long */
+@media (max-width: 781px) {
+  /* stepper → vertical rail on the left, nodes on it */
+  .bp-stepper { grid-auto-flow: row !important; grid-template-columns: minmax(0, 1fr) !important; padding-top: 0 !important; padding-left: 58px !important; gap: 16px !important;
+    display: grid !important; overflow: visible !important; }
+  .bp-rail { left: 21px; right: auto; top: 10px; bottom: 10px; width: 2px; height: auto;
+    background: repeating-linear-gradient(180deg, rgba(146, 226, 255, .3) 0 6px, transparent 6px 11px); }
+  .bp-rail__fill { transform: scaleY(var(--p, 0)); transform-origin: 50% 0; }
+  .bp-rail__pulse { left: -6px; top: calc(var(--p, 0) * 100%); margin: -7px 0 0; }
+  .bp-stepper > .q-card { flex: none !important; max-width: none !important; min-height: 0 !important; }
+  .bp-stepper .bp-stepnum, .bp-stepper .bp-stepnode { top: 18px; left: -59px; width: 44px; height: 44px; font-size: 13px !important; box-shadow: 0 0 0 5px #0e1413; }
+  .bp-stepper > .q-card::after { left: -15px !important; top: 39px !important; width: 15px !important; height: 1px !important; }
+
+  /* changer phase bar: compact */
+  .bp-phasebar { gap: 4px; } .bp-phasebar__seg { height: 24px; padding: 0 6px; } .bp-phasebar__idx { font-size: 10px; }
+  .bp-mini { height: 84px; margin-bottom: 16px; }
+
+  /* day timeline: bar stays (compact), phase columns stack */
+  .bp-daybar { gap: 3px !important; } .bp-day { height: 34px; padding: 0 0 5px 4px; font-size: 9.5px; letter-spacing: 0; }
+  .bp-phased { grid-template-columns: minmax(0, 1fr) !important; gap: 12px !important; display: grid !important; overflow: visible !important; }
+  .bp-phased > .wp-block-column { grid-column: auto; flex: none !important; max-width: none !important; }
+
+  /* infinity loop: numbers on the path only (titles live in the cards below) */
+  .bp-loop { width: 100%; margin: 18px 0 30px; }
+  .bp-loop__txt { display: none; }
+  .bp-loop__node { left: -12px; top: -12px; width: 24px; height: 24px; font-size: 9.5px; }
+
+  /* tree: thinner spine, rows full width */
+  .bp-tree { padding-left: 44px !important; }
+  .bp-tree::before { left: 15px; } .bp-tree__root, .bp-tree__base { left: 6px; width: 18px; height: 18px; }
+  .bp-tree__branch { width: 28px; } .bp-tree__a, .bp-tree__h { display: none; }
+  .bp-tree__row { flex-direction: column; gap: 6px !important; }
+  .bp-tree__row > .wp-block-column { flex-basis: auto !important; }
+
+  /* pods + metric cards */
+  .bp-pods { grid-template-columns: minmax(0, 1fr); }
+  .metric-card > :is(h2, h3, h4):first-child { font-size: clamp(2.2rem, 11vw, 3rem) !important; }
+  .bp-certs { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  .bp-certs > figure { min-height: 104px !important; padding: 24px 10px 12px !important; border-bottom: 1px solid var(--bp-edge) !important; }
+  .bp-certs > figure:nth-child(3n) { border-right: 0 !important; }
+  .bp-certs > figure img { max-height: 54px; }
+}
+@media (max-width: 781px) {
+  /* logo marquee: small cells in a row (WP core stacks columns at 100% on mobile) */
+  .wp-block-qfse-q-moving-client-row .wp-block-columns { flex-wrap: nowrap !important; gap: 10px !important; }
+  .wp-block-qfse-q-moving-client-row .wp-block-column { flex: 0 0 132px !important; flex-basis: 132px !important; width: 132px !important; max-width: 132px !important;
+    height: 64px; min-height: 0 !important; padding: 10px 14px !important; display: grid !important; place-items: center; }
+  .wp-block-qfse-q-moving-client-row .wp-block-column img { max-height: 30px !important; width: auto !important; max-width: 100% !important; }
+}

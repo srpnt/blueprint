@@ -1,0 +1,123 @@
+/* ==========================================================================
+   B · BLUEPRINT : final round S3b, mobile length (gate 5: ≤ live +5% at 390)
+   Mobile only (≤781px). Desktop is untouched: every rule sits in the media query below.
+   Scoped by pattern + block class / transform classes (bp-swipe, bp-fold, bp-ffold), never core blocks alone.
+   ========================================================================== */
+@media (max-width: 781px) {
+  /* 1. vertical rhythm: chapter rule + section padding 56-72px between headings (was ~78 + up to 56 + 48) */
+  .entry-content > .bp-rule { padding-top: 18px !important; padding-bottom: 6px !important; margin-bottom: 0 !important; }
+  .entry-content > [data-pattern][data-bp-chapter] { padding-top: 16px !important; }
+  .entry-content > [data-pattern]:not([data-pattern="hero"]) { padding-bottom: 24px !important; }
+  .entry-content > [data-pattern="media"], .entry-content > [data-pattern="text-columns"]:not([data-bp-chapter]),
+  .entry-content > [data-pattern="link-cards"]:not([data-bp-chapter]), .entry-content > [data-pattern="numbered-cards"]:not([data-bp-chapter]) { padding-top: 8px !important; }
+  [data-pattern="hero"] { padding-bottom: 28px !important; }
+  .entry-content [data-pattern] .wp-block-columns { margin-bottom: 0; }
+  [data-pattern="cta"] > .main-content, [data-pattern="cta"] > .wp-block-group { padding: 24px 18px !important; }
+
+  /* 2. swipe rows (transforms.py assigns .bp-swipe to card rows / image rows / card grids that stacked at 390) */
+  .entry-content .bp-swipe { display: flex !important; flex-wrap: nowrap !important; flex-direction: row !important; overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x mandatory; gap: 12px !important; grid-template-columns: none !important;
+    margin-inline: calc(-1 * var(--bp-gutter)) !important; padding: 4px var(--bp-gutter) 14px !important;
+    scroll-padding-inline: var(--bp-gutter); scrollbar-width: none; overscroll-behavior-x: contain; }
+  .entry-content .bp-swipe::-webkit-scrollbar { display: none; }
+  .entry-content .bp-swipe > .wp-block-column, .entry-content .bp-swipe > .q-card, .entry-content .bp-swipe > .is-style-card,
+  .entry-content .bp-swipe > .q-image-cards__stack > .is-style-card {
+    flex: 0 0 84% !important; max-width: 84% !important; width: auto !important; min-width: 0; margin: 0 !important; scroll-snap-align: start; }
+  .entry-content .bp-swipe + .bp-swipe { margin-top: 0 !important; padding-top: 0 !important; }
+  /* link-card columns: the S1 per-column .bp-index scroller becomes a plain slide */
+  .entry-content .bp-swipe > .bp-index { display: block !important; overflow: visible !important; margin: 0 !important; padding: 0 !important; }
+  .entry-content .bp-swipe > .bp-index > .q-link-card { flex: none !important; max-width: none !important; width: 100% !important; height: 100%; min-height: 0 !important; }
+  /* image rows: one row of photos, 300px tall, cropped (never stretched) */
+  .entry-content .bp-swipe--media > .wp-block-column { flex-basis: 70% !important; max-width: 70% !important; }
+  .entry-content .bp-swipe--media figure { margin: 0 !important; height: 100%; }
+  .entry-content .bp-swipe--media img { width: 100% !important; height: 300px !important; max-height: none; object-fit: cover; aspect-ratio: auto !important; }
+  /* org-tree / pod card grids: the tree glyphs need the desktop row, hide them in the swipe */
+  .entry-content .bp-swipe--grid > :is(.bp-org__hub, .bp-org__bus, .bp-org__base), .entry-content .bp-swipe--grid .bp-org__drop { display: none !important; }
+  /* system map (service modules): featured + stack become one swipe row */
+  .entry-content .bp-swipe--sys > .q-image-cards__stack { display: contents !important; }
+  .entry-content .bp-swipe--sys > .bp-wires, .entry-content .bp-swipe--sys .bp-port { display: none !important; }
+  .entry-content .bp-swipe--sys > .q-image-cards__featured { flex: 0 0 84% !important; max-width: 84% !important; margin: 0 !important; scroll-snap-align: start; }
+  .entry-content .bp-swipe--sys .q-image-cards__image img { max-height: 180px; object-fit: cover; }
+
+  /* 3. collapsible heading + text rows (mlen.js: heading = toggle, first row open, aria-expanded) */
+  .bp-fold__btn { all: unset; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 14px; width: 100%;
+    min-height: 44px; cursor: pointer; font: inherit; color: inherit; letter-spacing: inherit; text-align: left; }
+  .bp-fold__btn::after { content: ""; flex: 0 0 10px; width: 10px; height: 10px; margin-right: 4px; border-right: 1.5px solid var(--bp-green, #01ff40);
+    border-bottom: 1.5px solid var(--bp-green, #01ff40); transform: translateY(-3px) rotate(45deg); transition: transform .25s ease; }
+  .bp-fold.is-open .bp-fold__btn::after { transform: translateY(2px) rotate(-135deg); }
+  .bp-fold__btn:focus-visible { outline: 2px solid var(--bp-green, #01ff40); outline-offset: 3px; border-radius: 4px; }
+  .bp-fold { border-top: 1px solid var(--bp-line, rgba(255, 255, 255, .1)); padding-top: 6px; gap: 4px !important; }
+  .bp-fold > .wp-block-column:first-of-type :is(h2, h3, h4, h5) { margin: 0 !important; font-size: clamp(1.1rem, 5vw, 1.3rem) !important; }
+  .bp-fold:not(.is-open) > .wp-block-column:not(:first-of-type) { display: none !important; }
+  .bp-fold-col { border-top: 1px solid var(--bp-line, rgba(255, 255, 255, .1)); padding-top: 6px !important; }
+  .bp-fold-col > :is(h2, h3, h4, h5):first-child { margin: 0 !important; }
+  .bp-fold-col:not(.is-open) > :not(:first-child) { display: none !important; }
+  .bp-fold-group { row-gap: 0 !important; gap: 0 !important; }
+  .bp-fold-group > .bp-fold, .bp-fold-group > .bp-fold-col { margin-top: 0 !important; margin-bottom: 0 !important; padding-bottom: 8px; }
+
+  /* 4. footer: sitemap submenus fold on mobile (link stays a link; separate 44px toggle) */
+  .footer-container .footer-navigation ul.wp-block-navigation__container:not(ul ul) { display: block !important; }
+  .footer-container .footer-navigation ul.wp-block-navigation__container:not(ul ul) > li { display: block; position: relative; min-height: 40px; padding: 8px 48px 8px 0; margin: 0; border-bottom: 1px solid var(--bp-line, rgba(255, 255, 255, .08)); }
+  .footer-container .bp-ffold:not(.is-open) > ul { display: none !important; }
+  .footer-container .bp-ffold > button:not(.bp-ffold__btn) { display: none !important; }
+  .footer-container .bp-ffold__btn { all: unset; position: absolute; right: 0; top: 0; width: 44px; height: 44px; cursor: pointer; display: grid; place-items: center; }
+  .footer-container .bp-ffold__btn::before { content: ""; width: 8px; height: 8px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform .25s ease; }
+  .footer-container .bp-ffold.is-open > .bp-ffold__btn::before { transform: translateY(2px) rotate(-135deg); }
+  .footer-container .bp-ffold__btn:focus-visible { outline: 2px solid var(--bp-green, #01ff40); outline-offset: -4px; border-radius: 6px; }
+  .footer-container .bp-ffold.is-open > ul { margin-top: 8px; }
+  .footer-container .footer-columns { row-gap: 20px !important; }
+  .footer-container .logo-container { margin-top: 24px !important; }
+
+  /* masonry-like card stacks: every card of every column is a slide */
+  .entry-content .bp-swipe--cols > .wp-block-column { display: contents !important; }
+  .entry-content .bp-swipe--cols > .wp-block-column > * { flex: 0 0 84% !important; max-width: 84% !important; margin: 0 !important; scroll-snap-align: start; }
+  .entry-content .bp-swipe--fig img { max-height: 220px; width: 100%; object-fit: cover; }
+  /* footer columns: legal nav spans two rows so offices + social share its height */
+  .footer-container .footer-columns > .wp-block-column:nth-child(4):nth-last-child(3) { grid-row: span 2; }
+  .footer-container .footer-columns > .wp-block-column { margin: 0 !important; }
+  .footer-container .q-block { padding-top: 30px !important; padding-bottom: 26px !important; }
+  .footer-container .footer-navigation ul.wp-block-navigation__container:not(ul ul) > li { min-height: 38px; padding-top: 7px; padding-bottom: 7px; }
+
+  /* 4b. spec rows (bp-tree feature rows): key | value side by side (mlen.js marks short keys .bp-kv), tighter rows */
+  .bp-tree { padding-top: 12px !important; padding-bottom: 12px !important; }
+  .bp-tree > .bp-tree__row { padding-top: 10px !important; padding-bottom: 10px !important; margin-bottom: 6px !important; }
+  .bp-tree > .bp-kv { flex-wrap: nowrap !important; gap: 14px !important; grid-template-columns: 34% minmax(0, 1fr) !important; }
+  .bp-tree > .bp-kv > .wp-block-column { grid-row: 1; } .bp-tree > .bp-kv > .wp-block-column:last-child { grid-column: 2; }
+  .bp-fold:not(.is-open) { padding-bottom: 2px !important; } .bp-fold > .wp-block-column:first-of-type { margin: 0 !important; padding: 0 !important; }
+  .bp-tree > .bp-kv > .wp-block-column:not(:last-child) { flex: 0 0 34% !important; max-width: 34%; }
+  .bp-tree > .bp-kv > .wp-block-column:last-child { flex: 1 1 0 !important; min-width: 0; }
+  .bp-tree > .bp-kv :is(h3, h4) { font-size: 1rem !important; margin: 0 !important; }
+  .bp-fold-sec { border-top: 1px solid var(--bp-line, rgba(255, 255, 255, .1)); }
+  .bp-fold-sec:not(.is-open) > :not(:first-child) { display: none !important; }
+  .bp-fold-sec > :first-child :is(h2, h3, h4) { margin: 0 !important; }
+  /* long button lists (≥5 links) wrap as a row instead of a 45px-per-line column */
+  .entry-content [data-pattern="text-columns"] .wp-block-buttons:has(> .wp-block-button:nth-child(5)) { flex-direction: row !important; flex-wrap: wrap !important; gap: 8px !important; }
+  .entry-content [data-pattern="text-columns"] .wp-block-buttons:has(> .wp-block-button:nth-child(5)) > .wp-block-button { width: auto !important; flex: 0 0 auto !important; margin: 0 !important; }
+  /* job description body: mobile text scale (15px / 1.55, brief §2) */
+  .jobs-layout-wrapper .entry-content { font-size: 15px; line-height: 1.55; }
+  .jobs-layout-wrapper .entry-content li { margin-bottom: 4px; }
+  .jobs-layout-wrapper .entry-content :is(h2, h3, h4, h5) { font-size: 1.15rem; line-height: 1.3; }
+
+  /* 4c. mobile type + rhythm (brief §2: one scale, body 15-16px / 1.55): smaller display sizes, calmer gaps */
+  .entry-content [data-pattern="hero"] h1 { font-size: clamp(2rem, 8.6vw, 2.7rem) !important; }
+  .entry-content > [data-pattern]:not([data-pattern="hero"]) h2 { font-size: clamp(1.5rem, 6.4vw, 2rem); }
+  .entry-content > [data-pattern] :is(p, li) { line-height: 1.55; }
+  .entry-content > [data-pattern]:not([data-pattern="hero"]) :is(p, li):not([class*="font-size"]) { font-size: 15px; }
+  [data-pattern="hero"] > .bp-titleblock { display: none !important; }   /* orphan path-label band above the h1 */
+  .entry-content > .bp-rule { padding-top: 14px !important; padding-bottom: 2px !important; }
+  .entry-content > [data-pattern]:not([data-pattern="hero"]) { padding-bottom: 18px !important; }
+  .entry-content > [data-pattern] p:empty { display: none; }
+  .bp-board .qfse-changer__label { padding-top: 12px !important; padding-bottom: 12px !important; min-height: 48px; }
+  .entry-content > [data-pattern="media"] .wp-block-image:only-child img, .entry-content > [data-pattern="media"] > .wp-block-image img { max-height: 380px; width: auto; max-width: 100%; object-fit: contain; margin-inline: auto; display: block; }
+
+  .entry-content > [data-pattern="media"] > img { max-height: 400px; width: auto !important; max-width: 100%; object-fit: contain; display: block; margin-inline: auto; }
+  .entry-content > [data-pattern="text"] > .wp-block-group { margin-top: 8px !important; margin-bottom: 0 !important; }
+  /* photo pair next to a text column (e.g. offices): photos 2-up, text full width */
+  .entry-content .bp-photo-pair { flex-wrap: wrap !important; gap: 12px !important; }
+  .entry-content .bp-photo-pair > .bp-photo { flex: 0 0 calc(50% - 6px) !important; max-width: calc(50% - 6px); margin: 0 !important; }
+  .entry-content .bp-photo-pair > .bp-photo img { width: 100%; height: 200px !important; object-fit: cover; }
+
+  /* 5. smaller media + logo racks */
+  .bp-certs > figure { min-height: 64px; padding: 8px; } .bp-certs > figure img { max-height: 44px; }
+  .accordion-title { padding: 14px 0 !important; }
+}

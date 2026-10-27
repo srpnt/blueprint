@@ -1,0 +1,2565 @@
+<!doctype html>
+<html lang="en-US" class="no-js">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="TDD in Flutter using Riverpod and Firebase" name="description"/>
+<link href="https://q.agency/blog/tdd-in-flutter-with-example-application-using-riverpod-and-firebase/" rel="canonical"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="article" property="og:type"/>
+<meta content="TDD in Flutter With Example Application Using Riverpod and Firebase" property="og:title"/>
+<meta content="TDD in Flutter using Riverpod and Firebase" property="og:description"/>
+<meta content="https://q.agency/blog/tdd-in-flutter-with-example-application-using-riverpod-and-firebase/" property="og:url"/>
+<meta content="Q Agency - Tech Consulting and Software Engineering" property="og:site_name"/>
+<meta content="2025-07-20T10:51:00+00:00" property="article:published_time"/>
+<meta content="2026-08-06T09:00:16+00:00" property="article:modified_time"/>
+<meta content="https://media.q.agency/wp-content/uploads/2026/04/5mj_blog-cover_TTD_eafcc47d2eac9b34493eba0289cfb02f-qpi-wxr-att-EpifG87W.webp" property="og:image"/>
+<meta content="1067" property="og:image:width"/>
+<meta content="600" property="og:image:height"/>
+<meta content="image/webp" property="og:image:type"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Written by" name="twitter:label1"/>
+<meta content="Marta Rep" name="twitter:data1"/>
+<meta content="Est. reading time" name="twitter:label2"/>
+<meta content="10 minutes" name="twitter:data2"/>
+<script class="yoast-schema-graph" type="application/ld+json">{"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/q.agency\/blog\/tdd-in-flutter-with-example-application-using-riverpod-and-firebase\/#article","isPartOf":{"@id":"https:\/\/q.agency\/blog\/tdd-in-flutter-with-example-application-using-riverpod-and-firebase\/"},"author":{"name":"Marta Rep","@id":"https:\/\/q.agency\/#\/schema\/person\/dc1aacb80d8af72b2c345b309164095e"},"headline":"TDD in Flutter With Example Application Using Riverpod and Firebase","datePublished":"2025-07-20T10:51:00+00:00","dateModified":"2026-08-06T09:00:16+00:00","mainEntityOfPage":{"@id":"https:\/\/q.agency\/blog\/tdd-in-flutter-with-example-application-using-riverpod-and-firebase\/"},"wordCount":2178,"image":{"@id":"https:\/\/q.agency\/blog\/tdd-in-flutter-with-example-application-using-riverpod-and-firebase\/#primaryimage"},"thumbnailUrl":"https:\/\/media.q.agency\/wp-content\/uploads\/2026\/04\/5mj_blog-cover_TTD_eafcc47d2eac9b34493eba0289cfb02f-qpi-wxr-att-EpifG87W.webp","keywords":["firebase","Flutter","Flutter application blog","Riverpod","TDD in Flutter","TDD in Flutter Using Riverpod and Firebase"],"articleSection":["Tech"],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https:\/\/q.agency\/blog\/tdd-in-flutter-with-example-application-using-riverpod-and-firebase\/","url":"https:\/\/q.agency\/blog\/tdd-in-flutter-with-example-application-using-riverpod-and-firebase\/","name":"TDD in Flutter With Example Application Using Riverpod and Firebase | Q Agency - Tech Consulting and Software Engineering","isPartOf":{"@id":"https:\/\/q.agency\/#website"},"primaryImageOfPage":{"@id":"https:\/\/q.agency\/blog\/tdd-in-flutter-with-example-application-using-riverpod-and-firebase\/#primaryimage"},"image":{"@id":"https:\/\/q.agency\/blog\/tdd-in-flutter-with-example-application-using-riverpod-and-firebase\/#primaryimage"},"thumbnailUrl":"https:\/\/media.q.agency\/wp-content\/uploads\/2026\/04\/5mj_blog-cover_TTD_eafcc47d2eac9b34493eba0289cfb02f-qpi-wxr-att-EpifG87W.webp","datePublished":"2025-07-20T10:51:00+00:00","dateModified":"2026-08-06T09:00:16+00:00","author":{"@id":"https:\/\/q.agency\/#\/schema\/person\/dc1aacb80d8af72b2c345b309164095e"},"description":"TDD in Flutter using Riverpod and Firebase","breadcrumb":{"@id":"https:\/\/q.agency\/blog\/tdd-in-flutter-with-example-application-using-riverpod-and-firebase\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/q.agency\/blog\/tdd-in-flutter-with-example-application-using-riverpod-and-firebase\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/q.agency\/blog\/tdd-in-flutter-with-example-application-using-riverpod-and-firebase\/#primaryimage","url":"https:\/\/media.q.agency\/wp-content\/uploads\/2026\/04\/5mj_blog-cover_TTD_eafcc47d2eac9b34493eba0289cfb02f-qpi-wxr-att-EpifG87W.webp","contentUrl":"https:\/\/media.q.agency\/wp-content\/uploads\/2026\/04\/5mj_blog-cover_TTD_eafcc47d2eac9b34493eba0289cfb02f-qpi-wxr-att-EpifG87W.webp","width":1067,"height":600},{"@type":"BreadcrumbList","@id":"https:\/\/q.agency\/blog\/tdd-in-flutter-with-example-application-using-riverpod-and-firebase\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/q.agency\/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https:\/\/q.agency\/blog\/"},{"@type":"ListItem","position":3,"name":"TDD in Flutter With Example Application Using Riverpod and Firebase"}]},{"@type":"WebSite","@id":"https:\/\/q.agency\/#website","url":"https:\/\/q.agency\/","name":"Q Agency","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/q.agency\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Person","@id":"https:\/\/q.agency\/#\/schema\/person\/dc1aacb80d8af72b2c345b309164095e","name":"Marta Rep","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/media.q.agency\/wp-content\/uploads\/2026\/04\/1771188997848-150x150.jpeg","url":"https:\/\/media.q.agency\/wp-content\/uploads\/2026\/04\/1771188997848-150x150.jpeg","contentUrl":"https:\/\/media.q.agency\/wp-content\/uploads\/2026\/04\/1771188997848-150x150.jpeg","caption":"Marta Rep"},"description":"Marta is working as a Flutter developer at Q agency. When she is not expanding her Flutter knowledge, she is playing some sport or on some adventure."}]}</script>
+<title>TDD in Flutter With Example Application Using Riverpod and Firebase | Q Agency - Tech Consulting and Software Engineering</title>
+<link href="https://q.agency/feed/" rel="alternate" title="Q Agency - Tech Consulting and Software Engineering » Feed" type="application/rss+xml"/>
+<link href="https://q.agency/comments/feed/" rel="alternate" title="Q Agency - Tech Consulting and Software Engineering » Comments Feed" type="application/rss+xml"/>
+<link href="https://q.agency/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fq.agency%2Fblog%2Ftdd-in-flutter-with-example-application-using-riverpod-and-firebase%2F" rel="alternate" title="oEmbed (JSON)" type="application/json+oembed"/>
+<link href="https://q.agency/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fq.agency%2Fblog%2Ftdd-in-flutter-with-example-application-using-riverpod-and-firebase%2F&amp;format=xml" rel="alternate" title="oEmbed (XML)" type="text/xml+oembed"/>
+<link href="https://q.agency/wp-json/wp/v2/posts/16721" rel="alternate" title="JSON" type="application/json"/>
+<link href="https://q.agency/?p=16721" rel="shortlink"/>
+<link href="https://media.q.agency/wp-content/uploads/2026/04/cropped-q-logo-32x32.png" rel="icon" sizes="32x32"/>
+<link href="https://media.q.agency/wp-content/uploads/2026/04/cropped-q-logo-192x192.png" rel="icon" sizes="192x192"/>
+<link href="https://media.q.agency/wp-content/uploads/2026/04/cropped-q-logo-180x180.png" rel="apple-touch-icon"/>
+<meta content="https://media.q.agency/wp-content/uploads/2026/04/cropped-q-logo-270x270.png" name="msapplication-TileImage"/>
+<meta name="theme-color" content="#0e1413">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-block-paragraph-inline-css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://q.agency/wp-includes/blocks/paragraph/style.min.css */
+</style>
+<style id="wp-block-heading-inline-css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=https://q.agency/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id="wp-block-list-inline-css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://q.agency/wp-includes/blocks/list/style.min.css */
+</style>
+<style id="wp-block-code-inline-css">
+.wp-block-code{box-sizing:border-box}.wp-block-code code{direction:ltr;display:block;font-family:inherit;overflow-wrap:break-word;text-align:initial;white-space:break-spaces}
+/*# sourceURL=https://q.agency/wp-includes/blocks/code/style.min.css */
+</style>
+<style id="wp-block-image-inline-css">
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:rgba(90,90,90,.25);border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto rgba(90,90,90,.25);outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:rgba(90,90,90,.25);border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .wp-lightbox-close-button{align-items:center;cursor:pointer;display:flex;font-family:inherit;gap:8px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 4px;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .wp-lightbox-close-button:focus,.wp-lightbox-overlay .wp-lightbox-close-button:hover,.wp-lightbox-overlay .wp-lightbox-close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .wp-lightbox-close-button:has(.wp-lightbox-close-text:not([hidden])) .wp-lightbox-close-icon svg{height:1em;width:1em}.wp-lightbox-overlay .wp-lightbox-close-icon svg{display:block}.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{align-items:center;bottom:16px;cursor:pointer;display:flex;font-family:inherit;gap:4px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 8px;position:absolute;z-index:2000002}.wp-lightbox-overlay .wp-lightbox-navigation-button-next[hidden],.wp-lightbox-overlay .wp-lightbox-navigation-button-prev[hidden]{display:none}@media (min-width:960px){.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{bottom:50%;transform:translateY(-50%)}}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:not(:hover):not(:active):not(.has-background),.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:not(:hover):not(:active):not(.has-background){background:none;border:none;padding:0 8px}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg{display:block;height:1.5em;width:1.5em}.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{left:calc(env(safe-area-inset-left) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-button-next{right:calc(env(safe-area-inset-right) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-icon svg{vertical-align:middle}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:2000001}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://q.agency/wp-includes/blocks/image/style.min.css */
+</style>
+<style id="wp-block-navigation-link-inline-css">
+.wp-block-navigation .wp-block-navigation-item__label{overflow-wrap:break-word}.wp-block-navigation .wp-block-navigation-item__description{display:none}.link-ui-tools{outline:1px solid #f0f0f0;padding:8px}.link-ui-block-inserter{padding-top:8px}.link-ui-block-inserter__back{margin-left:8px;text-transform:uppercase}
+/*# sourceURL=https://q.agency/wp-includes/blocks/navigation-link/style.min.css */
+</style>
+<style id="wp-block-button-inline-css">
+.wp-block-button__link{align-content:center;box-sizing:border-box;cursor:pointer;display:inline-block;height:100%;text-align:center;word-break:break-word}.wp-block-button__link.aligncenter{text-align:center}.wp-block-button__link.alignright{text-align:right}:where(.wp-block-button__link){border-radius:9999px;box-shadow:none;padding:calc(.667em + 2px) calc(1.333em + 2px);text-decoration:none}.wp-block-button[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons>.wp-block-button.has-custom-width{max-width:none}.wp-block-buttons>.wp-block-button.has-custom-width .wp-block-button__link{width:100%}.wp-block-buttons>.wp-block-button.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons>.wp-block-button[class*=wp-block-button__width]{width:calc(var(--wp--block-button--width)*1% - var(--wp--style--block-gap, .5em)*(1 - var(--wp--block-button--width)/100))}.wp-block-buttons>.wp-block-button.wp-block-button__width-25{width:calc(25% - var(--wp--style--block-gap, .5em)*.75)}.wp-block-buttons>.wp-block-button.wp-block-button__width-50{width:calc(50% - var(--wp--style--block-gap, .5em)*.5)}.wp-block-buttons>.wp-block-button.wp-block-button__width-75{width:calc(75% - var(--wp--style--block-gap, .5em)*.25)}.wp-block-buttons>.wp-block-button.wp-block-button__width-100{flex-basis:100%;width:100%}.wp-block-buttons.is-vertical>.wp-block-button[class*=wp-block-button__width]{width:calc(var(--wp--block-button--width)*1%)}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-25{width:25%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-50{width:50%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-75{width:75%}.wp-block-button.is-style-squared,.wp-block-button__link.wp-block-button.is-style-squared{border-radius:0}.wp-block-button.no-border-radius,.wp-block-button__link.no-border-radius{border-radius:0!important}:root :where(.wp-block-button .wp-block-button__link.is-style-outline),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link){border:2px solid;padding:.667em 1.333em}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color)){color:currentColor}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-background)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background)){background-color:transparent;background-image:none}
+/*# sourceURL=https://q.agency/wp-includes/blocks/button/style.min.css */
+</style>
+<style id="wp-block-buttons-inline-css">
+.wp-block-buttons{box-sizing:border-box}.wp-block-buttons.is-vertical{flex-direction:column}.wp-block-buttons.is-vertical>.wp-block-button:last-child{margin-bottom:0}.wp-block-buttons>.wp-block-button{display:inline-block;margin:0}.wp-block-buttons.is-content-justification-left{justify-content:flex-start}.wp-block-buttons.is-content-justification-left.is-vertical{align-items:flex-start}.wp-block-buttons.is-content-justification-center{justify-content:center}.wp-block-buttons.is-content-justification-center.is-vertical{align-items:center}.wp-block-buttons.is-content-justification-right{justify-content:flex-end}.wp-block-buttons.is-content-justification-right.is-vertical{align-items:flex-end}.wp-block-buttons.is-content-justification-space-between{justify-content:space-between}.wp-block-buttons.aligncenter{text-align:center}.wp-block-buttons:not(.is-content-justification-space-between,.is-content-justification-right,.is-content-justification-left,.is-content-justification-center) .wp-block-button.aligncenter{margin-left:auto;margin-right:auto;width:100%}.wp-block-buttons[style*=text-decoration] .wp-block-button,.wp-block-buttons[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons .wp-block-button__link{width:100%}.wp-block-button.aligncenter{text-align:center}
+/*# sourceURL=https://q.agency/wp-includes/blocks/buttons/style.min.css */
+</style>
+<style id="wp-block-group-inline-css">
+.wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
+/*# sourceURL=https://q.agency/wp-includes/blocks/group/style.min.css */
+</style>
+<style id="wp-block-post-title-inline-css">
+.wp-block-post-title{box-sizing:border-box;word-break:break-word}.wp-block-post-title :where(a){display:inline-block;font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;text-decoration:inherit}
+/*# sourceURL=https://q.agency/wp-includes/blocks/post-title/style.min.css */
+</style>
+<style id="wp-block-post-content-inline-css">
+.wp-block-post-content{display:flow-root}
+/*# sourceURL=https://q.agency/wp-includes/blocks/post-content/style.min.css */
+</style>
+<style id="wp-block-post-featured-image-inline-css">
+.wp-block-post-featured-image{margin-left:0;margin-right:0}.wp-block-post-featured-image a{display:block;height:100%}.wp-block-post-featured-image :where(img){box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom;width:100%}.wp-block-post-featured-image.alignfull img,.wp-block-post-featured-image.alignwide img{width:100%}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim{background-color:#000;inset:0;position:absolute}.wp-block-post-featured-image{position:relative}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-gradient{background-color:transparent}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-0{opacity:0}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-10{opacity:.1}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-20{opacity:.2}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-30{opacity:.3}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-40{opacity:.4}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-50{opacity:.5}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-60{opacity:.6}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-70{opacity:.7}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-80{opacity:.8}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-90{opacity:.9}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-100{opacity:1}.wp-block-post-featured-image:where(.alignleft,.alignright){width:100%}
+/*# sourceURL=https://q.agency/wp-includes/blocks/post-featured-image/style.min.css */
+</style>
+<style id="wp-block-avatar-inline-css">
+.wp-block-avatar{line-height:0}.wp-block-avatar,.wp-block-avatar img{box-sizing:border-box}.wp-block-avatar.aligncenter{text-align:center}
+/*# sourceURL=https://q.agency/wp-includes/blocks/avatar/style.min.css */
+</style>
+<style id="wp-block-post-author-name-inline-css">
+.wp-block-post-author-name{box-sizing:border-box}
+/*# sourceURL=https://q.agency/wp-includes/blocks/post-author-name/style.min.css */
+</style>
+<style id="wp-block-table-inline-css">
+.wp-block-table{overflow-x:auto}.wp-block-table table{border-collapse:collapse;width:100%}.wp-block-table thead{border-bottom:3px solid}.wp-block-table tfoot{border-top:3px solid}.wp-block-table td,.wp-block-table th{border:1px solid;padding:.5em}.wp-block-table .has-fixed-layout{table-layout:fixed;width:100%}.wp-block-table .has-fixed-layout td,.wp-block-table .has-fixed-layout th{word-break:break-word}.wp-block-table.aligncenter,.wp-block-table.alignleft,.wp-block-table.alignright{display:table;width:auto}.wp-block-table.aligncenter td,.wp-block-table.aligncenter th,.wp-block-table.alignleft td,.wp-block-table.alignleft th,.wp-block-table.alignright td,.wp-block-table.alignright th{word-break:break-word}.wp-block-table .has-subtle-light-gray-background-color{background-color:#f3f4f5}.wp-block-table .has-subtle-pale-green-background-color{background-color:#e9fbe5}.wp-block-table .has-subtle-pale-blue-background-color{background-color:#e7f5fe}.wp-block-table .has-subtle-pale-pink-background-color{background-color:#fcf0ef}.wp-block-table.is-style-stripes{background-color:transparent;border-collapse:inherit;border-spacing:0}.wp-block-table.is-style-stripes tbody tr:nth-child(odd){background-color:#f0f0f0}.wp-block-table.is-style-stripes.has-subtle-light-gray-background-color tbody tr:nth-child(odd){background-color:#f3f4f5}.wp-block-table.is-style-stripes.has-subtle-pale-green-background-color tbody tr:nth-child(odd){background-color:#e9fbe5}.wp-block-table.is-style-stripes.has-subtle-pale-blue-background-color tbody tr:nth-child(odd){background-color:#e7f5fe}.wp-block-table.is-style-stripes.has-subtle-pale-pink-background-color tbody tr:nth-child(odd){background-color:#fcf0ef}.wp-block-table.is-style-stripes td,.wp-block-table.is-style-stripes th{border-color:transparent}.wp-block-table.is-style-stripes{border-bottom:1px solid #f0f0f0}.wp-block-table .has-border-color td,.wp-block-table .has-border-color th,.wp-block-table .has-border-color tr,.wp-block-table .has-border-color>*{border-color:inherit}.wp-block-table table[style*=border-top-color] tr:first-child,.wp-block-table table[style*=border-top-color] tr:first-child td,.wp-block-table table[style*=border-top-color] tr:first-child th,.wp-block-table table[style*=border-top-color]>*,.wp-block-table table[style*=border-top-color]>* td,.wp-block-table table[style*=border-top-color]>* th{border-top-color:inherit}.wp-block-table table[style*=border-top-color] tr:not(:first-child){border-top-color:currentColor}.wp-block-table table[style*=border-right-color] td:last-child,.wp-block-table table[style*=border-right-color] th,.wp-block-table table[style*=border-right-color] tr,.wp-block-table table[style*=border-right-color]>*{border-right-color:inherit}.wp-block-table table[style*=border-bottom-color] tr:last-child,.wp-block-table table[style*=border-bottom-color] tr:last-child td,.wp-block-table table[style*=border-bottom-color] tr:last-child th,.wp-block-table table[style*=border-bottom-color]>*,.wp-block-table table[style*=border-bottom-color]>* td,.wp-block-table table[style*=border-bottom-color]>* th{border-bottom-color:inherit}.wp-block-table table[style*=border-bottom-color] tr:not(:last-child){border-bottom-color:currentColor}.wp-block-table table[style*=border-left-color] td:first-child,.wp-block-table table[style*=border-left-color] th,.wp-block-table table[style*=border-left-color] tr,.wp-block-table table[style*=border-left-color]>*{border-left-color:inherit}.wp-block-table table[style*=border-style] td,.wp-block-table table[style*=border-style] th,.wp-block-table table[style*=border-style] tr,.wp-block-table table[style*=border-style]>*{border-style:inherit}.wp-block-table table[style*=border-width] td,.wp-block-table table[style*=border-width] th,.wp-block-table table[style*=border-width] tr,.wp-block-table table[style*=border-width]>*{border-style:inherit;border-width:inherit}
+/*# sourceURL=https://q.agency/wp-includes/blocks/table/style.min.css */
+</style>
+<style id="wp-block-columns-inline-css">
+.wp-block-columns{box-sizing:border-box;display:flex;flex-wrap:wrap!important}@media (min-width:782px){.wp-block-columns{flex-wrap:nowrap!important}}.wp-block-columns{align-items:normal!important}.wp-block-columns.are-vertically-aligned-top{align-items:flex-start}.wp-block-columns.are-vertically-aligned-center{align-items:center}.wp-block-columns.are-vertically-aligned-bottom{align-items:flex-end}@media (max-width:781px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:100%!important}}@media (min-width:782px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column[style*=flex-basis]{flex-grow:0}}.wp-block-columns.is-not-stacked-on-mobile{flex-wrap:nowrap!important}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column[style*=flex-basis]{flex-grow:0}:where(.wp-block-columns){margin-bottom:1.75em}:where(.wp-block-columns.has-background){padding:1.25em 2.375em}.wp-block-column{flex-grow:1;min-width:0;overflow-wrap:break-word;word-break:break-word}.wp-block-column.is-vertically-aligned-top{align-self:flex-start}.wp-block-column.is-vertically-aligned-center{align-self:center}.wp-block-column.is-vertically-aligned-bottom{align-self:flex-end}.wp-block-column.is-vertically-aligned-stretch{align-self:stretch}.wp-block-column.is-vertically-aligned-bottom,.wp-block-column.is-vertically-aligned-center,.wp-block-column.is-vertically-aligned-top{width:100%}
+/*# sourceURL=https://q.agency/wp-includes/blocks/columns/style.min.css */
+</style>
+<style id="wp-block-separator-inline-css">
+@charset "UTF-8";.wp-block-separator{border:none;border-top:2px solid}:root :where(.wp-block-separator.is-style-dots){height:auto;line-height:1;text-align:center}:root :where(.wp-block-separator.is-style-dots):before{color:currentColor;content:"···";font-family:serif;font-size:1.5em;letter-spacing:2em;padding-left:2em}.wp-block-separator.is-style-dots{background:none!important;border:none!important}
+/*# sourceURL=https://q.agency/wp-includes/blocks/separator/style.min.css */
+</style>
+<style id="wp-block-post-template-inline-css">
+.wp-block-post-template{box-sizing:border-box;list-style:none;margin-bottom:0;margin-top:0;max-width:100%;padding:0}.wp-block-post-template.is-flex-container{display:flex;flex-direction:row;flex-wrap:wrap;gap:1.25em}.wp-block-post-template.is-flex-container>li{margin:0;width:100%}@media (min-width:600px){.wp-block-post-template.is-flex-container.is-flex-container.columns-2>li{width:calc(50% - .625em)}.wp-block-post-template.is-flex-container.is-flex-container.columns-3>li{width:calc(33.33333% - .83333em)}.wp-block-post-template.is-flex-container.is-flex-container.columns-4>li{width:calc(25% - .9375em)}.wp-block-post-template.is-flex-container.is-flex-container.columns-5>li{width:calc(20% - 1em)}.wp-block-post-template.is-flex-container.is-flex-container.columns-6>li{width:calc(16.66667% - 1.04167em)}}@media (max-width:600px){.wp-block-post-template-is-layout-grid[class*=columns-]:not(.has-native-responsive-grid){grid-template-columns:1fr}}.wp-block-post-template-is-layout-constrained>li>.alignright,.wp-block-post-template-is-layout-flow>li>.alignright{float:right;margin-inline-end:0;margin-inline-start:2em}.wp-block-post-template-is-layout-constrained>li>.alignleft,.wp-block-post-template-is-layout-flow>li>.alignleft{float:left;margin-inline-end:2em;margin-inline-start:0}.wp-block-post-template-is-layout-constrained>li>.aligncenter,.wp-block-post-template-is-layout-flow>li>.aligncenter{margin-inline-end:auto;margin-inline-start:auto}
+/*# sourceURL=https://q.agency/wp-includes/blocks/post-template/style.min.css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="core-block-supports-inline-css">
+.wp-elements-1 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--base);}.wp-container-core-navigation-is-layout-d9e12123{gap:15px;}.wp-elements-2 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--base);}.wp-elements-3 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--base);}.wp-elements-4 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--base);}.wp-container-core-group-is-layout-28f75d35 > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width:530px;margin-left:auto !important;margin-right:auto !important;}.wp-container-core-group-is-layout-28f75d35 > .alignwide{max-width:530px;}.wp-container-core-group-is-layout-28f75d35 .alignfull{max-width:none;}.wp-container-core-group-is-layout-adf9a74a > :where(:not(.alignleft):not(.alignright):not(.alignfull)){margin-left:0 !important;}.wp-container-core-group-is-layout-adf9a74a > *{margin-block-start:0;margin-block-end:0;}.wp-container-core-group-is-layout-adf9a74a > * + *{margin-block-start:var(--wp--preset--spacing--q-small);margin-block-end:0;}.wp-container-core-group-is-layout-73ff02c6{flex-direction:column;align-items:flex-start;}.wp-container-core-buttons-is-layout-711c761b{flex-wrap:nowrap;gap:0 0;justify-content:center;}.wp-container-core-group-is-layout-37c6a6e7{gap:var(--wp--preset--spacing--20);justify-content:space-between;}.wp-container-core-group-is-layout-6eba5a80 > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width:1440px;margin-left:auto !important;margin-right:auto !important;}.wp-container-core-group-is-layout-6eba5a80 > .alignwide{max-width:1440px;}.wp-container-core-group-is-layout-6eba5a80 .alignfull{max-width:none;}.wp-elements-5 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--custom-default-sec-border);}.wp-elements-6 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--base);}.wp-container-core-group-is-layout-afe6aa20 > *{margin-block-start:0;margin-block-end:0;}.wp-container-core-group-is-layout-afe6aa20 > * + *{margin-block-start:0px;margin-block-end:0;}.wp-container-core-group-is-layout-7b1f0149 > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width:790px;margin-left:0 !important;margin-right:auto !important;}.wp-container-core-group-is-layout-7b1f0149 > .alignwide{max-width:790px;}.wp-container-core-group-is-layout-7b1f0149 .alignfull{max-width:none;}.wp-elements-7 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--contrast);}.wp-container-core-group-is-layout-6e3f15e9{flex-wrap:nowrap;}.wp-container-core-columns-is-layout-20c124b0{flex-wrap:nowrap;}.wp-container-core-group-is-layout-e0197dee > *{margin-block-start:0;margin-block-end:0;}.wp-container-core-group-is-layout-e0197dee > * + *{margin-block-start:0;margin-block-end:0;}.wp-elements-8 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--contrast);}.wp-container-core-post-template-is-layout-28018fd8{grid-template-columns:repeat(2, minmax(0, 1fr));}.wp-container-core-group-is-layout-8a09834c > *{margin-block-start:0;margin-block-end:0;}.wp-container-core-group-is-layout-8a09834c > * + *{margin-block-start:0px;margin-block-end:0;}.wp-elements-9 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--cyan);}.wp-container-core-group-is-layout-2b7ce09f > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width:790px;margin-left:0 !important;margin-right:auto !important;}.wp-container-core-group-is-layout-2b7ce09f > .alignwide{max-width:790px;}.wp-container-core-group-is-layout-2b7ce09f .alignfull{max-width:none;}.wp-container-core-navigation-is-layout-97fbd12e{flex-wrap:nowrap;flex-direction:column;align-items:flex-start;}.wp-container-core-navigation-is-layout-c0a1e050{flex-wrap:nowrap;gap:8px;flex-direction:column;align-items:flex-start;}.wp-container-core-columns-is-layout-6e3f15e9{flex-wrap:nowrap;}.wp-container-core-group-is-layout-caa08ce9{justify-content:space-between;}.wp-container-core-group-is-layout-b421284d{justify-content:space-between;}
+/*# sourceURL=core-block-supports-inline-css */
+</style>
+<style id="wp-block-template-skip-link-inline-css">
+/*! This file is auto-generated */
+.skip-link.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute!important;width:1px;word-wrap:normal!important;word-break:normal!important}.skip-link.screen-reader-text:focus{background-color:#eee;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}
+/*# sourceURL=/wp-includes/css/wp-block-template-skip-link.min.css */
+</style>
+<link rel="stylesheet" href="/_kit/lib/lenis.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/nav.css">
+<link rel="stylesheet" href="/assets/css/nav2.css">
+<link rel="stylesheet" href="/assets/css/patterns.css">
+<link rel="stylesheet" href="/assets/css/patterns2.css">
+<link rel="stylesheet" href="/assets/css/schematics.css">
+<link rel="stylesheet" href="/assets/css/align.css">
+<link rel="stylesheet" href="/assets/css/mobile.css">
+<link rel="stylesheet" href="/assets/css/surfaces.css">
+<link rel="stylesheet" href="/assets/css/devices.css">
+<link rel="stylesheet" href="/assets/css/devices2.css">
+<link rel="stylesheet" href="/assets/css/devices-m.css">
+<link rel="stylesheet" href="/assets/css/final.css">
+<link rel="stylesheet" href="/assets/css/home-services.css">
+<link rel="stylesheet" href="/assets/css/company.css">
+<link rel="stylesheet" href="/assets/css/mobile-length.css">
+<link rel="stylesheet" href="/assets/css/final-push.css">
+<link rel="stylesheet" href="/assets/css/coop.css">
+<link rel="stylesheet" href="/assets/css/svc2.css">
+<script>document.documentElement.className=document.documentElement.className.replace('no-js','js')+(/[?&]still=1/.test(location.search)?' bp-still':(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches?'':' bp-sigm'));</script>
+</head>
+<body class="wp-singular post-template-default single single-post postid-16721 single-format-standard wp-embed-responsive wp-theme-qfse bp" data-ptype="post">
+<canvas id="bp-bg" aria-hidden="true"></canvas>
+<div class="wp-site-blocks"><div class="wp-block-group alignwide header-container has-contrast-background-color has-background is-layout-constrained wp-block-group-is-layout-constrained" data-region="header"><!--?xml encoding="utf-8" ?--><div class="alignwide wp-block-template-part">
+<div class="wp-block-group header has-base-color has-contrast-background-color has-text-color has-background has-link-color wp-elements-1 is-layout-constrained wp-container-core-group-is-layout-6eba5a80 wp-block-group-is-layout-constrained">
+<div class="wp-block-group is-layout-flex is-content-justification-space-between wp-container-core-group-is-layout-37c6a6e7 wp-block-group-is-layout-flex">
+<figure class="wp-block-image size-full logo"><a href="/"><img alt="Q Agency Logo" decoding="async" src="/wp-content/themes/qfse/assets/images/logo.svg"/></a></figure>
+<div class="wp-block-group header-nav-shell is-vertical is-layout-flex wp-container-core-group-is-layout-73ff02c6 wp-block-group-is-layout-flex"><!--?xml encoding="utf-8" ?--><nav aria-label="Main Menu" class="is-responsive qfse-primary-nav wp-block-navigation is-layout-flex wp-container-core-navigation-is-layout-d9e12123 wp-block-navigation-is-layout-flex" data-wp-context='{"overlayOpenedBy":{"click":false,"hover":false,"focus":false},"type":"overlay","roleAttribute":"","ariaLabel":"Menu"}' data-wp-interactive="core/navigation"><button aria-haspopup="dialog" aria-label="Open menu" class="wp-block-navigation__responsive-container-open" data-wp-on--click="actions.openMenuOnClick" data-wp-on--keydown="actions.handleMenuKeydown"><span class="q-nav-icon"></span></button>
+<div class="wp-block-navigation__responsive-container" data-wp-class--has-modal-open="state.isMenuOpen" data-wp-class--is-menu-open="state.isMenuOpen" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-watch="callbacks.initMenu" id="modal-1" tabindex="-1">
+<div class="wp-block-navigation__responsive-close" tabindex="-1">
+<div class="wp-block-navigation__responsive-dialog" data-wp-bind--aria-label="state.ariaLabel" data-wp-bind--aria-modal="state.ariaModal" data-wp-bind--role="state.roleAttribute">
+<button aria-label="Close menu" class="wp-block-navigation__responsive-container-close" data-wp-on--click="actions.closeMenuOnClick"><span class="q-nav-icon"></span></button>
+<div class="wp-block-navigation__responsive-container-content" data-wp-watch="callbacks.focusFirstElement" id="modal-1-content">
+<ul class="wp-block-navigation__container is-responsive qfse-primary-nav wp-block-navigation"><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/ai-at-q/"><span class="wp-block-navigation-item__label">AI at Q</span></a></li><li class="wp-block-navigation-item has-child open-on-hover-click hide-desktop wp-block-navigation-submenu" data-mega-menu="true" data-wp-context='{ "submenuOpenedBy": { "click": false, "hover": false, "focus": false }, "type": "submenu", "modal": null, "previousFocus": null }' data-wp-interactive="core/navigation" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-on--pointerenter="actions.openMenuOnHover" data-wp-on--pointerleave="actions.closeMenuOnHover" data-wp-watch="callbacks.initMenu" tabindex="-1"><a class="wp-block-navigation-item__content" href="/services/"><span class="wp-block-navigation-item__label">Services</span></a><button aria-label="Services submenu" class="wp-block-navigation__submenu-icon wp-block-navigation-submenu__toggle" data-wp-bind--aria-expanded="state.isSubmenuOpen" data-wp-on--click="actions.toggleMenuOnClick"><span class="q-nav-icon"></span></button><ul class="wp-block-navigation__submenu-container hide-desktop wp-block-navigation-submenu mega-menu-panel" data-wp-on--focus="actions.openMenuOnFocus" style="--mega-menu-grid-rows: 4; --mega-menu-right-grid-rows: 3;"><li class="wp-block-navigation-item mega-menu-card mega-menu-card--featured-image"><a aria-label="Services" class="mega-menu-card__media-link" href="/services/"><div class="mega-menu-card__media-meta"><strong class="mega-menu-card__media-title">Services</strong><span aria-hidden="true" class="mega-menu-card__arrow mega-menu-card__arrow--featured"></span></div><figure class="mega-menu-card__media"></figure></a></li><li class="wp-block-navigation-item open-on-hover-click wp-block-navigation-submenu mega-menu-card mega-menu-card--has-links" data-wp-context='{ "submenuOpenedBy": { "click": false, "hover": false, "focus": false }, "type": "submenu", "modal": null, "previousFocus": null }' data-wp-interactive="core/navigation" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-on--pointerenter="actions.openMenuOnHover" data-wp-on--pointerleave="actions.closeMenuOnHover" data-wp-watch="callbacks.initMenu" tabindex="-1"><a aria-label="AI and Data" class="mega-menu-card__cover" href="/services/ai-data/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">AI and Data<span class="q-nav-icon"></span></p></div></a><ul class="wp-block-navigation__submenu-container wp-block-navigation-submenu mega-menu-card__links mega-menu-l3-submenu" data-wp-on--focus="actions.openMenuOnFocus"><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/ai-data/agentic-sprint/"><span class="wp-block-navigation-item__label">Agentic Sprint</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/ai-data/aiops-as-a-service/"><span class="wp-block-navigation-item__label">AIOps-as-a-Service</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/ai-data/multi-agent-orchestration/"><span class="wp-block-navigation-item__label">Multi-Agent Orchestration</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/ai-data/workflow-automation/"><span class="wp-block-navigation-item__label">Workflow Automation</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/ai-data/data-integration-service/"><span class="wp-block-navigation-item__label">Data and Integration Service</span></a></li></ul><a aria-label="AI and Data" class="mega-menu-card__arrow mega-menu-card__arrow--link" href="/services/ai-data/" tabindex="-1"></a></li><li class="wp-block-navigation-item open-on-hover-click wp-block-navigation-submenu mega-menu-card mega-menu-card--has-links" data-wp-context='{ "submenuOpenedBy": { "click": false, "hover": false, "focus": false }, "type": "submenu", "modal": null, "previousFocus": null }' data-wp-interactive="core/navigation" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-on--pointerenter="actions.openMenuOnHover" data-wp-on--pointerleave="actions.closeMenuOnHover" data-wp-watch="callbacks.initMenu" tabindex="-1"><a aria-label="Product Engineering" class="mega-menu-card__cover" href="/services/product-engineering/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Product Engineering<span class="q-nav-icon"></span></p></div></a><ul class="wp-block-navigation__submenu-container wp-block-navigation-submenu mega-menu-card__links mega-menu-l3-submenu" data-wp-on--focus="actions.openMenuOnFocus"><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/product-engineering/ux-and-ui-design/"><span class="wp-block-navigation-item__label">UX and UI Design</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/product-engineering/digital-product-development/"><span class="wp-block-navigation-item__label">Digital Product Development</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/product-engineering/re-architecting-and-modernisation/"><span class="wp-block-navigation-item__label">Re-Architecting and Modernisation </span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/product-engineering/cloud-engineering/"><span class="wp-block-navigation-item__label">Cloud Engineering</span></a></li></ul><a aria-label="Product Engineering" class="mega-menu-card__arrow mega-menu-card__arrow--link" href="/services/product-engineering/" tabindex="-1"></a></li><li class="wp-block-navigation-item open-on-hover-click wp-block-navigation-submenu mega-menu-card mega-menu-card--has-links" data-wp-context='{ "submenuOpenedBy": { "click": false, "hover": false, "focus": false }, "type": "submenu", "modal": null, "previousFocus": null }' data-wp-interactive="core/navigation" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-on--pointerenter="actions.openMenuOnHover" data-wp-on--pointerleave="actions.closeMenuOnHover" data-wp-watch="callbacks.initMenu" tabindex="-1"><a aria-label="Tech Consulting" class="mega-menu-card__cover" href="/services/consulting-strategy/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Tech Consulting<span class="q-nav-icon"></span></p></div></a><ul class="wp-block-navigation__submenu-container wp-block-navigation-submenu mega-menu-card__links mega-menu-l3-submenu" data-wp-on--focus="actions.openMenuOnFocus"><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/consulting-strategy/new-product-discovery/"><span class="wp-block-navigation-item__label">New Product Discovery</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/consulting-strategy/technology-due-diligence/"><span class="wp-block-navigation-item__label">Technology Due Diligence</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/services/consulting-strategy/ai-and-data-strategy/"><span class="wp-block-navigation-item__label">AI and Data Readiness and Strategy</span></a></li></ul><a aria-label="Tech Consulting" class="mega-menu-card__arrow mega-menu-card__arrow--link" href="/services/consulting-strategy/" tabindex="-1"></a></li></ul></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/case-studies/"><span class="wp-block-navigation-item__label">Case Studies</span></a></li><li class="wp-block-navigation-item has-child open-on-hover-click wp-block-navigation-submenu" data-mega-menu="true" data-wp-context='{ "submenuOpenedBy": { "click": false, "hover": false, "focus": false }, "type": "submenu", "modal": null, "previousFocus": null }' data-wp-interactive="core/navigation" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-on--pointerenter="actions.openMenuOnHover" data-wp-on--pointerleave="actions.closeMenuOnHover" data-wp-watch="callbacks.initMenu" tabindex="-1"><a class="wp-block-navigation-item__content" href="/how-we-work/"><span class="wp-block-navigation-item__label">How We Work</span><span class="wp-block-navigation-item__description"> </span></a><button aria-label="How We Work submenu" class="wp-block-navigation__submenu-icon wp-block-navigation-submenu__toggle" data-wp-bind--aria-expanded="state.isSubmenuOpen" data-wp-on--click="actions.toggleMenuOnClick"><span class="q-nav-icon"></span></button><ul class="wp-block-navigation__submenu-container wp-block-navigation-submenu mega-menu-panel" data-wp-on--focus="actions.openMenuOnFocus" style="--mega-menu-grid-rows: 5; --mega-menu-right-grid-rows: 4;"><li class="wp-block-navigation-item mega-menu-card mega-menu-card--featured-image"><a aria-label="How We Work" class="mega-menu-card__media-link" href="/how-we-work/"><div class="mega-menu-card__media-meta"><strong class="mega-menu-card__media-title">How we work</strong><span aria-hidden="true" class="mega-menu-card__arrow mega-menu-card__arrow--featured"></span></div><figure class="mega-menu-card__media"></figure></a></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Explore. Identify where AI and digital products can create real value before committing to delivery." class="mega-menu-card__cover" href="/how-we-work/explore/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Explore</p><p class="mega-menu-card__description">Identify where AI and digital products can create real value before committing to delivery.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Assess. Validate the opportunity, readiness and technical path before moving into the build." class="mega-menu-card__cover" href="/how-we-work/assess/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Assess</p><p class="mega-menu-card__description">Validate the opportunity, readiness and technical path before moving into the build.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Build. Turn validated opportunities into scalable AI systems and digital products built for real-world use." class="mega-menu-card__cover" href="/how-we-work/build/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Build</p><p class="mega-menu-card__description">Turn validated opportunities into scalable AI systems and digital products built for real-world use.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Run. Keep products, AI systems and delivery teams reliable, efficient and ready to evolve." class="mega-menu-card__cover" href="/how-we-work/run/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Run</p><p class="mega-menu-card__description">Keep products, AI systems and delivery teams reliable, efficient and ready to evolve.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li></ul></li><li class="wp-block-navigation-item has-child open-on-hover-click hide-desktop wp-block-navigation-submenu" data-mega-menu="true" data-wp-context='{ "submenuOpenedBy": { "click": false, "hover": false, "focus": false }, "type": "submenu", "modal": null, "previousFocus": null }' data-wp-interactive="core/navigation" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-on--pointerenter="actions.openMenuOnHover" data-wp-on--pointerleave="actions.closeMenuOnHover" data-wp-watch="callbacks.initMenu" tabindex="-1"><a class="wp-block-navigation-item__content" href="/cooperation-models/"><span class="wp-block-navigation-item__label">Cooperation Models</span></a><button aria-label="Cooperation Models submenu" class="wp-block-navigation__submenu-icon wp-block-navigation-submenu__toggle" data-wp-bind--aria-expanded="state.isSubmenuOpen" data-wp-on--click="actions.toggleMenuOnClick"><span class="q-nav-icon"></span></button><ul class="wp-block-navigation__submenu-container hide-desktop wp-block-navigation-submenu mega-menu-panel" data-wp-on--focus="actions.openMenuOnFocus" style="--mega-menu-grid-rows: 5; --mega-menu-right-grid-rows: 4;"><li class="wp-block-navigation-item mega-menu-card mega-menu-card--featured-image"><a aria-label="Cooperation Models" class="mega-menu-card__media-link" href="/cooperation-models/"><div class="mega-menu-card__media-meta"><strong class="mega-menu-card__media-title">Cooperation Models</strong><span aria-hidden="true" class="mega-menu-card__arrow mega-menu-card__arrow--featured"></span></div><figure class="mega-menu-card__media"></figure></a></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Team as a Service. Hire a cross-functional product team that takes care of delivery end to end." class="mega-menu-card__cover" href="/cooperation-models/team-as-a-service/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Team as a Service</p><p class="mega-menu-card__description">Hire a cross-functional product team that takes care of delivery end to end.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Fixed Scope and Price. Work to an agreed scope, budget and delivery plan, with clear expectations from day one." class="mega-menu-card__cover" href="/cooperation-models/fixed-scope-fixed-price-project/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Fixed Scope and Price</p><p class="mega-menu-card__description">Work to an agreed scope, budget and delivery plan, with clear expectations from day one.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Staff Augmentation. Scale your team with experienced engineers who work as part of your organisation." class="mega-menu-card__cover" href="/cooperation-models/staff-augmentation/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Staff Augmentation</p><p class="mega-menu-card__description">Scale your team with experienced engineers who work as part of your organisation.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Human-Agent Pods. Build with AI-assisted teams while keeping human oversight and accountability." class="mega-menu-card__cover" href="/cooperation-models/human-agent-pods/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Human-Agent Pods</p><p class="mega-menu-card__description">Build with AI-assisted teams while keeping human oversight and accountability.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li></ul></li><li class="wp-block-navigation-item has-child open-on-hover-click wp-block-navigation-submenu" data-mega-menu="true" data-wp-context='{ "submenuOpenedBy": { "click": false, "hover": false, "focus": false }, "type": "submenu", "modal": null, "previousFocus": null }' data-wp-interactive="core/navigation" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-on--pointerenter="actions.openMenuOnHover" data-wp-on--pointerleave="actions.closeMenuOnHover" data-wp-watch="callbacks.initMenu" tabindex="-1"><a class="wp-block-navigation-item__content" href="/about-us/"><span class="wp-block-navigation-item__label">About</span></a><button aria-label="About submenu" class="wp-block-navigation__submenu-icon wp-block-navigation-submenu__toggle" data-wp-bind--aria-expanded="state.isSubmenuOpen" data-wp-on--click="actions.toggleMenuOnClick"><span class="q-nav-icon"></span></button><ul class="wp-block-navigation__submenu-container wp-block-navigation-submenu mega-menu-panel" data-wp-on--focus="actions.openMenuOnFocus" style="--mega-menu-grid-rows: 4; --mega-menu-right-grid-rows: 3;"><li class="wp-block-navigation-item mega-menu-card mega-menu-card--featured-image"><a aria-label="About" class="mega-menu-card__media-link" href="/about-us/"><div class="mega-menu-card__media-meta"><strong class="mega-menu-card__media-title">About Us</strong><span aria-hidden="true" class="mega-menu-card__arrow mega-menu-card__arrow--featured"></span></div><figure class="mega-menu-card__media"></figure></a></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="About Us. Meet the people, values and culture behind Q." class="mega-menu-card__cover" href="/about-us/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">About Us</p><p class="mega-menu-card__description">Meet the people, values and culture behind Q.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Careers. Explore open roles and what it's like to work at Q." class="mega-menu-card__cover" href="/careers/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Careers</p><p class="mega-menu-card__description">Explore open roles and what it’s like to work at Q.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li><li class="wp-block-navigation-item wp-block-navigation-link mega-menu-card"><a aria-label="Blog. Stay up to date with our latest thinking and technical expertise." class="mega-menu-card__cover" href="/blog/" tabindex="-1"><div class="mega-menu-card__body"><p class="mega-menu-card__title">Blog</p><p class="mega-menu-card__description">Stay up to date with our latest thinking and technical expertise.</p></div></a><span aria-hidden="true" class="mega-menu-card__arrow"></span></li></ul></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="/contact-us/"><span class="wp-block-navigation-item__label">Contact Us</span></a></li></ul>
+<div class="wp-block-group mobile-menu-contact contact-section has-base-color has-text-color has-link-color wp-elements-2 is-content-justification-left is-layout-constrained wp-container-core-group-is-layout-adf9a74a wp-block-group-is-layout-constrained">
+<p class="has-text-align-left contact-section__eyebrow has-base-color has-text-color has-link-color wp-elements-3 wp-block-paragraph">Partner with us</p>
+<div class="wp-block-group is-layout-constrained wp-container-core-group-is-layout-28f75d35 wp-block-group-is-layout-constrained">
+<p class="contact-section__title has-base-color has-text-color has-link-color has-types-h-2-font-size wp-elements-4 wp-block-paragraph" style="text-transform:uppercase">Have a project or an idea to discuss?</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-btn-secondary"><a class="wp-block-button__link has-x-large-font-size has-custom-font-size wp-element-button" href="/contact-us/">Contact us</a></div>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+</div><div aria-hidden="true" class="mega-menu-overlay" hidden="hidden"></div></nav>
+<header class="wp-block-template-part">
+</header></div>
+<div class="wp-block-buttons hide-mobile is-content-justification-center is-nowrap is-layout-flex wp-container-core-buttons-is-layout-711c761b wp-block-buttons-is-layout-flex" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
+<div class="wp-block-button has-custom-width wp-block-button__width-100 is-desktop is-style-btn-primary"><a class="wp-block-button__link has-base-color has-text-color has-link-color has-medium-font-size has-custom-font-size wp-element-button" href="/contact-us/">Contact Us</a></div>
+<div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-btn-secondary menu-toggle" data-label-close="Close" data-label-open="Menu">
+<button class="wp-block-button__link has-base-color has-text-color has-link-color has-small-font-size has-custom-font-size wp-element-button" type="button">
+          Menu
+        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="wp-block-group container is-layout-constrained wp-block-group-is-layout-constrained" data-region="main">
+<div class="entry-content wp-block-post-content is-layout-flow wp-block-post-content-is-layout-flow" data-pattern="article">
+<div class="wp-block-group alignfull q-block has-contrast-background-color has-background is-layout-constrained wp-container-core-group-is-layout-afe6aa20 wp-block-group-is-layout-constrained">
+<div class="wp-block-group alignwide main-content has-custom-default-sec-border-color has-text-color has-link-color wp-elements-5 is-layout-flow wp-block-group-is-layout-flow"><div class="yoast-breadcrumbs"><span><span><a href="/">Home</a></span> <span class="separator">&gt;</span> <span><a href="/blog/">Blog</a></span> <span class="separator">&gt;</span> <span aria-current="page" class="breadcrumb_last">TDD in Flutter With Example Application Using Riverpod and Firebase</span></span></div>
+<h1 class="has-link-color wp-elements-6 wp-block-post-title has-text-color has-base-color" style="font-style:normal;font-weight:500;text-transform:uppercase">TDD in Flutter With Example Application Using Riverpod and Firebase</h1>
+<div class="q-reading-time">
+                    July 20, 2025 — 6 min read    </div>
+</div>
+</div>
+</div>
+</div><div class="wp-block-group container is-layout-constrained wp-block-group-is-layout-constrained" data-region="footer">
+<div class="wp-block-group container is-layout-constrained">
+<div class="entry-content wp-block-post-content is-layout-flow">
+<div class="wp-block-group alignfull q-block has-background is-layout-constrained">
+<div class="wp-block-group alignwide main-content is-layout-flow">
+<div class="post-layout-wrapper">
+<div class="entry-content wp-block-post-content is-layout-flow wp-block-post-content-is-layout-flow">
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">Flexible, maintainable</strong>, and <strong class="e-p__strong">easy to extend codebase </strong>ensures the application you are building is of <strong class="e-p__strong">high quality</strong>. One of the best ways to achieve that is development by using the <strong class="e-p__strong">TDD </strong>approach.</p>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">Test-Driven Development </strong>is a software development approach that is based on writing testing code scenarios before implementing the actual code. By doing so proper <strong class="e-p__strong">specifications </strong>for implementation of the code to fulfill<strong class="e-p__strong"> requirements </strong>are being created.</p>
+<p class="e-p wp-block-paragraph">This blog will explain what TDD is and show you a<strong class="e-p__strong"> practical example</strong> of using <strong class="e-p__strong">TDD</strong> and <strong class="e-p__strong">clean architecture</strong> to test the most relevant parts of the app by writing <strong class="e-p__strong">unit tests</strong> in Flutter.</p>
+<h2 class="wp-block-heading e-h2" id="h-test-driven-development-cycle">Test-Driven Development Cycle</h2>
+<p class="e-p wp-block-paragraph">TDD is also called the<strong class="e-p__strong"> Red-Green-Refactor</strong> process regarding its<strong class="e-p__strong"> iterative </strong>process, which is consisted of 3 following steps:</p>
+<ul class="wp-block-list e-list e-list--blog">
+<li>Write a test that fails (<strong class="e-p__strong">Red</strong>)</li>
+<li>Write a code to make a test pass (<strong class="e-p__strong">Green</strong>)</li>
+<li>Refactor your code to obtain high code quality (<strong class="e-p__strong">Refactor</strong>)</li>
+</ul>
+<p class="e-p wp-block-paragraph">Repeating this process for every single piece of feature results in <strong class="e-p__strong">full test code coverage</strong>.</p>
+<h2 class="wp-block-heading e-h2" id="h-benefits-of-tdd-approach">Benefits of TDD Approach</h2>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">The code is easier to maintain</strong></p>
+<p class="e-p wp-block-paragraph">Developers produce cleaner, more manageable, and readable <strong class="e-p__strong">code</strong> using the TDD approach. Furthermore, less effort is required to focus on smaller and more digestible code chunks. Having clean code is helpful in situations when a project is transferred to a different member or team.</p>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">Modular design</strong></p>
+<p class="e-p wp-block-paragraph">Focus is on a single feature at a time and not moving to the next one until the test is passed. Project written in such iterations makes it easier to discover bugs and reuse the code. In addition, adherence to these design principles contributes to better solution architecture.</p>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">Easier code refactoring</strong></p>
+<p class="e-p wp-block-paragraph">Refactoring stands for optimization of the existing code, and it has one goal – to make it easier to introduce. If the code for a small feature or an improvement passes the initial tests, it can be refactored to acceptable standards. That is a mandatory part of the TDD process.</p>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">No need for a documentation</strong></p>
+<p class="e-p wp-block-paragraph">There is no need to create time-consuming and detailed documentation using the TDD approach. TDD involves many simple unit tests, and they can act as documentation. Also, these unit tests show how the code is supposed to work.</p>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">Less debugging</strong></p>
+<p class="e-p wp-block-paragraph">When the code has fewer bugs, developers spend less time fixing them. Also, it is easier to identify errors, and developers are notified sooner when something breaks. That is one of the main benefits of the TDD approach.</p>
+<h2 class="wp-block-heading e-h2" id="h-unit-testing">Unit Testing</h2>
+<p class="e-p wp-block-paragraph">Unit testing is a type of software testing where an individual <strong class="e-p__strong">unit </strong>of code is tested under various conditions to verify its correctness. A <strong class="e-p__strong">unit</strong> may be a function, method, class, state, or just a variable.</p>
+<p class="e-p wp-block-paragraph">A unit test has three phases:</p>
+<ul class="wp-block-list e-list e-list--blog">
+<li><strong class="e-p__strong">Arrange</strong> – create the object of the unit that is being tested, prepare prerequisites, and arrange success or Failure for the case that is being tested</li>
+<li><strong class="e-p__strong">Act</strong> – call the methods, and assign the result variable with a value returned from the component being tested under the given conditions</li>
+<li><strong class="e-p__strong">Assert </strong>– verify whether the unit behaves as expected, and we may assert an outcome by checking if the result from the act part matches the one we expect and have prepared in arrange part using expect() function or expect a method to be called using a verify() function</li>
+</ul>
+<p class="e-p wp-block-paragraph">Sometimes unit tests might depend on classes that fetch data from live web services or databases. Calling live services or databases slows down test execution, might return unexpected results, and make it difficult to test all possible scenarios. To avoid relying on such dependencies, they are being <strong class="e-p__strong">mocked out</strong>.</p>
+<p class="e-p wp-block-paragraph">After mock and unit variables are created, we create instances of dependencies and the unit we are testing in a <strong class="e-p__strong">setUp()</strong> method. For example, we use a group of tests to create a<strong class="e-p__strong"> group()</strong> method. Then we create variables that we need to <strong class="e-p__strong">act</strong> with or <strong class="e-p__strong">validate</strong> that the unit performs as expected.</p>
+<p class="e-p wp-block-paragraph">Now that you know TDD benefits and unit testing practices, let’s get onto the practical example.</p>
+<h2 class="wp-block-heading e-h2" id="h-the-idea-behind-the-application">The Idea Behind the Application</h2>
+<p class="e-p wp-block-paragraph">We made a Q Recipes application using a Spoonacular API to show the TDD approach in practice. The application uses<strong class="e-p__strong"> Riverpod</strong> for state management, <strong class="e-p__strong">Firebase</strong> for authentication with Google, and Cloud Firebase as a database to manage users’ favorite recipes. It has the following features:</p>
+<ul class="wp-block-list e-list e-list--blog">
+<li>Authentication with Google</li>
+<li>Flexitarian and Vegan recipes</li>
+<li>Add/Remove a recipe from favorites</li>
+<li>Filtering favorite recipes (All/ Vegan)</li>
+</ul>
+<p class="e-p wp-block-paragraph">To showcase the TDD approach to each feature of the Q Recipes application, we will split the process into the following sections:</p>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">State management</strong></p>
+<p class="e-p wp-block-paragraph">Firstly we define states based on feature requirements. And then start with the implementation of state notifiers following TDD principles. In test implementation, we create our notifier, call the method, and ensure that the state is as expected.</p>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">UI</strong></p>
+<p class="e-p wp-block-paragraph">To leave the focus on TDD and unit testing the most relevant parts of the app, the blog presents only a visual representation of UI with a short description of core widgets and logic used to build the UI. Parts that contain logic like providers or extensions are presented in this section by following TDD principles.</p>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">Repositories</strong></p>
+<p class="e-p wp-block-paragraph">We begin with defining an interface to determine boundaries between layers. That allows us to mock dependencies easily without implementing them right away. For example, repository methods return type is Either&lt;Failure, Model&gt; as repository catches the exceptions and returns them as Failure when they occur and Model is a class returned when a response is valid. And then onto the implementation following TDD principles.</p>
+<p class="e-p wp-block-paragraph"><strong class="e-p__strong">Data Sources</strong></p>
+<p class="e-p wp-block-paragraph">Repositories use Data Sources to get the actual data. In this section, the interface is also defined first. After that, errors are handled by throwing exceptions which will be converted to the Either type by repository as explained previously. Since our logic here is only throwing exceptions and returning a valid model depending on the outcome of the code that depends on 3rd party APIs that we are using, we skip testing this section and implement it right away.</p>
+<p class="e-p wp-block-paragraph">List of app dependencies in <strong class="e-p__strong">pubspec.yaml</strong>:</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-json" data-lang="JSON"><code>name: q_recipes_tdd
+description: A new Flutter project.
+
+
+version: 1.0.0+1
+
+
+environment:
+  sdk: "&gt;=2.16.1 &lt;3.0.0"
+
+
+dependencies:
+  auto_route: ^5.0.4
+  cloud_firestore: ^4.3.1
+  connectivity_plus: ^3.0.2
+  cupertino_icons: ^1.0.5
+  dartz: ^0.10.1
+  dio: ^4.0.6
+  firebase_auth: ^4.2.5
+  firebase_core: ^2.4.1
+  flutter:
+    sdk: flutter
+  flutter_flavorizr: ^2.1.5
+  flutter_html: ^3.0.0-alpha.6
+  font_awesome_flutter: ^10.3.0
+  freezed_annotation: ^2.2.0
+  get_it: ^7.2.0
+  google_fonts: ^3.0.1
+  google_sign_in: ^5.4.3
+  hooks_riverpod: ^2.1.3
+  injectable: 1.5.3
+  json_annotation: ^4.7.0
+  json_serializable: ^6.5.4
+  pretty_dio_logger: ^1.1.1
+  retrofit: ^3.3.1
+  shared_preferences: ^2.0.16
+  url_launcher: ^6.1.7
+  anim_search_bar: ^2.0.3
+  flash: ^2.0.5
+  custom_radio_grouped_button: ^2.1.2+2
+  firebase_auth_mocks: ^0.10.3
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  freezed: null
+  build_runner: 2.3.0
+  lint: ^2.0.1
+  auto_route_generator: ^5.0.2
+
+
+  flutter_launcher_icons: ^0.11.0
+  flutter_lints: ^2.0.1
+  injectable_generator: null
+  mockito: ^5.3.2
+  state_notifier_test: ^0.0.9
+  retrofit_generator: null</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">For testing purposes, we use <strong class="e-p__strong">mockito</strong> package, which is a great shortcut for creating mocks, and the <strong class="e-p__strong">state_notifier_test</strong> library, which makes it easy to test StateNotifier. Testing library <strong class="e-p__strong">flutter_test </strong>uses a test package that provides the core functionality for writing tests in Dart as a foundation and exposes constructs by which projects may configure their tests, including initialization constructs like setUp() and setUpAll() methods.</p>
+<h2 class="wp-block-heading e-h2" id="h-authentication-with-google">Authentication with Google</h2>
+<p class="e-p wp-block-paragraph">Firebase Authentication is used as a backend service to authenticate users in an app. In this app, we used a third-party provider such as Google.</p>
+<p class="e-p wp-block-paragraph">Initially, you need to get Firebase set up, and you can find instructions for doing that<a class="e-p__link" href="https://firebase.flutter.dev/docs/auth/start" rel="noreferrer noopener" target="_blank"> </a><a class="e-p__link" href="https://firebase.flutter.dev/docs/auth/start" rel="noreferrer noopener" target="_blank">here</a>. For Google Sign-In, most configuration is already set up. However, for use with Android, you need to include your SHA-1 key to the Firebase console (you can find instructions for finding your SHA-1 in<a class="e-p__link" href="https://developers.google.com/android/guides/client-auth" rel="noreferrer noopener" target="_blank"> Android’s official docs</a>).</p>
+<p class="e-p wp-block-paragraph">Requirements:</p>
+<ul class="wp-block-list e-list e-list--blog">
+<li>Show the sign-in page when the user is not logged in</li>
+<li>Sign in user</li>
+<li>Create a new user if it doesn’t exist</li>
+<li>Show loading widget when the user is being authenticated</li>
+<li>Show loading widget when the user is being authenticated</li>
+<li>Redirect to home page with recipes when the user is logged in</li>
+<li>Sign out user</li>
+<li>Show error message when user sign-in/out fails</li>
+</ul>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-state-management">State Management</h3>
+<p class="e-p wp-block-paragraph">States:</p>
+<ul class="wp-block-list e-list e-list--blog">
+<li>Initial</li>
+<li>Authenticating</li>
+<li>Authenticated</li>
+<li>Unauthenticated</li>
+<li>Saved user</li>
+<li>Signed out</li>
+<li>Failure</li>
+</ul>
+<p class="e-p wp-block-paragraph">Auth notifier tests:<code class="hljs language-coffeescript"></code></p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:dartz/dartz.dart';
+import 'package:flutter_tdd_q/common/data/current_user_provider.dart';
+import 'package:flutter_tdd_q/common/data/repositories/user_repository.dart';
+import 'package:flutter_tdd_q/common/domain/models/auth/auth_success.dart';
+import 'package:flutter_tdd_q/common/domain/models/failure.dart';
+import 'package:flutter_tdd_q/common/domain/models/user.dart';
+import 'package:flutter_tdd_q/features/auth/data/repositories/auth_repository.dart';
+import 'package:flutter_tdd_q/features/auth/presentation/state/auth_notifier.dart';
+import 'package:flutter_tdd_q/features/auth/presentation/state/auth_state.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+import 'package:state_notifier_test/state_notifier_test.dart';
+
+
+import 'auth_notifier_test.mocks.dart';
+
+
+// Mock dependencies
+@GenerateMocks([UserProvider, AuthRepository, UserRepository])
+void main() {
+  // Prepare prerequisites
+  late UserProvider _userProvider;
+  late AuthRepository _authRepo;
+  late UserRepository _userRepository;
+
+
+  setUp(() {
+    _userProvider = MockUserProvider();
+    _authRepo = MockAuthRepository();
+    _userRepository = MockUserRepository();
+  });
+
+
+  AuthSuccess getAuthSuccessWithCompletedRegistration() {
+    return const AuthSuccess(
+      registrationComplete: true,
+      user: User(id: '1', email: 'aaa@gmail.com'),
+    );
+  }
+
+
+  AuthSuccess getAuthSuccessWithUncompletedRegistration() {
+    return const AuthSuccess(
+      registrationComplete: false,
+      user: User(id: '1', email: 'aaa@gmail.com'),
+    );
+  }
+
+
+  User getMockedUser() {
+    return const User(id: '1', email: 'aaa@gmail.com');
+  }
+
+
+  stateNotifierTest&lt;AuthNotifier, AuthState&gt;(
+    "Emits [] when no methods are called",
+    // Arrange - create notifier
+    build: () =&gt; AuthNotifier(_userProvider, _authRepo, _userRepository),
+    // Act - call the methods
+    actions: (_) {},
+    // Assert
+    expect: () =&gt; [],
+  );
+
+
+// Group tests by AuthNotifier methods
+  group('sign in tests', () {
+    stateNotifierTest&lt;AuthNotifier, AuthState&gt;(
+      'Emits [AuthState.authenticated] when user is already registered and has successfully logged in',
+      // Arrange - create notifier
+      build: () =&gt; AuthNotifier(_userProvider, _authRepo, _userRepository),
+      // Arrange - set up dependencies
+      setUp: () async {
+        when(_authRepo.signIn()).thenAnswer(
+          (_) async =&gt; Future.value(
+            right(getAuthSuccessWithCompletedRegistration()),
+          ),
+        );
+      },
+      // Act - call the methods
+      actions: (stateNotifier) =&gt; stateNotifier.signIn(),
+      // Assert
+      expect: () =&gt; [
+        const AuthState.authenticated(),
+      ],
+    );
+
+
+    stateNotifierTest&lt;AuthNotifier, AuthState&gt;(
+      'Emits [AuthState.failure] when user has not successfully logged in',
+      build: () =&gt; AuthNotifier(_userProvider, _authRepo, _userRepository),
+      setUp: () async {
+        when(_authRepo.signIn()).thenAnswer(
+          (_) async =&gt; Future.value(
+            left(
+              const Failure.authenticationFailure(
+                  AuthFailureReason.googleSignIn),
+            ),
+          ),
+        );
+      },
+      actions: (stateNotifier) async =&gt; stateNotifier.signIn(),
+      expect: () =&gt; [
+        const AuthState.failure(
+            Failure.authenticationFailure(AuthFailureReason.googleSignIn)),
+      ],
+    );
+
+
+    stateNotifierTest&lt;AuthNotifier, AuthState&gt;(
+      'Emits [AuthState.savedUser,AuthState.authenticated] when user is not registered and has successfully logged in and successfully saved user in the firebase',
+      build: () =&gt; AuthNotifier(_userProvider, _authRepo, _userRepository),
+      setUp: () async {
+        when(_authRepo.signIn()).thenAnswer(
+          (_) async =&gt; Future.value(
+            right(getAuthSuccessWithUncompletedRegistration()),
+          ),
+        );
+
+
+        when(_userRepository.createUser(user: getMockedUser())).thenAnswer(
+          (_) async =&gt; Future.value(
+            right(
+              getMockedUser(),
+            ),
+          ),
+        );
+      },
+      actions: (stateNotifier) async =&gt; stateNotifier.signIn(),
+      expect: () =&gt; [
+        const AuthState.savedUser(),
+        const AuthState.authenticated(),
+      ],
+    );
+
+
+    stateNotifierTest&lt;AuthNotifier, AuthState&gt;(
+      'Emits [AuthState.savedUser,AuthState.authenticated] when user is not registered and has successfully logged in and successfully saved user in the firebase',
+      build: () =&gt; AuthNotifier(_userProvider, _authRepo, _userRepository),
+      setUp: () async {
+        when(_authRepo.signIn()).thenAnswer(
+          (_) async =&gt; Future.value(
+            right(getAuthSuccessWithUncompletedRegistration()),
+          ),
+        );
+
+
+        when(_userRepository.createUser(user: getMockedUser())).thenAnswer(
+          (_) async =&gt; Future.value(
+            left(
+              const Failure.authenticationFailure(AuthFailureReason.other),
+            ),
+          ),
+        );
+      },
+      actions: (stateNotifier) async =&gt; stateNotifier.signIn(),
+      expect: () =&gt; [
+        const AuthState.failure(
+            Failure.authenticationFailure(AuthFailureReason.other)),
+        const AuthState.authenticated(),
+      ],
+    );
+  });
+
+
+  group('sign out tests', () {
+    stateNotifierTest&lt;AuthNotifier, AuthState&gt;(
+      'Emits [AuthState.unauthenticated] when user signed out successfully',
+      build: () =&gt; AuthNotifier(_userProvider, _authRepo, _userRepository),
+      setUp: () async {
+        when(_authRepo.signOut()).thenAnswer((_) =&gt; Future.value(right(unit)));
+      },
+      actions: (AuthNotifier stateNotifier) async {
+        await stateNotifier.signOut();
+      },
+      expect: () =&gt; [
+        const AuthState.signedOut(),
+      ],
+    );
+    stateNotifierTest&lt;AuthNotifier, AuthState&gt;(
+      'Emits [AuthState.failure(Failure.signOutError())] when user signed out failed',
+      build: () =&gt; AuthNotifier(_userProvider, _authRepo, _userRepository),
+      setUp: () async {
+        when(_authRepo.signOut()).thenAnswer(
+            (_) =&gt; Future.value(const Left(Failure.signOutError())));
+      },
+      actions: (AuthNotifier stateNotifier) async {
+        await stateNotifier.signOut();
+      },
+      expect: () =&gt; [
+        const AuthState.failure(Failure.signOutError()),
+      ],
+    );
+  });
+
+
+  group('check if authenticated tests', () {
+    stateNotifierTest&lt;AuthNotifier, AuthState&gt;(
+      'Emits [AuthState.loading,AuthState.authenticated] when registration is commpleted',
+      build: () =&gt; AuthNotifier(_userProvider, _authRepo, _userRepository),
+      setUp: () async {
+        when(_authRepo.isRegistrationComplete())
+            .thenAnswer((realInvocation) =&gt; Future.value(true));
+        when(_userProvider.setup())
+            .thenAnswer((realInvocation) =&gt; Future.value(true));
+      },
+      actions: (stateNotifier) =&gt; stateNotifier.checkIfAuthenticated(),
+      expect: () =&gt; [
+        const AuthState.authenticating(),
+        const AuthState.authenticated(),
+      ],
+    );
+
+
+    stateNotifierTest&lt;AuthNotifier, AuthState&gt;(
+      'Emits [AuthState.loading,AuthState.unauthenticated] when registration is not completed',
+      build: () =&gt; AuthNotifier(_userProvider, _authRepo, _userRepository),
+      setUp: () async {
+        when(_authRepo.isRegistrationComplete())
+            .thenAnswer((realInvocation) =&gt; Future.value(false));
+        when(_userProvider.setup())
+            .thenAnswer((realInvocation) =&gt; Future.value(true));
+      },
+      actions: (stateNotifier) =&gt; stateNotifier.checkIfAuthenticated(),
+      expect: () =&gt; [
+        const AuthState.authenticating(),
+        const AuthState.unauthenticated(),
+      ],
+    );
+  });
+}</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Auth notifier implementation:<code class="hljs language-dart"></code></p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:flutter_tdd_q/common/data/current_user_provider.dart';
+import 'package:flutter_tdd_q/common/data/repositories/user_repository.dart';
+import 'package:flutter_tdd_q/common/domain/models/user.dart';
+import 'package:flutter_tdd_q/features/auth/data/repositories/auth_repository.dart';
+import 'package:flutter_tdd_q/features/auth/presentation/state/auth_state.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+
+class AuthNotifier extends StateNotifier&lt;AuthState&gt; {
+  final UserProvider _userProvider;
+  final AuthRepository _authRepo;
+  final UserRepository _userRepository;
+
+
+  AuthNotifier(
+    this._userProvider,
+    this._authRepo,
+    this._userRepository,
+  ) : super(const AuthState.initial());
+
+
+  Future&lt;void&gt; checkIfAuthenticated() async {
+    state = const AuthState.authenticating();
+    await Future.delayed(const Duration(seconds: 2));
+
+
+    final regComplete = await _authRepo.isRegistrationComplete();
+    if (regComplete) {
+      await _userProvider.setup();
+      state = const AuthState.authenticated();
+    } else {
+      state = const AuthState.unauthenticated();
+    }
+  }
+
+
+  Future&lt;void&gt; signIn() async {
+    final signInResult = await _authRepo.signIn();
+    await signInResult.fold(
+      (failure) async =&gt; state = AuthState.failure(failure),
+      (success) async {
+        if (!success.registrationComplete) {
+          await _setNewUser(success.user);
+        }
+        state = const AuthState.authenticated();
+      },
+    );
+  }
+
+
+  Future&lt;void&gt; _setNewUser(User user) async {
+    final userResult = await _userRepository.createUser(user: user);
+    state = userResult.fold(
+      (failure) =&gt; AuthState.failure(failure),
+      (success) =&gt; const AuthState.savedUser(),
+    );
+  }
+
+
+  Future&lt;void&gt; signOut() async {
+    final result = await _authRepo.signOut();
+    state = result.fold(
+      (failure) =&gt; AuthState.failure(failure),
+      (success) =&gt; const AuthState.signedOut(),
+    );
+  }
+}</code></pre>
+</div>
+</div>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-ui">UI</h3>
+<p class="e-p wp-block-paragraph">A core widget of the sign-in page is a Column containing widgets that display an app title, logo, and Google sign-in button which calls signIn() method on a state provider authNotifierProvider based on which state user gets redirected further if everything goes as expected or properly notified if an error occurs.</p>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-repositories">Repositories</h3>
+<p class="e-p wp-block-paragraph">The authentication repository handles data from AuthRemoteDataSource and AuthLocalDataSource to enable signing users in and out.</p>
+<p class="e-p wp-block-paragraph">Authentication repository interface:</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>abstract class IAuthRepository {
+  Future&lt;Either&lt;Failure, AuthSuccess&gt;&gt; signIn();
+  Future signOut();
+  Future&lt;bool&gt; isRegistrationComplete();
+}</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Authentication repository tests:<code class="hljs language-dart"></code></p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:dartz/dartz.dart';
+import 'package:flutter_tdd_q/common/domain/data_source_exception.dart';
+import 'package:flutter_tdd_q/common/domain/models/auth/auth_exception.dart';
+import 'package:flutter_tdd_q/common/domain/models/auth/auth_success.dart';
+import 'package:flutter_tdd_q/common/domain/models/failure.dart';
+import 'package:flutter_tdd_q/common/domain/models/user.dart';
+import 'package:flutter_tdd_q/common/domain/models/user_credentials.dart';
+import 'package:flutter_tdd_q/features/auth/data/datasources/auth_local_data_source.dart';
+import 'package:flutter_tdd_q/features/auth/data/datasources/auth_remote_data_source.dart';
+import 'package:flutter_tdd_q/features/auth/data/repositories/auth_repository.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+
+
+import 'auth_repository_test.mocks.dart';
+
+
+// Mock dependencies
+@GenerateMocks([AuthRemoteDataSource, AuthLocalDataSource])
+void main() {
+// Prepare prerequisites
+  late AuthRemoteDataSource mockAuthRemoteDataSource;
+  late AuthLocalDataSource mockAuthLocalDataSource;
+  late AuthRepository authRepository;
+
+
+  setUp(() {
+    mockAuthRemoteDataSource = MockAuthRemoteDataSource();
+    mockAuthLocalDataSource = MockAuthLocalDataSource();
+    authRepository =
+        AuthRepository(mockAuthRemoteDataSource, mockAuthLocalDataSource);
+  });
+
+
+  const userCredentials = UserCredentials(email: 'test@t.com', uid: '3445uidX');
+  final user = User(id: userCredentials.uid, email: userCredentials.email);
+  final authSuccess = AuthSuccess(registrationComplete: true, user: user);
+  const authFailureOther =
+      Failure.authenticationFailure(AuthFailureReason.other);
+  const authFailureGoogleSignIn =
+      Failure.authenticationFailure(AuthFailureReason.googleSignIn);
+  const authenticationLocalDataSourceFailure =
+      Failure.authenticationLocalDataSourceFailure();
+
+
+  // Group tests by methods from AuthRepository
+  group('Sign in tests', () {
+    void setupSuccess() {
+      when(mockAuthRemoteDataSource.googleSignIn())
+          .thenAnswer((_) async =&gt; userCredentials);
+      when(mockAuthLocalDataSource.storeUserCredentials(userCredentials))
+          .thenAnswer((_) async {});
+      when(mockAuthRemoteDataSource.isRegistrationComplete())
+          .thenAnswer((_) async =&gt; Future.value(true));
+    }
+
+
+    test(
+      'authRepository.signIn should call authRemoteDataSource.googleSignIn',
+      () async {
+        // Arrange
+        setupSuccess();
+        // Act
+        await authRepository.signIn();
+        // Assert
+        verify(mockAuthRemoteDataSource.googleSignIn());
+      },
+    );
+    test(
+      'authRepository.signIn should call authRemoteDataSource.isRegistrationComplete',
+      () async {
+        setupSuccess();
+        await authRepository.signIn();
+        verify(mockAuthRemoteDataSource.isRegistrationComplete());
+      },
+    );
+    test(
+      'authRepository.signIn should call authLocalDataSource.storeUserCredentials with userCredentials',
+      () async {
+        setupSuccess();
+        await authRepository.signIn();
+        verify(mockAuthLocalDataSource.storeUserCredentials(userCredentials));
+      },
+    );
+    test(
+      'authRepository.signIn should return authSuccess when user signed in successfully',
+      () async {
+        setupSuccess();
+        final result = await authRepository.signIn();
+        expect(result, Right(authSuccess));
+      },
+    );
+
+
+    test(
+      'authRepository.signIn should return AuthenticationFailure.other when sign in failed',
+      () async {
+        when(mockAuthRemoteDataSource.googleSignIn()).thenAnswer((_) async =&gt;
+            throw const AuthException(failureReason: AuthFailureReason.other));
+        final result = await authRepository.signIn();
+        expect(result, const Left(authFailureOther));
+      },
+    );
+    test(
+      'authRepository.signIn should return AuthenticationFailure.googleSignIn when failed to get authTokens',
+      () async {
+        when(mockAuthRemoteDataSource.googleSignIn()).thenAnswer((_) async =&gt;
+            throw const AuthException(
+                failureReason: AuthFailureReason.googleSignIn));
+        final result = await authRepository.signIn();
+        expect(result, const Left(authFailureGoogleSignIn));
+      },
+    );
+    test(
+      'authRepository.signIn should return AuthenticationLocalDataSourceFailure when failed to store user credentials',
+      () async {
+        when(mockAuthRemoteDataSource.googleSignIn())
+            .thenAnswer((_) async =&gt; userCredentials);
+        when(mockAuthLocalDataSource.storeUserCredentials(userCredentials))
+            .thenAnswer((_) async =&gt; throw AuthLocalDataSourceException());
+        final result = await authRepository.signIn();
+        expect(result, const Left(authenticationLocalDataSourceFailure));
+      },
+    );
+  });
+
+
+  group('Sign out tests', () {
+    void setupSuccess() {
+      when(mockAuthRemoteDataSource.googleSignOut()).thenAnswer((_) async {});
+    }
+
+
+    void setupError() {
+      when(mockAuthRemoteDataSource.googleSignOut())
+          .thenAnswer((_) async =&gt; throw Exception());
+    }
+
+
+    test(
+      'authRepository.signOut should call authRemoteDataSource.googleSignOut',
+      () async {
+        setupSuccess();
+        await authRepository.signOut();
+        verify(mockAuthRemoteDataSource.googleSignOut());
+      },
+    );
+    test(
+      'authRepository.signOut should return unit when user signed out successfully',
+      () async {
+        setupSuccess();
+        final result = await authRepository.signOut();
+        expect(result, const Right(unit));
+      },
+    );
+
+
+    test(
+      'authRepository.signOut should return signOutError when sign out failed',
+      () async {
+        setupError();
+        final result = await authRepository.signOut();
+        expect(result, const Left(Failure.signOutError()));
+      },
+    );
+  });
+  group('Is registration complete tests', () {
+    void setupSuccess() {
+      when(mockAuthRemoteDataSource.isRegistrationComplete())
+          .thenAnswer((_) async =&gt; Future.value(true));
+    }
+
+
+    void setupError() {
+      when(mockAuthRemoteDataSource.isRegistrationComplete())
+          .thenAnswer((_) async =&gt; throw Exception());
+    }
+
+
+    test(
+      'authRepository.isRegistrationComplete should call authRemoteDataSource.isRegistrationComplete',
+      () async {
+        setupSuccess();
+        await authRepository.isRegistrationComplete();
+        verify(mockAuthRemoteDataSource.isRegistrationComplete());
+      },
+    );
+    test(
+      'authRepository.isRegistrationComplete should return true when registration completed successfully',
+      () async {
+        setupSuccess();
+        final result = await authRepository.isRegistrationComplete();
+        expect(result, const Right(true));
+      },
+    );
+
+
+    test(
+      'authRepository.isRegistrationComplete should return false when registration failed',
+      () async {
+        setupError();
+        final result = await authRepository.isRegistrationComplete();
+        expect(result, const Left(false));
+      },
+    );
+  });
+}</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Authentication repository implementation:</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:dartz/dartz.dart';
+import 'package:flutter_tdd_q/common/domain/data_source_exception.dart';
+import 'package:flutter_tdd_q/common/domain/models/auth/auth_exception.dart';
+import 'package:flutter_tdd_q/common/domain/models/auth/auth_success.dart';
+import 'package:flutter_tdd_q/common/domain/models/failure.dart';
+import 'package:flutter_tdd_q/common/domain/models/user.dart';
+import 'package:flutter_tdd_q/features/auth/data/datasources/auth_local_data_source.dart';
+import 'package:flutter_tdd_q/features/auth/data/datasources/auth_remote_data_source.dart';
+
+
+class AuthRepository implements IAuthRepository {
+  final AuthRemoteDataSource _authRemoteDataSource;
+  final AuthLocalDataSource _authLocalDataSource;
+
+
+  AuthRepository(this._authRemoteDataSource, this._authLocalDataSource);
+
+
+  @override
+  Future&lt;Either&lt;Failure, AuthSuccess&gt;&gt; signIn() async {
+    try {
+      final userCredentials = await _authRemoteDataSource.googleSignIn();
+      await _authLocalDataSource.storeUserCredentials(userCredentials);
+      final isRegistrationComplete =
+          await _authRemoteDataSource.isRegistrationComplete();
+      final user = User(id: userCredentials.uid, email: userCredentials.email);
+
+
+      return Right(AuthSuccess(
+          registrationComplete: isRegistrationComplete, user: user));
+    } on AuthException catch (e) {
+      return Left(Failure.authenticationFailure(e.failureReason));
+    } on AuthLocalDataSourceException {
+      return const Left(Failure.authenticationLocalDataSourceFailure());
+    }
+  }
+
+
+  @override
+  Future&lt;Either&lt;Failure, Unit&gt;&gt; signOut() async {
+    try {
+      await _authRemoteDataSource.googleSignOut();
+      return const Right(unit);
+    } catch (e) {
+      return const Left(Failure.signOutError());
+    }
+  }
+
+
+  @override
+  Future&lt;bool&gt; isRegistrationComplete() async {
+    return _authRemoteDataSource.isRegistrationComplete();
+  }
+}</code></pre>
+</div>
+</div>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-data-sources">Data Sources</h3>
+<p class="e-p wp-block-paragraph">AuthRemoteDataSource is used for Google authentication with Firebase. We use<strong class="e-p__strong"> the google_sign_in</strong> package to manually carry out the sign-in flow and pass the resulting ID token to Firebase.</p>
+<p class="e-p wp-block-paragraph">There are four main steps that we follow working with Google sign-in SDK:</p>
+<p class="e-p wp-block-paragraph">Retrieve the user’s Google account information</p>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();</code></pre>
+</div>
+<p class="e-p wp-block-paragraph">Authenticate the user’s account through Google to retrieve a GoogleSignInAuthentication object that contains their ID token, access token, and other relevant information.</p>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>final googleAuthTokens = await googleUser?.authentication;</code></pre>
+</div>
+<p class="e-p wp-block-paragraph">Create a new GoogleAuthCredential object using the user’s access and ID tokens.</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>return GoogleAuthProvider.credential(
+      accessToken: googleAuthTokens.accessToken,
+      idToken: googleAuthTokens.idToken,
+    );</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Authenticate in Firebase with the user’s credentials.</p>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>final firebaseCredential = await _firebaseAuth.signInWithCredential(credential);</code></pre>
+</div>
+<p class="e-p wp-block-paragraph">Full authentication process:</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_tdd_q/common/auth/domain/auth_exception.dart';
+import 'package:flutter_tdd_q/common/auth/domain/user_credentials.dart';
+import 'package:flutter_tdd_q/common/data/current_user_provider.dart';
+import 'package:flutter_tdd_q/common/data/firebase_collections.dart';
+import 'package:flutter_tdd_q/common/domain/models/failure.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+
+abstract class AuthRemoteDataSource {
+  Future&lt;UserCredentials&gt; googleSignIn();
+  Future googleSignOut();
+  Future&lt;bool&gt; isRegistrationComplete();
+}
+
+
+class FirebaseAuthDatasource implements AuthRemoteDataSource {
+  final FirebaseAuth _firebaseAuth;
+  final FirebaseFirestore _fireStore;
+  final UserProvider _userProvider;
+
+
+  FirebaseAuthDatasource(
+      this._firebaseAuth, this._fireStore, this._userProvider);
+
+
+  Future&lt;UserCredentials&gt; _authenticateWith(
+      {required AuthCredential credential}) async {
+    try {
+      final firebaseCredential =
+          await _firebaseAuth.signInWithCredential(credential);
+      return firebaseCredential.toUserCredentials;
+    } on FirebaseAuthException catch (e) {
+      throw AuthException(failureReason: _mapExceptionCodeToMessage(e.code));
+    }
+  }
+
+
+  AuthFailureReason _mapExceptionCodeToMessage(String code) {
+    switch (code) {
+      default:
+        return AuthFailureReason.other;
+    }
+  }
+
+
+  Future&lt;AuthCredential?&gt; _getAuthCredentials() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    final googleAuthTokens = await googleUser?.authentication;
+
+
+    if (googleAuthTokens == null)
+      throw const AuthException(failureReason: AuthFailureReason.googleSignIn);
+    return GoogleAuthProvider.credential(
+      accessToken: googleAuthTokens.accessToken,
+      idToken: googleAuthTokens.idToken,
+    );
+  }
+
+
+  @override
+  Future&lt;UserCredentials&gt; googleSignIn() async {
+    final credentials = await _getAuthCredentials();
+
+
+    if (credentials != null)
+      return _authenticateWith(credential: credentials);
+    else
+      throw const AuthException(failureReason: AuthFailureReason.other);
+  }
+
+
+  Future&lt;void&gt; userSetUp() async =&gt; _userProvider.setup();
+
+
+  @override
+  Future&lt;bool&gt; isRegistrationComplete() async {
+    try {
+      final uid = _firebaseAuth.currentUser?.uid ?? 'user';
+      final userDoc = await _fireStore.doc('/${Collections.users}/$uid').get();
+      return userDoc.data() != null;
+    } on Exception {
+      return false;
+    }
+  }
+
+
+  @override
+  Future googleSignOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
+}
+
+
+extension _FirebaseUserCredentialsMappable on UserCredential {
+  UserCredentials get toUserCredentials =&gt;
+      UserCredentials(email: user!.email!, uid: user!.uid);
+}</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">AuthLocalDataSource is used for the local storage of user credentials<code class="hljs language-dart"></code></p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_tdd_q/common/data/current_user_provider.dart';
+import 'package:flutter_tdd_q/common/data/firebase_collections.dart';
+import 'package:flutter_tdd_q/common/domain/models/auth/auth_exception.dart';
+import 'package:flutter_tdd_q/common/domain/models/failure.dart';
+import 'package:flutter_tdd_q/common/domain/models/user_credentials.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+
+abstract class AuthRemoteDataSource {
+  Future&lt;UserCredentials&gt; googleSignIn();
+  Future googleSignOut();
+  Future&lt;bool&gt; isRegistrationComplete();
+}
+
+
+class FirebaseAuthDatasource implements AuthRemoteDataSource {
+  final FirebaseAuth _firebaseAuth;
+  final FirebaseFirestore _fireStore;
+  final UserProvider _userProvider;
+
+
+  FirebaseAuthDatasource(
+      this._firebaseAuth, this._fireStore, this._userProvider);
+
+
+  Future&lt;UserCredentials&gt; _authenticateWith(
+      {required AuthCredential credential}) async {
+    try {
+      final firebaseCredential =
+          await _firebaseAuth.signInWithCredential(credential);
+      return firebaseCredential.toUserCredentials;
+    } on FirebaseAuthException catch (e) {
+      throw AuthException(failureReason: _mapExceptionCodeToMessage(e.code));
+    }
+  }
+
+
+  AuthFailureReason _mapExceptionCodeToMessage(String code) {
+    switch (code) {
+      default:
+        return AuthFailureReason.other;
+    }
+  }
+
+
+  Future&lt;AuthCredential?&gt; _getAuthCredentials() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    final googleAuthTokens = await googleUser?.authentication;
+
+
+    if (googleAuthTokens == null)
+      throw const AuthException(failureReason: AuthFailureReason.googleSignIn);
+    return GoogleAuthProvider.credential(
+      accessToken: googleAuthTokens.accessToken,
+      idToken: googleAuthTokens.idToken,
+    );
+  }
+
+
+  @override
+  Future&lt;UserCredentials&gt; googleSignIn() async {
+    final credentials = await _getAuthCredentials();
+
+
+    if (credentials != null)
+      return _authenticateWith(credential: credentials);
+    else
+      throw const AuthException(failureReason: AuthFailureReason.other);
+  }
+
+
+  Future&lt;void&gt; userSetUp() async =&gt; _userProvider.setup();
+
+
+  @override
+  Future&lt;bool&gt; isRegistrationComplete() async {
+    try {
+      final uid = _firebaseAuth.currentUser?.uid ?? 'user';
+      final userDoc = await _fireStore.doc('/${Collections.users}/$uid').get();
+      return userDoc.data() != null;
+    } on Exception {
+      return false;
+    }
+  }
+
+
+  @override
+  Future googleSignOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
+}
+
+
+extension _FirebaseUserCredentialsMappable on UserCredential {
+  UserCredentials get toUserCredentials =&gt;
+      UserCredentials(email: user!.email!, uid: user!.uid);
+}</code></pre>
+</div>
+</div>
+<h2 class="wp-block-heading" id="h-"></h2>
+<h2 class="wp-block-heading e-h2" id="h-flexitarian-and-vegan-recipes">Flexitarian and Vegan Recipes</h2>
+<p class="e-p wp-block-paragraph">Requirements:</p>
+<ul class="wp-block-list e-list e-list--blog">
+<li>Show loading widget when the repository is waiting for the response from the server, or it is processing data</li>
+<li>Show List of recipes when data fetching is successfully done</li>
+<li>Show error message when data fetching fails</li>
+<li>Show recipe details on the recipe card click</li>
+</ul>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-state-management-0">State Management</h3>
+<p class="e-p wp-block-paragraph">We have two kinds of recipes and a separate screen for each, so we have a state notifier for each one.</p>
+<ul class="wp-block-list e-list e-list--blog">
+<li>Initial</li>
+<li>Loading</li>
+<li>Loaded</li>
+<li>Error</li>
+</ul>
+<p class="e-p wp-block-paragraph">Flexitarian recipes state notifier tests:</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:dartz/dartz.dart';
+import 'package:flutter_tdd_q/common/data/repositories/recipe_repository.dart';
+import 'package:flutter_tdd_q/common/domain/models/failure.dart';
+
+
+import 'package:flutter_tdd_q/common/domain/models/recipe.dart';
+
+
+import 'package:flutter_tdd_q/features/flexiterian/presentation/pages/state/provider/flexi_recipes_notifier.dart';
+import 'package:flutter_tdd_q/features/flexiterian/presentation/pages/state/provider/flexi_recipes_state.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+import 'package:state_notifier_test/state_notifier_test.dart';
+
+
+import 'flexi_recipes_notifier_test.mocks.dart';
+
+
+// Mock dependencies
+@GenerateMocks([RecipeRepository])
+void main() {
+  // Prepare prerequisites
+  late RecipeRepository mockRecipeRepository;
+
+
+  setUp(() {
+    mockRecipeRepository = MockRecipeRepository();
+  });
+
+
+  const data = Recipes.data(recipes: [Recipe()]);
+  const recipes = [Recipe()];
+
+
+  stateNotifierTest&lt;FlexiRecipesNotifier, FlexiRecipesState&gt;(
+    'Emits [] when no methods are called',
+    // Arrange - create notifier
+    build: () =&gt; FlexiRecipesNotifier(mockRecipeRepository),
+    // Act - call the methods
+    actions: (_) {},
+    // Assert
+    expect: () =&gt; [],
+  );
+
+
+  // Group tests by FlexiRecipesNotifier methods
+  group('recipes load tests', () {
+    stateNotifierTest&lt;FlexiRecipesNotifier, FlexiRecipesState&gt;(
+      'Emits [FlexiRecipesState.loading, FlexiRecipesState.loaded] when data is fetched successfully',
+      // Arrange - create notifier
+      build: () =&gt; FlexiRecipesNotifier(mockRecipeRepository),
+      // Arrange - set up dependencies
+      setUp: () async {
+        when(mockRecipeRepository.getRecipes()).thenAnswer(
+          (invocation) async {
+            return Future&lt;Either&lt;Failure, Recipes&gt;&gt;(
+              () =&gt; Future.value(right(data)),
+            );
+          },
+        );
+      },
+      // Act - call the methods
+      actions: (FlexiRecipesNotifier stateNotifier) async {
+        await stateNotifier.loadRecipes();
+      },
+      // Assert
+      expect: () =&gt; [
+        const FlexiRecipesState.loading(),
+        const FlexiRecipesState.loaded(recipes: recipes),
+      ],
+    );
+
+
+    stateNotifierTest&lt;FlexiRecipesNotifier, FlexiRecipesState&gt;(
+      'Emits [FlexiRecipesState.loading, FlexiRecipesState.error] when fetching data fails',
+      build: () =&gt; FlexiRecipesNotifier(mockRecipeRepository),
+      setUp: () async {
+        when(mockRecipeRepository.getRecipes()).thenAnswer(
+          (invocation) async {
+            return Future&lt;Either&lt;Failure, Recipes&gt;&gt;(
+              () =&gt; Future.value(left(const Failure.unexpectedDataError())),
+            );
+          },
+        );
+      },
+      actions: (FlexiRecipesNotifier stateNotifier) async {
+        await stateNotifier.loadRecipes();
+      },
+      expect: () =&gt; [
+        const FlexiRecipesState.loading(),
+        FlexiRecipesState.error(
+            error: const Failure.unexpectedDataError().failureMessage()),
+      ],
+    );
+  });
+}</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Vegan recipes state notifier tests:<code class="hljs language-coffeescript"></code></p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:dartz/dartz.dart';
+import 'package:flutter_tdd_q/common/data/repositories/recipe_repository.dart';
+import 'package:flutter_tdd_q/common/domain/models/failure.dart';
+
+
+import 'package:flutter_tdd_q/common/domain/models/recipe.dart';
+
+
+import 'package:flutter_tdd_q/features/vegan/presentation/state/provider/vegan_recipes_notifier.dart';
+import 'package:flutter_tdd_q/features/vegan/presentation/state/provider/vegan_recipes_state.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+import 'package:state_notifier_test/state_notifier_test.dart';
+
+
+import 'vegan_recipes_notifier_test.mocks.dart';
+
+
+// Mock dependencies
+@GenerateMocks([RecipeRepository])
+void main() {
+  // Prepare prerequisites
+  late RecipeRepository mockRecipeRepository;
+
+
+  setUp(() {
+    mockRecipeRepository = MockRecipeRepository();
+  });
+
+
+  const data = Recipes.data(recipes: [Recipe()]);
+  const recipes = [Recipe()];
+
+
+  stateNotifierTest&lt;VeganRecipesNotifier, VeganRecipesState&gt;(
+    'Emits [] when no methods are called',
+    // Arrange - create notifier
+    build: () =&gt; VeganRecipesNotifier(mockRecipeRepository),
+    // Act - call the methods
+    actions: (_) {},
+    // Assert
+    expect: () =&gt; [],
+  );
+
+
+// Group tests by VeganRecipesNotifier methods
+  group('vegan recipes load tests', () {
+    stateNotifierTest&lt;VeganRecipesNotifier, VeganRecipesState&gt;(
+      'Emits [VeganRecipesState.loading, VeganRecipesState.loaded] when data is fetched successfully',
+      // Arrange - create notifier
+      build: () =&gt; VeganRecipesNotifier(mockRecipeRepository),
+      // Arrange - set up dependencies
+      setUp: () async {
+        when(mockRecipeRepository.getRecipes(tags: ['vegan'])).thenAnswer(
+          (invocation) async {
+            return Future&lt;Either&lt;Failure, Recipes&gt;&gt;(
+              () =&gt; Future.value(right(data)),
+            );
+          },
+        );
+      },
+      // Act - call the methods
+      actions: (VeganRecipesNotifier stateNotifier) async {
+        await stateNotifier.loadVeganRecipes();
+      },
+      // Assert
+      expect: () =&gt; [
+        const VeganRecipesState.loading(),
+        const VeganRecipesState.loaded(recipes: recipes),
+      ],
+    );
+
+
+    stateNotifierTest&lt;VeganRecipesNotifier, VeganRecipesState&gt;(
+      'Emits [VeganRecipesState.loading, VeganRecipesState.error] when data is fetched unsuccessfully',
+      build: () =&gt; VeganRecipesNotifier(mockRecipeRepository),
+      setUp: () async {
+        when(mockRecipeRepository.getRecipes(tags: ['vegan'])).thenAnswer(
+          (invocation) async {
+            return Future&lt;Either&lt;Failure, Recipes&gt;&gt;(
+              () =&gt; Future.value(left(const Failure.unexpectedDataError())),
+            );
+          },
+        );
+      },
+      actions: (VeganRecipesNotifier stateNotifier) async {
+        await stateNotifier.loadVeganRecipes();
+      },
+      expect: () =&gt; [
+        const VeganRecipesState.loading(),
+        VeganRecipesState.error(
+            error: const Failure.unexpectedDataError().failureMessage()),
+      ],
+    );
+  });
+}</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Flexitarian recipes state notifier implementation:</p>
+<pre class="wp-block-code"><code></code></pre>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:flutter_tdd_q/common/data/repositories/recipe_repository.dart';
+import 'package:flutter_tdd_q/common/domain/models/failure.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+
+import 'flexi_recipes_state.dart';
+
+
+class FlexiRecipesNotifier extends StateNotifier&lt;FlexiRecipesState&gt; {
+  final RecipeRepository _recipeRepository;
+
+
+  FlexiRecipesNotifier(this._recipeRepository)
+      : super(const FlexiRecipesState.initial());
+
+
+  Future&lt;void&gt; loadRecipes() async {
+    state = const FlexiRecipesState.loading();
+    final result = await _recipeRepository.getRecipes();
+
+
+    state = result.fold(
+        (failure) =&gt; FlexiRecipesState.error(error: failure.failureMessage()),
+        (data) =&gt; FlexiRecipesState.loaded(recipes: data.recipes ?? []));
+  }
+}</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Vegan recipes state notifier implementation:</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:flutter_tdd_q/common/data/repositories/recipe_repository.dart';
+import 'package:flutter_tdd_q/common/domain/models/failure.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+
+import 'vegan_recipes_state.dart';
+
+
+class VeganRecipesNotifier extends StateNotifier&lt;VeganRecipesState&gt; {
+  final RecipeRepository _recipeRepository;
+
+
+  VeganRecipesNotifier(this._recipeRepository)
+      : super(const VeganRecipesState.initial());
+
+
+  Future&lt;void&gt; loadVeganRecipes() async {
+    state = const VeganRecipesState.loading();
+    final result = await _recipeRepository.getRecipes(tags: ['vegan']);
+
+
+    state = result.fold(
+        (failure) =&gt; VeganRecipesState.error(error: failure.failureMessage()),
+        (data) =&gt; VeganRecipesState.loaded(recipes: data.recipes ?? []));
+  }
+}</code></pre>
+</div>
+</div>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-ui-0">UI</h3>
+<p class="e-p wp-block-paragraph">Vegan and Flexitarian pages display content based on vegan and flexitarian recipes state notifier’s <strong class="e-p__strong">state</strong>. In addition, a listView with <strong class="e-p__strong">recipe cards </strong>is displayed if data is loaded successfully. In the case of the error state, an error message is displayed, and in the case of the loading state, CircularLoader is displayed.</p>
+<p class="e-p wp-block-paragraph">Click on the recipe card displays recipe details page containing information about a recipe displayed in a CustomScrollView with a SliverAppBar and SliverList.</p>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-repositories-0">Repositories</h3>
+<p class="e-p wp-block-paragraph">The recipes repository’s job is to get recipes data from the ApiClient, which contains code for talking to the Spoonacular API. We are fetching both vegan and flexitarian recipes from the same endpoint, so we have only one method getRecipes() in our IRecipeRepository interface.</p>
+<p class="e-p wp-block-paragraph">Recipe repository interface:</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>abstract class IRecipeRepository {
+  Future&lt;Either&lt;Failure, Recipes&gt;&gt; getRecipes(
+      {int? number, List&lt;String&gt;? tags});
+}</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Recipe repository tests:<code class="hljs language-dart"></code></p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter_tdd_q/common/data/repositories/recipe_repository.dart';
+import 'package:flutter_tdd_q/common/domain/models/failure.dart';
+
+
+import 'package:flutter_tdd_q/common/domain/models/recipe.dart';
+
+
+import 'package:flutter_tdd_q/common/network/api_client.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+
+
+import 'recipe_repository_test.mocks.dart';
+
+
+// Mock dependencies
+@GenerateMocks([ApiClient])
+void main() {
+  // Prepare prerequisites
+  late MockApiClient apiClient;
+  late RecipeRepository repository;
+  final tags = ['vegan'];
+
+
+  setUp(() {
+    apiClient = MockApiClient();
+    repository = RecipeRepository(apiClient);
+  });
+
+
+  const recipes = Recipes.data(recipes: [
+    Recipe(
+        vegan: true,
+        summary: 'Test recipe ready in 5 minutes.',
+        title: 'Test recipe',
+        readyInMinutes: 5),
+    Recipe(
+        vegan: true,
+        summary: 'Test recipe ready in 5 minutes.',
+        title: 'Test recipe',
+        readyInMinutes: 5),
+  ]);
+
+
+  void setupSuccess() {
+    when(apiClient.getRandomRecipes()).thenAnswer((_) async =&gt; recipes);
+    when(apiClient.getRandomRecipes(tags: tags))
+        .thenAnswer((_) async =&gt; recipes);
+  }
+
+
+  void setupError() {
+    when(apiClient.getRandomRecipes())
+        .thenThrow(DioError(requestOptions: RequestOptions(path: '')));
+  }
+
+
+  // Group tests by methods from RecipeRepository
+  group('get recipes tests', () {
+    test(
+      'should call _apiClient.getRandomRecipes',
+      () async {
+        // Arrange
+        setupSuccess();
+        // Act
+        await repository.getRecipes();
+        // Assert
+        verify(apiClient.getRandomRecipes());
+      },
+    );
+    test(
+      'should call _apiClient.getRandomRecipes with tag vegan',
+      () async {
+        setupSuccess();
+
+        await repository.getRecipes(tags: tags);
+        verify(apiClient.getRandomRecipes(tags: tags));
+      },
+    );
+    test(
+      'should return list of recipes when api client successfully retrieves data',
+      () async {
+        setupSuccess();
+        final result = await repository.getRecipes();
+        final expected = right(recipes);
+        expect(result, expected);
+      },
+    );
+  });
+
+
+  test(
+    'should return failure when api client unsuccessfully retrieves data',
+    () async {
+      setupError();
+      final result = await repository.getRecipes();
+      final expected = left(const Failure.offline());
+
+      expect(result, expected);
+    },
+  );
+}</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Recipe Repository implementation:</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter_tdd_q/common/domain/models/failure.dart';
+import 'package:flutter_tdd_q/common/domain/models/recipe.dart';
+
+
+import 'package:flutter_tdd_q/common/network/api_client.dart';
+
+
+class RecipeRepository implements IRecipeRepository {
+  final ApiClient _api;
+
+
+  RecipeRepository(
+    this._api,
+  );
+
+
+  @override
+  Future&lt;Either&lt;Failure, Recipes&gt;&gt; getRecipes(
+      {int? number, List&lt;String&gt;? tags}) async {
+    try {
+      final response = await _api.getRandomRecipes(tags: tags);
+      return right(response);
+    } on DioError catch (e) {
+      return left(e.handleFailure());
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-data-sources-0">Data Sources</h3>
+<p class="e-p wp-block-paragraph">To fetch flexitarian recipes data, we use Get Random Recipes <a class="e-p__link" href="https://spoonacular.com/food-api/docs#Get-Random-Recipes" rel="noreferrer noopener" target="_blank">endpoint </a>from <a class="e-p__link" href="https://spoonacular.com/food-api" rel="noreferrer noopener" target="_blank">Spoonacular API</a>. To get the vegan recipes, we are using the same endpoint and including the ‘tags’ parameter with the List containing ‘vegan’ value in the request. To create our API request, we will use <strong class="e-p__strong">retrofit</strong> generator.</p>
+<p class="e-p wp-block-paragraph">API Client:</p>
+<pre class="wp-block-code"><code><span class="hljs-keyword">import</span> <span class="hljs-string">'package:dio/dio.dart'</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">'package:flutter_tdd_q/common/domain/models/recipe.dart'</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">'package:retrofit/retrofit.dart'</span>;
+
+<span class="hljs-keyword">part</span> <span class="hljs-string">'api_client.g.dart'</span>;
+
+<span class="hljs-meta">@RestApi</span>()
+<span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ApiClient</span> </span>{
+  <span class="hljs-keyword">factory</span> ApiClient.createDefault(Dio dio) = _ApiClient;
+
+  <span class="hljs-meta">@GET</span>(<span class="hljs-string">'/recipes/random'</span>)
+  Future&lt;Recipes&gt; getRandomRecipes({
+    <span class="hljs-meta">@Query</span>(<span class="hljs-string">'number'</span>) <span class="hljs-built_in">int</span> number = <span class="hljs-number">10</span>,
+    <span class="hljs-meta">@Query</span>(<span class="hljs-string">'tags'</span>) <span class="hljs-built_in">List</span>&lt;<span class="hljs-built_in">String</span>&gt;? tags,
+  });
+}</code></pre>
+<h2 class="wp-block-heading" id="h-"></h2>
+<h2 class="wp-block-heading e-h2" id="h-favorite-recipes">Favorite Recipes</h2>
+<p class="e-p wp-block-paragraph">Requirements:</p>
+<ul class="wp-block-list e-list e-list--blog">
+<li>Save a recipe as a favorite</li>
+<li>Remove a recipe from favorites</li>
+<li>Show all recipes on the favorite recipes screen</li>
+<li>Enable filtering of recipes (vegan/ all)</li>
+<li>Show loading indicator when fetching recipes</li>
+<li>Show message when the user has no favorite recipes</li>
+<li>Show error message when add/remove or get recipes fails</li>
+</ul>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-state-management-1">State Management</h3>
+<p class="e-p wp-block-paragraph">Favorite list notifier states:</p>
+<ul class="wp-block-list e-list e-list--blog">
+<li>Initial</li>
+<li>Loading</li>
+<li>Loaded</li>
+<li>Empty</li>
+<li>Error</li>
+</ul>
+<p class="e-p wp-block-paragraph">Favorite notifier states:</p>
+<ul class="wp-block-list e-list e-list--blog">
+<li>Initial</li>
+<li>Submitting</li>
+<li>Data</li>
+<li>Error</li>
+</ul>
+<p class="e-p wp-block-paragraph">Favorite state notifier tests:<code class="hljs language-coffeescript"></code></p>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:dartz/dartz.dart';
+import 'package:flutter_tdd_q/common/domain/models/failure.dart';
+import 'package:flutter_tdd_q/common/domain/models/recipe.dart';
+import 'package:flutter_tdd_q/features/favorite/data/repositories/favorite_repository.dart';
+import 'package:flutter_tdd_q/features/favorite/presentation/state/favorite_notifier.dart';
+import 'package:flutter_tdd_q/features/favorite/presentation/state/favorite_state.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+import 'package:state_notifier_test/state_notifier_test.dart';
+
+
+import 'favorite_notifier_test.mocks.dart';
+
+
+// Mock dependencies
+@GenerateMocks([FavoriteRepository])
+void main() {
+  // Prepare prerequisites
+  late FavoriteRepository mockFavoriteRepository;
+
+
+  setUp(() {
+    mockFavoriteRepository = MockFavoriteRepository();
+  });
+
+
+  const recipe = Recipe(
+      vegan: false,
+      summary: 'Test recipe ready in 5 minutes.',
+      title: 'Test recipe',
+      readyInMinutes: 5);
+
+
+  stateNotifierTest&lt;FavoriteNotifier, FavoriteState&gt;(
+      'Emits [] when no methods are called',
+      // Arrange - create notifier
+      build: () =&gt; FavoriteNotifier(mockFavoriteRepository),
+      // Act - call the methods
+      actions: (FavoriteNotifier stateNotifier) {},
+      // Assert
+      expect: () =&gt; []);
+
+
+  // Group tests by FavoriteNotifier methods
+  group('add favorite recipe tests', () {
+    stateNotifierTest&lt;FavoriteNotifier, FavoriteState&gt;(
+      'Emits [submitting, data] when recipe is added to favorites successfully',
+      // Arrange - create notifier
+      build: () =&gt; FavoriteNotifier(mockFavoriteRepository),
+      // Arrange - set up dependencies
+      setUp: () async {
+        when(mockFavoriteRepository.addToFavorites(recipe: recipe)).thenAnswer(
+          (invocation) async {
+            return Future&lt;Either&lt;Failure, Unit&gt;&gt;(
+              () =&gt; Future.value(right(unit)),
+            );
+          },
+        );
+      },
+      // Act - call the methods
+      actions: (FavoriteNotifier stateNotifier) async {
+        await stateNotifier.addToFavorites(recipe: recipe);
+      },
+      // Assert
+      expect: () =&gt; [
+        const FavoriteState.submitting(),
+        const FavoriteState.data(favorite: true, recipe: recipe),
+      ],
+    );
+
+
+    stateNotifierTest&lt;FavoriteNotifier, FavoriteState&gt;(
+      'Emits [submitting, error] when adding a recipe to favorites fails',
+      build: () =&gt; FavoriteNotifier(mockFavoriteRepository),
+      setUp: () async {
+        when(mockFavoriteRepository.addToFavorites(recipe: recipe)).thenAnswer(
+          (invocation) async {
+            return Future&lt;Either&lt;Failure, Unit&gt;&gt;(
+              () =&gt; Future.value(left(const Failure.serverError())),
+            );
+          },
+        );
+      },
+      actions: (FavoriteNotifier stateNotifier) async {
+        await stateNotifier.addToFavorites(recipe: recipe);
+      },
+      expect: () =&gt; [
+        const FavoriteState.submitting(),
+        const FavoriteState.error(error: Failure.serverError()),
+      ],
+    );
+  });
+  group('remove favourite recipe tests', () {
+    stateNotifierTest&lt;FavoriteNotifier, FavoriteState&gt;(
+      'Emits [submitting, data] when recipe is removed from favorites successfully',
+      build: () =&gt; FavoriteNotifier(mockFavoriteRepository),
+      setUp: () async {
+        when(mockFavoriteRepository.removeFromFavorites(recipe: recipe))
+            .thenAnswer(
+          (invocation) async {
+            return Future&lt;Either&lt;Failure, Unit&gt;&gt;(
+              () =&gt; Future.value(right(unit)),
+            );
+          },
+        );
+      },
+      actions: (FavoriteNotifier stateNotifier) async {
+        await stateNotifier.removeFromFavorites(recipe: recipe);
+      },
+      expect: () =&gt; [
+        const FavoriteState.submitting(),
+        const FavoriteState.data(favorite: false, recipe: recipe),
+      ],
+    );
+
+
+    stateNotifierTest&lt;FavoriteNotifier, FavoriteState&gt;(
+      'Emits [submitting, error] when removing a recipe from favorites failed',
+      build: () =&gt; FavoriteNotifier(mockFavoriteRepository),
+      setUp: () async {
+        when(mockFavoriteRepository.removeFromFavorites(recipe: recipe))
+            .thenAnswer(
+          (invocation) async {
+            return Future&lt;Either&lt;Failure, Unit&gt;&gt;(
+              () =&gt; Future.value(left(const Failure.serverError())),
+            );
+          },
+        );
+      },
+      actions: (FavoriteNotifier stateNotifier) async {
+        await stateNotifier.removeFromFavorites(recipe: recipe);
+      },
+      expect: () =&gt; [
+        const FavoriteState.submitting(),
+        const FavoriteState.error(error: Failure.serverError()),
+      ],
+    );
+  });
+}</code></pre>
+</div>
+<pre class="wp-block-code"><code></code></pre>
+<p class="e-p wp-block-paragraph">Favorite list state notifier tests:<code class="hljs language-dart"></code></p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'dart:async';
+
+
+import 'package:dartz/dartz.dart';
+import 'package:flutter_tdd_q/common/domain/models/failure.dart';
+import 'package:flutter_tdd_q/common/domain/models/recipe.dart';
+import 'package:flutter_tdd_q/features/favorite/data/repositories/favorite_repository.dart';
+import 'package:flutter_tdd_q/features/favorite/presentation/state/favorite_list_notifier.dart';
+import 'package:flutter_tdd_q/features/favorite/presentation/state/favorite_list_state.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+import 'package:state_notifier_test/state_notifier_test.dart';
+
+
+import 'favorite_list_notifier_test.mocks.dart';
+
+
+// Mock dependencies
+@GenerateMocks([FavoriteRepository])
+void main() {
+  // Prepare prerequisites
+  late FavoriteRepository mockFavoriteRepository;
+
+
+  setUp(() {
+    mockFavoriteRepository = MockFavoriteRepository();
+  });
+
+
+  const recipe = Recipe(
+      vegan: false,
+      summary: 'Test recipe ready in 5 minutes.',
+      title: 'Test recipe',
+      readyInMinutes: 5);
+  const recipeVegan = Recipe(
+      vegan: true,
+      summary: 'Test recipe ready in 5 minutes.',
+      title: 'Test recipe',
+      readyInMinutes: 5);
+  const recipes = [recipe, recipeVegan];
+  final successListOfRecipesList = &lt;Either&lt;Failure, List&lt;Recipe&gt;&gt;&gt;[
+    right(recipes),
+  ];
+  final recipesStream = Stream&lt;Either&lt;Failure, List&lt;Recipe&gt;&gt;&gt;.fromIterable(
+      successListOfRecipesList);
+
+
+  stateNotifierTest&lt;FavoriteListNotifier, FavoriteListState&gt;(
+      'Emits [] when no methods are called',
+      // Arrange - create notifier
+      build: () =&gt; FavoriteListNotifier(mockFavoriteRepository),
+      // Act - call the methods
+      actions: (_) {},
+      // Assert
+      expect: () =&gt; []);
+
+
+  // Group tests by FavoriteListNotifier methods
+  group('get favorite recipes tests', () {
+    stateNotifierTest&lt;FavoriteListNotifier, FavoriteListState&gt;(
+      'Emits [loading, loaded] when recipe is fetched from favorites successfully',
+      // Arrange - create notifier
+      build: () =&gt; FavoriteListNotifier(mockFavoriteRepository),
+      // Arrange - set up dependencies
+      setUp: () {
+        when(mockFavoriteRepository.getFavorites()).thenAnswer((_) {
+          return recipesStream;
+        });
+      },
+      // Act - call the methods
+      actions: (FavoriteListNotifier stateNotifier) async {
+        await stateNotifier.getFavorites();
+      },
+      // Assert
+      expect: () =&gt; [
+        const FavoriteListState.loading(),
+        const FavoriteListState.loaded(recipes: [...recipes]),
+      ],
+    );
+
+
+    stateNotifierTest&lt;FavoriteListNotifier, FavoriteListState&gt;(
+      'Emits [loading, error] when fetching recipes from favorites fails',
+      build: () =&gt; FavoriteListNotifier(mockFavoriteRepository),
+      setUp: () async {
+        when(mockFavoriteRepository.getFavorites()).thenAnswer((_) {
+          final streamController =
+              StreamController&lt;Either&lt;Failure, List&lt;Recipe&gt;&gt;&gt;();
+          streamController.add(left(const Failure.serverError()));
+          return streamController.stream;
+        });
+      },
+      actions: (FavoriteListNotifier stateNotifier) async {
+        await stateNotifier.getFavorites();
+      },
+      expect: () =&gt; [
+        const FavoriteListState.loading(),
+        const FavoriteListState.error(error: Failure.serverError()),
+      ],
+    );
+  });
+}</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Favorite state notifier implementation:</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'dart:async';
+
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_tdd_q/features/favorite/data/repositories/favorite_repository.dart';
+import 'package:flutter_tdd_q/features/favorite/presentation/state/favorite_list_state.dart';
+
+
+class FavoriteListNotifier extends StateNotifier&lt;FavoriteListState&gt; {
+  final FavoriteRepository _favoriteRepository;
+  late StreamSubscription _streamSubscription;
+
+
+  FavoriteListNotifier(
+    this._favoriteRepository,
+  ) : super(const FavoriteListState.initial());
+
+
+  Future&lt;void&gt; getFavorites() async {
+    state = const FavoriteListState.loading();
+
+
+    _streamSubscription = _favoriteRepository.getFavorites().listen((result) {
+      state = result.fold(
+        (l) =&gt; FavoriteListState.error(error: l),
+        (r) {
+          if (r.isEmpty) return const FavoriteListState.empty(recipes: []);
+          return FavoriteListState.loaded(recipes: r);
+        },
+      );
+    });
+
+
+    @override
+    Future&lt;void&gt; close() {
+      return _streamSubscription.cancel();
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-ui-1">UI</h3>
+<p class="e-p wp-block-paragraph">A favorite page displays content based on the favorite recipes list state notifier’s state. A listView with recipes saved as favorites is displayed if data is loaded successfully. In the case of the error state, an error message is displayed, and in the case of the loading state, CircularLoader is displayed.</p>
+<p class="e-p wp-block-paragraph">Filtering recipes is done with our FilterRadioButton widget, which extends ConsumerWidget to enable listening to a state provider filterProvider to change the radioButtonValue by switching FilterFavorites enum values. Displaying a selected kind of recipe is then done by our ​​filteredFavoritesListProvider of type AutoDisposeProvider&lt; List &lt;RecipeElement&gt;&gt; which recipes list content it provides depends on our filterProvider and favoriteListNotifierProvider state.</p>
+<p class="e-p wp-block-paragraph">Filter favorites enum extension tests:</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:flutter_tdd_q/features/favorite/presentation/state/favorite_list_state.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+
+void main() {
+  test(
+      "getFiltersString should return 'VEGAN' for FilterFavorites.vegan filter",
+      () {
+    const filter = FilterFavorites.vegan;
+    final filterString = filter.getFiltersString();
+    const expected = 'VEGAN';
+    expect(filterString, expected);
+  });
+
+
+  test("getFiltersString should return 'ALL' for FilterFavorites.all filter",
+      () {
+    const filter = FilterFavorites.all;
+    final filterString = filter.getFiltersString();
+    const expected = 'ALL';
+    expect(filterString, expected);
+  });
+}</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Filter favorites enum extension implementation:</p>
+<div>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>enum FilterFavorites { vegan, all }
+
+
+extension FilterExtension on FilterFavorites {
+  String getFiltersString() {
+    switch (this) {
+      case FilterFavorites.all:
+        return "ALL";
+      case FilterFavorites.vegan:
+        return "VEGAN";
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Filter provider tests:</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:flutter_tdd_q/common/providers/providers.dart';
+import 'package:flutter_tdd_q/features/favorite/presentation/state/favorite_list_state.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+
+void main() {
+  group('filter favorite recipes provider tests', () {
+    test('filter provider initial state should be FilterFavorites.all', () {
+      // Arrange - create container that stores the state of providers
+      final container = ProviderContainer();
+      // Assert
+      expect(container.read(filterProvider), FilterFavorites.all);
+    });
+    test(
+        'filter provider state should be FilterFavorites.all when state overriden to all',
+        () {
+      // Arrange - create container that stores the state of providers
+      // Arrange - override behaviour of filterProvider
+      final container = ProviderContainer(
+        overrides: [filterProvider.overrideWith((ref) =&gt; FilterFavorites.all)],
+      );
+      // Assert
+      expect(container.read(filterProvider), FilterFavorites.all);
+    });
+    test(
+        'filter provider state should be FilterFavorites.vegan when state overriden to vegan',
+        () {
+      final container = ProviderContainer(
+        overrides: [filterProvider.overrideWith((ref) =&gt; FilterFavorites.vegan)],
+      );
+      expect(container.read(filterProvider), FilterFavorites.vegan);
+    });
+  });
+}</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Filtered favorites list provider tests:</p>
+<p class="e-p wp-block-paragraph"><code class="hljs language-typescript"></code></p>
+<div>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:dartz/dartz.dart';
+import 'package:flutter_tdd_q/common/domain/models/failure.dart';
+import 'package:flutter_tdd_q/common/domain/models/recipe.dart';
+import 'package:flutter_tdd_q/common/providers/providers.dart';
+import 'package:flutter_tdd_q/features/favorite/data/repositories/favorite_repository.dart';
+import 'package:flutter_tdd_q/features/favorite/presentation/state/favorite_list_notifier.dart';
+import 'package:flutter_tdd_q/features/favorite/presentation/state/favorite_list_state.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+
+
+import 'filtered_favorites_list_provider_test.mocks.dart';
+
+
+// Mock dependencies
+@GenerateMocks([FavoriteRepository])
+void main() {
+  // Prepare prerequisites
+  late FavoriteRepository mockFavoriteRepository;
+
+
+  setUp(() {
+    mockFavoriteRepository = MockFavoriteRepository();
+  });
+  const recipe = Recipe(
+      vegan: false,
+      summary: 'Test recipe ready in 5 minutes.',
+      title: 'Test recipe',
+      readyInMinutes: 5);
+  const recipeVegan = Recipe(
+      vegan: true,
+      summary: 'Test recipe ready in 5 minutes.',
+      title: 'Test recipe',
+      readyInMinutes: 5);
+  const recipes = [recipe, recipeVegan];
+  final successListOfRecipesList = &lt;Either&lt;Failure, List&lt;Recipe&gt;&gt;&gt;[
+    right(recipes),
+  ];
+  final recipesStream = Stream&lt;Either&lt;Failure, List&lt;Recipe&gt;&gt;&gt;.fromIterable(
+      successListOfRecipesList);
+  final filteredRecipes =
+      recipes.where((element) =&gt; element.vegan == true).toList();
+
+
+  group('filter favourite recipes tests', () {
+    void setUpSuccess() {
+      when(mockFavoriteRepository.getFavorites()).thenAnswer((_) {
+        return recipesStream;
+      });
+    }
+
+
+    test(
+        'filtered favorites list provider should return list with all recipes initially',
+        () async {
+      // Arrange - create container that stores the state of providers
+      // Arrange - override behaviour of filterProvider and set up dependencies
+      setUpSuccess();
+      final container = ProviderContainer(
+        overrides: [
+          favoriteListNotifierProvider.overrideWith(
+              (ref) =&gt; FavoriteListNotifier(mockFavoriteRepository)),
+        ],
+      );
+      // Act
+      await container
+          .read(favoriteListNotifierProvider.notifier)
+          .getFavorites();
+      // Assert
+      expect(container.read(filteredFavoritesListProvider), recipes);
+    });
+    test(
+        'filtered favorites list provider should return list with vegan recipes after filterProviders state changes to FilterFavorites.vegan',
+        () async {
+      setUpSuccess();
+      final container = ProviderContainer(
+        overrides: [
+          favoriteListNotifierProvider.overrideWith(
+              (ref) =&gt; FavoriteListNotifier(mockFavoriteRepository)),
+          filterProvider.overrideWith((ref) =&gt; FilterFavorites.vegan),
+        ],
+      );
+      await container
+          .read(favoriteListNotifierProvider.notifier)
+          .getFavorites();
+      expect(container.read(filteredFavoritesListProvider), filteredRecipes);
+    });
+    test(
+        'filtered favorites list provider should return list with all recipes after filterProviders state changes to FilterFavorites.all',
+        () async {
+      setUpSuccess();
+      final container = ProviderContainer(
+        overrides: [
+          favoriteListNotifierProvider.overrideWith(
+              (ref) =&gt; FavoriteListNotifier(mockFavoriteRepository)),
+          filterProvider.overrideWith((ref) =&gt; FilterFavorites.all),
+        ],
+      );
+      await container
+          .read(favoriteListNotifierProvider.notifier)
+          .getFavorites();
+      expect(container.read(filteredFavoritesListProvider), recipes);
+    });
+  });
+}</code></pre>
+</div>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Providers implementation:</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>final filterProvider =
+    StateProvider&lt;FilterFavorites&gt;((_) =&gt; FilterFavorites.all);
+
+
+final favoriteListNotifierProvider =
+    StateNotifierProvider.autoDispose&lt;FavoriteListNotifier, FavoriteListState&gt;(
+  (ref) =&gt; FavoriteListNotifier(
+    ref.watch(favoriteRepositoryProvider),
+  ),
+);
+
+
+final filteredFavoritesListProvider = Provider.autoDispose&lt;List&lt;Recipe&gt;&gt;((ref) {
+  final filter = ref.watch(filterProvider);
+  final favoriteList = ref
+      .watch(favoriteListNotifierProvider)
+      .maybeMap(orElse: () =&gt; &lt;Recipe&gt;[], loaded: (state) =&gt; state.recipes);
+
+
+  switch (filter) {
+    case FilterFavorites.all:
+      return favoriteList;
+    case FilterFavorites.vegan:
+      return favoriteList.where((element) =&gt; element.vegan == true).toList();
+  }
+});</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Adding and removing a recipe from favorites is done with our HeartButton widget that calls removeFromFavorites() or addToFavorites() methods on a favoriteNotifierProvider. The user is informed about the outcome according to favoriteNotifierProvider’s state.</p>
+<figure class="c-postImage">
+<figcaption class="e-p--small"></figcaption>
+</figure>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-repositories-1">Repositories</h3>
+<p class="e-p wp-block-paragraph">Favorite repository handles FavoriteRemoteDataSource responses to enable adding, removing, and viewing favorite recipes.<code class="hljs language-swift"></code></p>
+<p class="e-p wp-block-paragraph">Favorite repository tests:</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'dart:async';
+import 'package:dartz/dartz.dart';
+import 'package:flutter_tdd_q/common/domain/data_source_exception.dart';
+import 'package:flutter_tdd_q/common/domain/models/failure.dart';
+import 'package:flutter_tdd_q/common/domain/models/recipe.dart';
+import 'package:flutter_tdd_q/features/favorite/data/datasources/favorite_remote_data_source.dart';
+import 'package:flutter_tdd_q/features/favorite/data/repositories/favorite_repository.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+
+
+import 'favorite_repository_test.mocks.dart';
+
+
+// Mock dependencies
+@GenerateMocks([FavoriteRemoteDataSource])
+void main() {
+  // Prepare prerequisites
+  late FavoriteRemoteDataSource mockFavoriteRemoteDataSource;
+  late FavoriteRepository favoriteRepository;
+
+
+  setUp(() {
+    mockFavoriteRemoteDataSource = MockFavoriteRemoteDataSource();
+    favoriteRepository = FavoriteRepository(mockFavoriteRemoteDataSource);
+  });
+
+
+  const recipe = Recipe(
+      vegan: false,
+      summary: 'Test recipe ready in 5 minutes.',
+      title: 'Test recipe',
+      readyInMinutes: 5);
+  const recipeVegan = Recipe(
+      vegan: true,
+      summary: 'Test recipe ready in 5 minutes.',
+      title: 'Test recipe',
+      readyInMinutes: 5);
+  const recipes = [recipe, recipeVegan];
+  final listOfRecipesList = [recipes, recipes];
+  final recipesStream = Stream.fromIterable(listOfRecipesList);
+
+
+  // Group tests by methods from FavoriteRepository
+  group('get recipes from favourites tests', () {
+    void setupSuccess() {
+      when(mockFavoriteRemoteDataSource.getFavorites()).thenAnswer((_) async* {
+        yield* recipesStream;
+      });
+    }
+
+
+    void setupError() {
+      when(mockFavoriteRemoteDataSource.getFavorites()).thenAnswer((_) async* {
+        yield* throw DataSourceException();
+      });
+    }
+
+
+    test(
+      'favoriteRepository.getFavorites should call favouriteRemoteDataSource.getFavorites',
+      () async {
+        // Arrange
+        setupSuccess();
+        // Act
+        await favoriteRepository.getFavorites().forEach((_) {});
+        // Assert
+        verify(mockFavoriteRemoteDataSource.getFavorites());
+      },
+    );
+
+
+    test(
+        'should return streams with listOfRecipesList lists when favoriteRemoteDataSource successfully fetched recipes from favorites',
+        () async {
+      setupSuccess();
+      int i = 0;
+      await favoriteRepository.getFavorites().forEach((result) {
+        expect(result, right(listOfRecipesList[i]));
+        i++;
+      });
+    });
+
+
+    test(
+      'should return failure when favoriteRemoteDataSource unsuccessfully fetched recipes from favorites',
+      () async {
+        setupError();
+        await favoriteRepository.getFavorites().forEach((result) {
+          expect(result, left(const Failure.serverError()));
+        });
+      },
+    );
+  });
+
+
+  group('add recipe to favorites tests', () {
+    void setupSuccess() {
+      when(mockFavoriteRemoteDataSource.addFavorite(recipe: recipe))
+          .thenAnswer((_) async =&gt; unit);
+    }
+
+
+    void setupError() {
+      when(mockFavoriteRemoteDataSource.addFavorite(recipe: recipe))
+          .thenAnswer((_) async =&gt; throw DataSourceException());
+    }
+
+
+    test(
+      'favoriteRepository.addToFavorites should call favoriteRemoteDataSource.addFavorite with recipe',
+      () async {
+        setupSuccess();
+        await favoriteRepository.addToFavorites(recipe: recipe);
+        verify(mockFavoriteRemoteDataSource.addFavorite(recipe: recipe));
+      },
+    );
+
+
+    test(
+      'should return right(unit) when favoriteRemoteDataSource successfully added recipe to favorites',
+      () async {
+        setupSuccess();
+        final result = await favoriteRepository.addToFavorites(recipe: recipe);
+        final expected = right(unit);
+        expect(result, expected);
+      },
+    );
+
+
+    test(
+      'should return failure when favoriteRemoteDataSource unsuccessfully added recipe to favorites',
+      () async {
+        setupError();
+        final result = await favoriteRepository.addToFavorites(recipe: recipe);
+        final expected = left(const Failure.serverError());
+        expect(result, expected);
+      },
+    );
+  });
+
+
+  group('remove recipe from favorites tests', () {
+    void setupSuccess() {
+      when(mockFavoriteRemoteDataSource.removeFavorite(recipe: recipe))
+          .thenAnswer((_) async =&gt; unit);
+    }
+
+
+    void setupError() {
+      when(mockFavoriteRemoteDataSource.removeFavorite(recipe: recipe))
+          .thenAnswer((_) async =&gt; throw DataSourceException());
+    }
+
+
+    test(
+      'favouriteRepository.removeFromFavorites should call favoriteRemoteDataSource.removeFavorite with recipe',
+      () async {
+        setupSuccess();
+        await favoriteRepository.removeFromFavorites(recipe: recipe);
+        verify(mockFavoriteRemoteDataSource.removeFavorite(recipe: recipe));
+      },
+    );
+
+
+    test(
+      'should return right(unit) when favoriteRemoteDataSource successfully removed recipe from favorites',
+      () async {
+        setupSuccess();
+        final result =
+            await favoriteRepository.removeFromFavorites(recipe: recipe);
+        final expected = right(unit);
+        expect(result, expected);
+      },
+    );
+
+
+    test(
+      'should return failure when favoriteRemoteDataSource unsuccessfully removed recipe from favorites',
+      () async {
+        setupError();
+        final result =
+            await favoriteRepository.removeFromFavorites(recipe: recipe);
+        final expected = left(const Failure.serverError());
+        expect(result, expected);
+      },
+    );
+  });
+}</code></pre>
+</div>
+</div>
+<p class="e-p wp-block-paragraph">Favorite repository implementation:<code class="hljs language-dart"></code></p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'package:dartz/dartz.dart';
+import 'package:flutter_tdd_q/common/domain/data_source_exception.dart';
+import 'package:flutter_tdd_q/common/domain/models/failure.dart';
+import 'package:flutter_tdd_q/common/domain/models/recipe.dart';
+import 'package:flutter_tdd_q/features/favorite/data/datasources/favorite_remote_data_source.dart';
+
+
+class FavoriteRepository implements IFavoriteRepository {
+  final FavoriteRemoteDataSource _favoriteRemoteDataSource;
+  FavoriteRepository(
+    this._favoriteRemoteDataSource,
+  );
+  @override
+  Future&lt;Either&lt;Failure, Unit&gt;&gt; addToFavorites({required Recipe recipe}) async {
+    try {
+      final response =
+          await _favoriteRemoteDataSource.addFavorite(recipe: recipe);
+      return right(response);
+    } on DataSourceException catch (_) {
+      return left(const Failure.serverError());
+    }
+  }
+
+
+  @override
+  Future&lt;Either&lt;Failure, Unit&gt;&gt; removeFromFavorites(
+      {required Recipe recipe}) async {
+    try {
+      final response =
+          await _favoriteRemoteDataSource.removeFavorite(recipe: recipe);
+      return right(response);
+    } on DataSourceException catch (_) {
+      return left(const Failure.serverError());
+    }
+  }
+
+
+  @override
+  Stream&lt;Either&lt;Failure, List&lt;Recipe&gt;&gt;&gt; getFavorites() async* {
+    try {
+      await for (final event in _favoriteRemoteDataSource.getFavorites()) {
+        yield right(event);
+      }
+    } on DataSourceException catch (_) {
+      yield left(const Failure.serverError());
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<h3 class="wp-block-heading e-h3 e-h3--lg" id="h-data-sources-1">Data Sources</h3>
+<p class="e-p wp-block-paragraph">FavoriteRemoteDataSource uses Cloud Firestore database to save, remove or get favorite recipes for the user signed in. You can get more information about how to work with Cloud Firestore database <a class="e-p__link" href="https://firebase.google.com/docs/firestore" rel="noreferrer noopener" target="_blank">here</a>.</p>
+<p class="e-p wp-block-paragraph">Favorite remote data source implementation:</p>
+<div>
+<div class="hcb_wrap">
+<pre class="prism undefined-numbers lang-js" data-lang="JavaScript"><code>import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_tdd_q/common/data/firebase_collections.dart';
+import 'package:flutter_tdd_q/common/domain/data_source_exception.dart';
+import 'package:flutter_tdd_q/common/domain/models/recipe.dart';
+
+
+abstract class IFavoriteRemoteDataSource {
+  Future&lt;Unit&gt; addFavorite({required Recipe recipe});
+  Future&lt;Unit&gt; removeFavorite({required Recipe recipe});
+  Stream&lt;List&lt;Recipe&gt;&gt; getFavorites();
+}
+
+
+class FavoriteRemoteDataSource implements IFavoriteRemoteDataSource {
+  final FirebaseAuth _firebaseAuth;
+  final FirebaseFirestore _firebaseFirestore;
+
+
+  FavoriteRemoteDataSource(this._firebaseAuth, this._firebaseFirestore);
+  @override
+  Future&lt;Unit&gt; addFavorite({required Recipe recipe}) async {
+    try {
+      final user = _firebaseAuth.currentUser;
+      await _firebaseFirestore
+          .collection(Collections.users)
+          .doc(user!.uid)
+          .collection(Collections.favourites)
+          .add(recipe.toJson());
+      return unit;
+    } on FirebaseException catch (e) {
+      throw DataSourceException(message: e.message);
+    }
+  }
+
+
+  @override
+  Stream&lt;List&lt;Recipe&gt;&gt; getFavorites() async* {
+    try {
+      final user = _firebaseAuth.currentUser;
+
+
+      yield* FirebaseFirestore.instance
+          .collection(Collections.users)
+          .doc(user!.uid)
+          .collection(Collections.favourites)
+          .snapshots()
+          .transform(
+            StreamTransformer.fromHandlers(
+              handleData: (json, sink) =&gt; sink.add(
+                json.docs.map((e) =&gt; Recipe.fromJson(e.data())).toList(),
+              ),
+            ),
+          );
+    } on FirebaseException catch (e) {
+      throw DataSourceException(message: e.message);
+    }
+  }
+
+
+  @override
+  Future&lt;Unit&gt; removeFavorite({required Recipe recipe}) async {
+    try {
+      final user = _firebaseAuth.currentUser;
+      final removingBook = await FirebaseFirestore.instance
+          .collection(Collections.users)
+          .doc(user!.uid)
+          .collection(Collections.favourites)
+          .where("id", isEqualTo: recipe.id)
+          .get();
+
+
+      removingBook.docs.first.reference.delete();
+
+
+      return unit;
+    } on FirebaseException catch (e) {
+      throw DataSourceException(message: e.message);
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<h2 class="wp-block-heading" id="h-"></h2>
+<h2 class="wp-block-heading e-h2" id="h-conclusion">Conclusion</h2>
+<p class="e-p wp-block-paragraph">Using the TDD approach to build apps significantly improves project results, especially in terms of bringing cost-efficiency in the long run.</p>
+<p class="e-p wp-block-paragraph">TDD is often identified as something not worth bothering because of small awareness of the benefits that tests provide and the additional benefits of TDD on top of those. Hopefully, this blog spreads awareness and helps developers to get used to practicing TDD quicker. You can check out the Github repository with the full example here.</p>
+<p class="e-p wp-block-paragraph">Written in collaboration with <a class="e-p__link" href="https://www.linkedin.com/in/adrijanomicevic?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAABdTdAEBzLI59kNdiQlDIMz6i0s1_pxodbQ&amp;lipi=urn%3Ali%3Apage%3Ad_fla" rel="noreferrer noopener" target="_blank">Adrijan Omicevic</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<button class="bp-totop" type="button" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 48 48" aria-hidden="true"><circle class="bp-totop__track" cx="24" cy="24" r="21"/><circle class="bp-totop__prog" cx="24" cy="24" r="21"/><path d="M24 32V16M17 23l7-7 7 7"/></svg>
+</button>
+<script src="/_kit/lib/gsap.min.js" defer></script>
+<script src="/_kit/lib/ScrollTrigger.min.js" defer></script>
+<script src="/_kit/lib/SplitText.min.js" defer></script>
+<script src="/_kit/lib/lenis.min.js" defer></script>
+<script src="/assets/js/ui.js" defer></script>
+<script src="/assets/js/mlen.js" defer></script>
+<script src="/assets/js/devices.js" defer></script>
+<script src="/assets/js/motion.js" defer></script>
+<script src="/assets/js/sx.js" defer></script>
+<script src="/assets/js/bg.js" defer></script>
+<script src="/assets/js/rings.js" defer></script>
+<script id="accessibly-widget" src="https://dash.accessibly.app/widget/01a0144d-16df-7248-972d-6872c110d7a7/autoload.js" defer></script>
+</body></html>

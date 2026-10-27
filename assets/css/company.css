@@ -1,0 +1,65 @@
+/* ==========================================================================
+   B · BLUEPRINT : final round S3, company-family pages (loaded after home-services.css).
+   ========================================================================== */
+
+/* ---------- 1. /about-us/ hero: remove dot-matrix pattern ---------- */
+body.page-id-8 #sec-0 { background-image: none !important; }
+
+/* ---------- 2. /contact-us/ "Where to Find Us": photos on the same grid, not far right ---------- */
+body.page-id-34 [data-pattern="text-columns"]:has(h2:first-of-type) .wp-block-columns .wp-block-column:nth-child(1) { flex-basis: 40%; }
+body.page-id-34 [data-pattern="text-columns"]:has(h2:first-of-type) .wp-block-columns .wp-block-column:nth-child(2),
+body.page-id-34 [data-pattern="text-columns"]:has(h2:first-of-type) .wp-block-columns .wp-block-column:nth-child(3) { flex-basis: 30%; }
+body.page-id-34 [data-pattern="text-columns"]:has(h2:first-of-type) .wp-block-columns .wp-block-column:nth-child(2) figure,
+body.page-id-34 [data-pattern="text-columns"]:has(h2:first-of-type) .wp-block-columns .wp-block-column:nth-child(3) figure { margin-top: 0; }
+
+/* ---------- 3. /how-we-work/ stages: reduce left empty space ---------- */
+body.page-id-22110 [data-bp-chapter] .main-content {
+  display: grid; grid-template-columns: 5fr 7fr; column-gap: 40px; align-items: start;
+}
+body.page-id-22110 [data-bp-chapter] .main-content > .wp-block-columns { display: contents; }
+body.page-id-22110 [data-bp-chapter] .main-content > .wp-block-columns > .wp-block-column {
+  width: auto !important; max-width: none !important; flex-basis: auto !important;
+  display: flex; flex-direction: column; gap: 20px;
+}
+@media (min-width: 782px) {
+  body.page-id-22110 [data-bp-chapter] .main-content > .wp-block-columns > .wp-block-column:nth-child(1) { grid-column: 1; }
+  body.page-id-22110 [data-bp-chapter] .main-content > .wp-block-columns > .wp-block-column:nth-child(2) { grid-column: 2; }
+  body.page-id-22110 [data-bp-chapter] .main-content > .wp-block-columns:nth-of-type(1) { grid-row: 1; }
+  body.page-id-22110 [data-bp-chapter] .main-content > .wp-block-columns:nth-of-type(2) { grid-row: 2; }
+}
+
+/* ---------- 4. /how-we-work/run/ crushed text ---------- */
+@media (max-width: 781px) {
+  body.page-id-22118 .bp-readouts { grid-template-columns: minmax(0, 1fr) !important; }
+  body.page-id-22118 .bp-readouts .wp-block-qfse-q-stat-item:nth-child(2n) { border-right: 1px solid var(--bp-line) !important; }
+  body.page-id-22118 .bp-readouts .wp-block-qfse-q-stat-item { padding: 22px 20px 18px !important; }
+}
+
+/* ---------- 5. /cooperation-models/ h1: reduce weight + size (authored ALL CAPS) ---------- */
+/* removed: cooperation-models h1 shrink (Ivan: hero title must match other pages) */
+
+/* ---------- 6. /cooperation-models/ all-caps chapter h2s: text-transform to sentence case ---------- */
+body.page-id-9 [data-bp-chapter] h2 { text-transform: none !important; }
+
+/* ---------- 7. /cooperation-models/ four link-cards: tighter 4-column comparison ---------- */
+@media (min-width: 782px) {
+  body.page-id-9 [data-pattern="link-cards"] .q-link-cards-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 16px !important;
+  }
+  body.page-id-9 [data-pattern="link-cards"] .q-link-card {
+    padding: 20px 18px !important;
+  }
+  body.page-id-9 [data-pattern="link-cards"] .q-link-card h3 {
+    font-size: 18px !important; line-height: 1.2;
+  }
+}
+@media (max-width: 781px) {
+  body.page-id-9 [data-pattern="link-cards"] .q-link-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 12px !important;
+  }
+}
+
+/* ---------- 8. /cooperation-models/ tech expertise: 4 columns, tighter ---------- */
+@media (min-width: 782px) {
+  body.page-id-9 [data-bp-chapter="09"] .wp-block-columns .wp-block-column { flex: 1 0 0; min-width: 0; }
+}
